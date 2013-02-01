@@ -27,6 +27,7 @@ private slots:
 	void	deleteSlot();
 	void	onDoubleClickedItemSlot(const QModelIndex & modelIndex);
 	void	onSaveSlot();
+	void	onTextEditChangedSlot();
 
 private:
 	void	initFileInfoCtrl();

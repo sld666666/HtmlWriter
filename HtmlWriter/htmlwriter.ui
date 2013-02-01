@@ -58,7 +58,13 @@
           </property>
           <layout class="QGridLayout" name="gridLayout_7">
            <item row="0" column="0">
-            <widget class="QTextEdit" name="textEditHtml_"/>
+            <widget class="QWebView" name="webViewHtml_">
+             <property name="url">
+              <url>
+               <string>about:blank</string>
+              </url>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>
@@ -133,6 +139,13 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QWebView</class>
+   <extends>QWidget</extends>
+   <header>QtWebKit/QWebView</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="htmlwriter.qrc"/>
  </resources>

@@ -2,6 +2,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <fstream>
+#include <sstream>
 
 #include "htmlwriter.h"
 #include "FileCreator.h"
@@ -41,6 +42,9 @@ void HtmlWriter::innitConnect()
 		, this, SLOT(onDoubleClickedItemSlot(const QModelIndex &)));
 
 	connect(ui.actionSave, SIGNAL(triggered()), this, SLOT(onSaveSlot()));
+	connect(ui.textEditText_, SIGNAL(textChanged()), this, SLOT(onTextEditChangedSlot()));
+
+	
 }
 
 void HtmlWriter::showRightMenuSlot(const QPoint point)
@@ -115,6 +119,7 @@ bool HtmlWriter::getNewFilePath(const QString& itemPath
 QString HtmlWriter::getFullPath(const QModelIndex& modelIndx)
 {
 	Q_ASSERT(modelIndx.isValid());
+	return model_.filePath(modelIndx);
 
 	QString path("");
 
@@ -137,7 +142,7 @@ void HtmlWriter::deleteSlot()
 
 void HtmlWriter::onDoubleClickedItemSlot(const QModelIndex & modelIndex)
 {
-	QString itemPath = getFullPath(modelIndex); 
+	QString itemPath = model_.filePath(modelIndex); 
 	workingItemPath_ = itemPath;
 	QFile file(itemPath); // Read the text from a file
 	if (file.open(QIODevice::ReadOnly)) {
@@ -162,14 +167,20 @@ QString HtmlWriter::makeDownToHtml(const QString& input)
 {
 	markdown::Document doc;
 	doc.read(input.toStdString());
-	std::ofstream  out;
+	std::stringstream out;
 	doc.write(out);
 	
-	//std string htmlString;
-	//copy(htmlString.begin(),htmlString.end(),std::ostream_iterator<char>(cout,"\n"));这里改了
-	long  size=out.tellg();
-	char * buffer = new char [size];
-	out.write (buffer,size);
+	std::string str;
+	
+//	out << out.rdbuf();
+	str = out.str();
 
-	return "";
+	return QString::fromStdString(str);
+}
+
+void HtmlWriter::onTextEditChangedSlot()
+{
+	QString text = ui.textEditText_->toPlainText();
+	QString html = makeDownToHtml(text);
+	ui.webViewHtml_->setHtml(html.toAscii());
 }
