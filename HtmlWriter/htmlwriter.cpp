@@ -7,6 +7,9 @@
 #include "htmlwriter.h"
 #include "FileCreator.h"
 #include "markdown/markdown-tokens.h"
+#include "action/ActionConfigurer.h"
+
+using namespace Ui;
 
 HtmlWriter::HtmlWriter(QWidget *parent, Qt::WFlags flags)
 	: QMainWindow(parent, flags)
@@ -14,6 +17,13 @@ HtmlWriter::HtmlWriter(QWidget *parent, Qt::WFlags flags)
 	ui.setupUi(this);
 	initFileInfoCtrl();
 	innitConnect();
+
+	ActionConfigurerPtr actionConfig(new ActionConfigurer((ui.menuBar)));
+	appActionBarAdvisor_ = (ApplicationActionBarAdvisorPtr(
+		new ApplicationActionBarAdvisor(actionConfig)));
+
+// 	QMenu* menu = new QMenu("this", NULL);
+// 	ui.menuBar->addMenu(menu);
 }
 
 HtmlWriter::~HtmlWriter()
@@ -105,13 +115,13 @@ bool HtmlWriter::getNewFilePath(const QString& itemPath
 								, QString& rtnPath)
 {
 	bool rtn(false);
-	rtnPath = itemPath;
-	FileCreator fileCreator(rtnPath, this);
-	fileCreator.show();
-	if (QDialog::Accepted == fileCreator.exec()){
-		rtnPath = fileCreator.filePath();
-		rtn = true;
-	}
+// 	rtnPath = itemPath;
+// 	FileCreator fileCreator(rtnPath, this);
+// 	fileCreator.show();
+// 	if (QDialog::Accepted == fileCreator.exec()){
+// 		rtnPath = fileCreator.filePath();
+// 		rtn = true;
+// 	}
 
 	return rtn;
 }

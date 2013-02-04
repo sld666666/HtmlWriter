@@ -9,20 +9,33 @@
 #define UI_IACTION_H
 
 #include <QObject>
+#include <QAction>
 
-namespace Ui{
+#include "ui_global.h"
+
+namespace UiUtils{
+	class UI_EXPORT IAction : public QAction
+	{
+		Q_OBJECT
+
+	public:
+		IAction(const QString& text, QObject * parent = 0);
+		~IAction();
+	
+	protected:
+		virtual	void	onRun() = 0;
+
+	private slots:
+		void onTrigger();
+
+	private:
+		void	initConnect();
+
+	};
+
+	typedef shared_ptr<IAction>	IActionPtr;
 
 }
-class IAction : public QObject
-{
-	Q_OBJECT
 
-public:
-	IAction(QObject *parent);
-	~IAction();
-
-private:
-	
-};
 
 #endif // UI_IACTION_H

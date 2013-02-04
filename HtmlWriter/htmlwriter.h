@@ -11,6 +11,7 @@
 #include <QFileSystemModel>
 #include <QtGui/QMainWindow>
 #include "ui_htmlwriter.h"
+#include "action/ApplicationActionBarAdvisor.h"
 
 class HtmlWriter : public QMainWindow
 {
@@ -40,6 +41,8 @@ private:
 	Ui::HtmlWriterClass ui;
 	QFileSystemModel model_;
 	QString	workingItemPath_;
+
+	ApplicationActionBarAdvisorPtr	 appActionBarAdvisor_;
 };
 
 #endif // HTMLWRITER_H

@@ -2,6 +2,16 @@
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HtmlWriter", "HtmlWriter\HtmlWriter.vcproj", "{B9FF25C4-B6BA-42EF-8528-EDB6149C22DB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{035E5F72-7190-46A8-A58A-DD83680AEF84} = {035E5F72-7190-46A8-A58A-DD83680AEF84}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{44379171-6CCC-44D3-AD98-94325A71EE78}"
+	ProjectSection(SolutionItems) = preProject
+		Ui\Ui.vcproj = Ui\Ui.vcproj
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ui", "Ui\Ui.vcproj", "{035E5F72-7190-46A8-A58A-DD83680AEF84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +23,10 @@ Global
 		{B9FF25C4-B6BA-42EF-8528-EDB6149C22DB}.Debug|Win32.Build.0 = Debug|Win32
 		{B9FF25C4-B6BA-42EF-8528-EDB6149C22DB}.Release|Win32.ActiveCfg = Release|Win32
 		{B9FF25C4-B6BA-42EF-8528-EDB6149C22DB}.Release|Win32.Build.0 = Release|Win32
+		{035E5F72-7190-46A8-A58A-DD83680AEF84}.Debug|Win32.ActiveCfg = Debug|Win32
+		{035E5F72-7190-46A8-A58A-DD83680AEF84}.Debug|Win32.Build.0 = Debug|Win32
+		{035E5F72-7190-46A8-A58A-DD83680AEF84}.Release|Win32.ActiveCfg = Release|Win32
+		{035E5F72-7190-46A8-A58A-DD83680AEF84}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

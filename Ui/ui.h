@@ -10,7 +10,7 @@
 
 #include "ui_global.h"
 
-namespace Ui{
+namespace UiUtils{
 	class UI_EXPORT Ui
 	{
 	public:

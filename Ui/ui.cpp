@@ -1,6 +1,6 @@
 #include "ui.h"
 
-namespace Ui{
+namespace UiUtils{
 
 	Ui::Ui()
 	{

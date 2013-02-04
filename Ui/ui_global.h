@@ -9,4 +9,7 @@
 # define UI_EXPORT Q_DECL_IMPORT
 #endif
 
+#include <boost/shared_ptr.hpp>
+using boost::shared_ptr;
+
 #endif // UI_GLOBAL_H
