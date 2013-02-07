@@ -5,8 +5,8 @@
 * @version     1.0.0
 * @date         2:2:2013  
 */
-#ifndef UI_ACTIONBARADVISOR_H
-#define UI_ACTIONBARADVISOR_H
+#ifndef UIUTILS_ACTIONBARADVISOR_H
+#define UIUTILS_ACTIONBARADVISOR_H
 
 #include <QObject>
 

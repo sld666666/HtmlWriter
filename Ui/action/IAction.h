@@ -5,8 +5,8 @@
 * @version      1.0
 * @date         2013-2-1
 */
-#ifndef UI_IACTION_H
-#define UI_IACTION_H
+#ifndef UIUTILS_IACTION_H
+#define UIUTILS_IACTION_H
 
 #include <QObject>
 #include <QAction>

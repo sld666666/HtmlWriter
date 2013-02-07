@@ -5,8 +5,8 @@
 * @version     1.0.0
 * @date         2:2:2013  
 */
-#ifndef UI_Menu_H
-#define UI_Menu_H
+#ifndef UIUTILS_Menu_H
+#define UIUTILS_Menu_H
 
 #include <QObject>
 #include <QMenu>

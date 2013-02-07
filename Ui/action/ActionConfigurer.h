@@ -5,8 +5,8 @@
 * @version     1.0.0
 * @date         2:2:2013  
 */
-#ifndef UI_ACTIONCONFIGURER_H
-#define UI_ACTIONCONFIGURER_H
+#ifndef UIUTILS_ACTIONCONFIGURER_H
+#define UIUTILS_ACTIONCONFIGURER_H
 
 #include <QObject>
 #include <QMenuBar>
