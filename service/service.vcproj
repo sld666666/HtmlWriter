@@ -187,16 +187,30 @@
 				Name="interface"
 				>
 				<File
-					RelativePath=".\IAdministrationProvider.h"
+					RelativePath=".\interface\IAdministrationProvider.h"
+					>
+				</File>
+				<File
+					RelativePath=".\interface\IBundleActivator.h"
+					>
+				</File>
+				<File
+					RelativePath=".\interface\IBundleContext.h"
 					>
 				</File>
 			</Filter>
-		</Filter>
-		<Filter
-			Name="Form Files"
-			Filter="ui"
-			UniqueIdentifier="{99349809-55BA-4b9d-BF79-8FDBB0286EB3}"
-			>
+			<Filter
+				Name="instantiation"
+				>
+				<File
+					RelativePath=".\instantiation\ObjectCreator.h"
+					>
+				</File>
+				<File
+					RelativePath=".\instantiation\WinDllCreator.h"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="Resource Files"

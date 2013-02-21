@@ -21,9 +21,6 @@ HtmlWriter::HtmlWriter(QWidget *parent, Qt::WFlags flags)
 	ActionConfigurerPtr actionConfig(new ActionConfigurer((ui.menuBar)));
 	appActionBarAdvisor_ = (ApplicationActionBarAdvisorPtr(
 		new ApplicationActionBarAdvisor(actionConfig)));
-
-// 	QMenu* menu = new QMenu("this", NULL);
-// 	ui.menuBar->addMenu(menu);
 }
 
 HtmlWriter::~HtmlWriter()
@@ -52,9 +49,7 @@ void HtmlWriter::innitConnect()
 		, this, SLOT(onDoubleClickedItemSlot(const QModelIndex &)));
 
 	connect(ui.actionSave, SIGNAL(triggered()), this, SLOT(onSaveSlot()));
-	connect(ui.textEditText_, SIGNAL(textChanged()), this, SLOT(onTextEditChangedSlot()));
-
-	
+	connect(ui.textEditText_, SIGNAL(textChanged()), this, SLOT(onTextEditChangedSlot()));	
 }
 
 void HtmlWriter::showRightMenuSlot(const QPoint point)
