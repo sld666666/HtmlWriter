@@ -37,6 +37,7 @@ private:
 	bool	getNewFilePath(const QString& itemPath, QString& rtnPath);
 	QString getSelectItemPath();
 	QString makeDownToHtml(const QString& input);
+	void	initControls();
 private:
 	Ui::HtmlWriterClass ui;
 	QFileSystemModel model_;

@@ -11,5 +11,20 @@ namespace service
 	{
 
 	}
+
+	void service::registerAll()
+	{
+		QString pluginPath = QCoreApplication::applicationDirPath() + "plugin";
+		QDir dir(pluginPath);
+		if (dir.exists()){
+			dir.setFilter(QDir::Files); 
+
+			QFileInfoList list = dir.entryInfoList(); 
+			if(list.size()< 1 )
+				return;
+
+
+		}
+	}
 }
 

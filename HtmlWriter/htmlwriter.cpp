@@ -25,7 +25,6 @@ HtmlWriter::HtmlWriter(QWidget *parent, Qt::WFlags flags)
 
 HtmlWriter::~HtmlWriter()
 {
-
 }
 
 void HtmlWriter::initFileInfoCtrl()
@@ -188,4 +187,9 @@ void HtmlWriter::onTextEditChangedSlot()
 	QString text = ui.textEditText_->toPlainText();
 	QString html = makeDownToHtml(text);
 	ui.webViewHtml_->setHtml(html.toAscii());
+}
+
+void HtmlWriter::initControls()
+{
+
 }
