@@ -1,3 +1,6 @@
+#include <QCoreApplication>
+#include <QDir>
+
 #include "service.h"
 
 namespace service

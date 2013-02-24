@@ -158,6 +158,10 @@
 			ReferencedProjectIdentifier="{035E5F72-7190-46A8-A58A-DD83680AEF84}"
 			RelativePathToProject=".\Ui\Ui.vcproj"
 		/>
+		<ProjectReference
+			ReferencedProjectIdentifier="{C98A0F1E-0DFE-4D6F-8E11-4295DCADC71D}"
+			RelativePathToProject=".\service\service.vcproj"
+		/>
 	</References>
 	<Files>
 		<Filter

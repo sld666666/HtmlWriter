@@ -2,8 +2,8 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="service"
-	ProjectGUID="{C98A0F1E-0DFE-4D6F-8E11-4295DCADC71D}"
+	Name="utils"
+	ProjectGUID="{A147FC86-4A37-463E-A4C7-CE8800159C89}"
 	Keyword="Qt4VSv1.0"
 	TargetFrameworkVersion="0"
 	>
@@ -17,8 +17,8 @@
 	<Configurations>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
-			IntermediateDirectory="$(SolutionDir)$(ConfigurationName)"
+			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
 			ConfigurationType="2"
 			>
 			<Tool
@@ -38,8 +38,8 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="&quot;.\GeneratedFiles&quot;;&quot;$(QTDIR)\include&quot;;&quot;.\GeneratedFiles\$(ConfigurationName)&quot;;&quot;$(QTDIR)\include\QtCore&quot;;&quot;.\&quot;"
-				PreprocessorDefinitions=",UNICODE,WIN32,QT_LARGEFILE_SUPPORT;QT_NO_DEBUG,NDEBUG;QT_CORE_LIB;SERVICE_LIB"
+				AdditionalIncludeDirectories="&quot;.\GeneratedFiles&quot;;&quot;.&quot;;&quot;$(QTDIR)\include&quot;;&quot;.\GeneratedFiles\$(ConfigurationName)&quot;;&quot;$(QTDIR)\include\QtCore&quot;"
+				PreprocessorDefinitions=",UNICODE,WIN32,QT_LARGEFILE_SUPPORT;QT_DLL;QT_NO_DEBUG,NDEBUG;QT_CORE_LIB;UTILS_LIB"
 				RuntimeLibrary="2"
 				TreatWChar_tAsBuiltInType="false"
 				DebugInformationFormat="0"
@@ -85,8 +85,8 @@
 		</Configuration>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
-			IntermediateDirectory="$(SolutionDir)$(ConfigurationName)"
+			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
 			ConfigurationType="2"
 			>
 			<Tool
@@ -107,8 +107,8 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;.\GeneratedFiles&quot;;&quot;$(QTDIR)\include&quot;;&quot;.\GeneratedFiles\$(ConfigurationName)&quot;;&quot;$(QTDIR)\include\QtCore&quot;;&quot;.\&quot;"
-				PreprocessorDefinitions=",UNICODE,WIN32,QT_LARGEFILE_SUPPORT;QT_CORE_LIB;SERVICE_LIB"
+				AdditionalIncludeDirectories="&quot;.\GeneratedFiles&quot;;&quot;.&quot;;&quot;$(QTDIR)\include&quot;;&quot;.\GeneratedFiles\$(ConfigurationName)&quot;;&quot;$(QTDIR)\include\QtCore&quot;"
+				PreprocessorDefinitions=",UNICODE,WIN32,QT_LARGEFILE_SUPPORT;QT_DLL;QT_CORE_LIB;UTILS_LIB"
 				RuntimeLibrary="3"
 				TreatWChar_tAsBuiltInType="false"
 				DebugInformationFormat="3"
@@ -154,10 +154,6 @@
 		</Configuration>
 	</Configurations>
 	<References>
-		<ProjectReference
-			ReferencedProjectIdentifier="{A147FC86-4A37-463E-A4C7-CE8800159C89}"
-			RelativePathToProject=".\utils\utils.vcproj"
-		/>
 	</References>
 	<Files>
 		<Filter
@@ -166,7 +162,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\service.cpp"
+				RelativePath=".\utils.cpp"
 				>
 			</File>
 		</Filter>
@@ -176,45 +172,23 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\BundleConfiguration.h"
+				RelativePath=".\ISingleton.h"
 				>
 			</File>
 			<File
-				RelativePath=".\service.h"
+				RelativePath=".\utils.h"
 				>
 			</File>
 			<File
-				RelativePath=".\service_global.h"
+				RelativePath=".\utils_global.h"
 				>
 			</File>
-			<Filter
-				Name="interface"
-				>
-				<File
-					RelativePath=".\interface\IAdministrationProvider.h"
-					>
-				</File>
-				<File
-					RelativePath=".\interface\IBundleActivator.h"
-					>
-				</File>
-				<File
-					RelativePath=".\interface\IBundleContext.h"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="instantiation"
-				>
-				<File
-					RelativePath=".\instantiation\ObjectCreator.h"
-					>
-				</File>
-				<File
-					RelativePath=".\instantiation\WinDllCreator.h"
-					>
-				</File>
-			</Filter>
+		</Filter>
+		<Filter
+			Name="Form Files"
+			Filter="ui"
+			UniqueIdentifier="{99349809-55BA-4b9d-BF79-8FDBB0286EB3}"
+			>
 		</Filter>
 		<Filter
 			Name="Resource Files"

@@ -1,6 +1,8 @@
 #ifndef SERVICE_SERVICE_H
 #define SERVICE_SERVICE_H
 
+#include <QObject>
+
 #include "service_global.h"
 
 namespace service
