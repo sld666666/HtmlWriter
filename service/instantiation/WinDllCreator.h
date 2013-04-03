@@ -44,7 +44,9 @@ namespace service{
 
 		HMODULE hMod = NULL;
 		try{
-			hMod = LoadLibrary( str.str().c_str() );
+			string test("D:/project/git/HtmlWriter/Debug/plugin/DirectoryViewPart.dll");
+			wstring widestr = wstring(test.begin(), test.end());
+			hMod = LoadLibrary( widestr.c_str() );
 		}
 		catch( exception &exc ){
 			hMod = NULL;
@@ -61,7 +63,7 @@ namespace service{
 		}
 
 		if ( pFunc == NULL ){
-			return NULL
+			return NULL;
 		}	
 		return ((*pFunc)(className));
 	}

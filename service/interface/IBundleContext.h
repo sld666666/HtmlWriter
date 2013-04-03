@@ -11,11 +11,10 @@
 
 
 namespace service{
+
 	class IBundleContext
 	{
-	}
-
-
+	};
 }
 
 #endif

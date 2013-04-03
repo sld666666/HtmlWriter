@@ -5,6 +5,7 @@
 #include "workbench/ViewPart.h"
 
 using namespace UiUtils;
+
 class DIRECTORYVIEWPART_EXPORT DirectoryViewPart : public ViewPart
 {
 	Q_OBJECT

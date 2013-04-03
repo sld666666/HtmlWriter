@@ -21,6 +21,8 @@ public:
 	HtmlWriter(QWidget *parent = 0, Qt::WFlags flags = 0);
 	~HtmlWriter();
 
+	void setObjectName(const QString &name);
+
 private slots:
 	void	showRightMenuSlot(const QPoint point);
 	void	newFolderSlot();

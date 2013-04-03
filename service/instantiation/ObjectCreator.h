@@ -8,78 +8,78 @@
 #ifndef OBJECT_CREATOR_H
 #define OBJECT_CREATOR_H
 #include <string>
+#include "SystemOperation.h"
+#include "WinDllCreator.h"
 
 using std::string;
 
 namespace service{
-
-}
-template<typename BaseT, template <class> class CreationPolicy>
-class ObjectCreator
-{		
-
-	private:					
-		bool localSearch_;
-		string path_;
-		string dllName_;
+	template<typename BaseT>
+	class ObjectCreator
+	{
 
 	public:		
 		ObjectCreator();
 
-		ObjectCreator( bool localSearch, const string &path, const string &dllName );
+		ObjectCreator( const string &path, const string &dllName );
 
-		void setSearchConfiguration( bool localSearch, const string &path, const string &dllName );
+		void setSearchConfiguration( const string &path, const string &dllName );
 
 		BaseT* createObject( const string &key );	
 
 		static BaseT* createObjectFromDll( const string &path, const string &dllName, const string &className );	
-};
 
 
-template<typename BaseT, template <class> class CreationPolicy>
-ObjectCreator<BaseT>::ObjectCreator() 
-	: localSearch_( true )
-	, path_( "" )
-	, dllName_( "" )
-{	
-}
+	private:					
+		string path_;
+		string dllName_;
+	};
 
-template<typename BaseT, template <class> class CreationPolicy>
-void ObjectCreator<BaseT>::setSearchConfiguration(bool searchLocal
-												  , const string &pathName
-												  , const string &libName)
-{
-	this->localSearch_ = searchLocal;
-	this->path_ = pathName;
-	this->dllName_ = libName;
-}
 
-template<typename BaseT, template <class> class CreationPolicy>
-ObjectCreator<BaseT>::ObjectCreator( bool doLocalSearch
-									, const string &dllPath
-									, const string &dll ) 
-		: localSearch_( doLocalSearch )
-		, path_( dllPath )
+	template<typename BaseT>
+	ObjectCreator<BaseT>::ObjectCreator() 
+		: path_( "" )
+		, dllName_( "" )
+	{	
+	}
+
+	template<typename BaseT>
+	void ObjectCreator<BaseT>::setSearchConfiguration(
+		 const string &pathName
+		, const string &libName)
+	{
+		this->path_ = pathName;
+		this->dllName_ = libName;
+	}
+
+	template<typename BaseT>
+	ObjectCreator<BaseT>::ObjectCreator( const string &dllPath
+		, const string &dll ) 
+		: path_( dllPath )
 		, dllName_( dll )
-{
+	{
+	}
+
+
+
+
+	template<typename BaseT>
+	BaseT* ObjectCreator<BaseT>::createObject( const string &key )
+	{	
+		return createObjectFromDll( this->path_, this->dllName_, key );	
+	}
+
+
+	template<typename BaseT>
+	BaseT* ObjectCreator<BaseT>::createObjectFromDll( const string &path
+		, const string &dllName
+		, const string &className )
+	{	
+		return SystemOperation<BaseT, WinDllCreator>::createObjectFromDll( path
+			, dllName
+			, className );
+	}
 }
 
-
-
-
-template<typename BaseT, template <class> class CreationPolicy>
-BaseT* ObjectCreator<BaseT>::createObject( const string &key )
-{	
-	return createObjectFromDll( this->path_, this->dllName_, key );	
-}
-
-
-template<typename BaseT, template <class> class CreationPolicy>
-BaseT* ObjectCreator<BaseT>::createObjectFromDll( const string &path
-												 , const string &dllName
-												 , const string &className )
-{	
-	return CreationPolicy<BaseT>::createObjectFromDll( path, dllName, className );
-}
 
 #endif

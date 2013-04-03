@@ -107,7 +107,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;.\GeneratedFiles&quot;;&quot;$(QTDIR)\include&quot;;&quot;.\GeneratedFiles\$(ConfigurationName)&quot;;&quot;$(QTDIR)\include\QtCore&quot;;&quot;.\&quot;"
+				AdditionalIncludeDirectories=".\GeneratedFiles;&quot;$(QTDIR)\include&quot;;&quot;.\GeneratedFiles\$(ConfigurationName)&quot;;&quot;$(QTDIR)\include\QtCore&quot;;.\;.\..\utils"
 				PreprocessorDefinitions=",UNICODE,WIN32,QT_LARGEFILE_SUPPORT;QT_CORE_LIB;SERVICE_LIB"
 				RuntimeLibrary="3"
 				TreatWChar_tAsBuiltInType="false"
@@ -169,6 +169,10 @@
 				RelativePath=".\service.cpp"
 				>
 			</File>
+			<File
+				RelativePath=".\ServiceLoader.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -180,6 +184,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\interface\IBundle.h"
+				>
+			</File>
+			<File
 				RelativePath=".\service.h"
 				>
 			</File>
@@ -187,15 +195,15 @@
 				RelativePath=".\service_global.h"
 				>
 			</File>
+			<File
+				RelativePath=".\ServiceLoader.h"
+				>
+			</File>
 			<Filter
 				Name="interface"
 				>
 				<File
 					RelativePath=".\interface\IAdministrationProvider.h"
-					>
-				</File>
-				<File
-					RelativePath=".\interface\IBundleActivator.h"
 					>
 				</File>
 				<File
@@ -208,6 +216,10 @@
 				>
 				<File
 					RelativePath=".\instantiation\ObjectCreator.h"
+					>
+				</File>
+				<File
+					RelativePath=".\instantiation\SystemOperation.h"
 					>
 				</File>
 				<File

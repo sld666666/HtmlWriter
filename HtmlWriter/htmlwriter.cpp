@@ -8,6 +8,7 @@
 #include "FileCreator.h"
 #include "markdown/markdown-tokens.h"
 #include "action/ActionConfigurer.h"
+#include "ServiceLoader.h"
 
 using namespace Ui;
 
@@ -18,6 +19,10 @@ HtmlWriter::HtmlWriter(QWidget *parent, Qt::WFlags flags)
 	initFileInfoCtrl();
 	innitConnect();
 
+	QString test = this->objectName();
+	service::ServiceLoader serviceLoader;
+	serviceLoader.loadPlugins();
+
 	ActionConfigurerPtr actionConfig(new ActionConfigurer((ui.menuBar)));
 	appActionBarAdvisor_ = (ApplicationActionBarAdvisorPtr(
 		new ApplicationActionBarAdvisor(actionConfig)));
@@ -26,7 +31,10 @@ HtmlWriter::HtmlWriter(QWidget *parent, Qt::WFlags flags)
 HtmlWriter::~HtmlWriter()
 {
 }
+void HtmlWriter::setObjectName(const QString &name)
+{
 
+}
 void HtmlWriter::initFileInfoCtrl()
 {
 	QString test = QDir::currentPath();
