@@ -1,12 +1,12 @@
 /** 
-* @file         StringUtils.h 
+* @file         FunctionUtils.h 
 * @Synopsis       
 * @author         diwu.sld
 * @version      1.0
 * @date         2013-4-3
 */
-#ifndef UTILS_UTILS_STRINGUTILS_H
-#define UTILS_UTILS_STRINGUTILS_H
+#ifndef UTILS_UTILS_FunctionUtils_H
+#define UTILS_UTILS_FunctionUtils_H
 
 #include <string>
 #include "utils_global.h"
@@ -14,14 +14,11 @@
 
 namespace utils{
 
-	class UTILS_EXPORT StringUtils
+	class UTILS_EXPORT FunctionUtils
 	{
 	public:
-		StringUtils();
-		~StringUtils();
-
+		
 	};
-
 
 }
 #endif

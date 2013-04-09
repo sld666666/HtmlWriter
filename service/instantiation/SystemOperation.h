@@ -8,6 +8,7 @@
 #ifndef SYSTEMOERATION_H
 #define SYSTEMOERATION_H
 
+#include "service_global.h"
 
 namespace service{
 
@@ -16,12 +17,10 @@ namespace service{
 	{
 	public:
 		static BaseT* createObjectFromDll( const string &path
-									, const string &dllName
-									, const string &className )
+									, const string &dllName)
 		{
 			return creation<BaseT>::createObjectFromDll( path
-				, dllName
-				, className );
+				, dllName);
 		}
 	};
 

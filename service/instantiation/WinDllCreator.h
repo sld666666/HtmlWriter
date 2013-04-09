@@ -19,17 +19,15 @@ namespace service{
 	class WinDllCreator
 	{
 	public:
-		static BaseT* createObjectFromDll(const string &path, const string &dllName
-			, const string &className );
+		static BaseT* createObjectFromDll(const string &path, const string &dllName);
 	};
 
 
 	template <typename BaseT>
 	BaseT* WinDllCreator<BaseT>::createObjectFromDll( const string &path
-													 , const string &dllName
-													 , const string &className )
+													 , const string &dllName)
 	{
-		typedef BaseT* (*DLLPROC) ( const string& );
+		typedef BaseT* (*DLLPROC) ();
 		DLLPROC pFunc = NULL;
 		ostringstream str;
 		
@@ -65,7 +63,7 @@ namespace service{
 		if ( pFunc == NULL ){
 			return NULL;
 		}	
-		return ((*pFunc)(className));
+		return ((*pFunc)());
 	}
 
 }

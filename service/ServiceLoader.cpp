@@ -22,7 +22,8 @@ namespace service{
 		
 		ObjectCreator<IBundle> objectCreator("D:\\project\\git\\HtmlWriter\\Debug\\plugin"
 			, "DirectoryViewBundle.dll");
-		IBundle* bundle = objectCreator.createObject("DirectoryViewBundle");
+		IBundle* bundle = objectCreator.createObject();
+		ObjectCreator<IBundle>::addInstance(bundle);
 		return rtn;
 	}
 

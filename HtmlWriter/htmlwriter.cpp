@@ -31,10 +31,14 @@ HtmlWriter::HtmlWriter(QWidget *parent, Qt::WFlags flags)
 HtmlWriter::~HtmlWriter()
 {
 }
+
+
+
 void HtmlWriter::setObjectName(const QString &name)
 {
 
 }
+
 void HtmlWriter::initFileInfoCtrl()
 {
 	QString test = QDir::currentPath();
