@@ -10,7 +10,7 @@
 #define SERVICE_IBUNDLE_H
 
 #include "IBundleContext.h"
-#include "BundleConfiguration.h"
+#include "BundleConfig.h"
 
 namespace service{
 

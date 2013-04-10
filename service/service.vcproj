@@ -166,6 +166,10 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath=".\pluginconfig.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\service.cpp"
 				>
 			</File>
@@ -180,11 +184,15 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\BundleConfiguration.h"
+				RelativePath=".\BundleConfig.h"
 				>
 			</File>
 			<File
 				RelativePath=".\interface\IBundle.h"
+				>
+			</File>
+			<File
+				RelativePath=".\pluginconfig.h"
 				>
 			</File>
 			<File

@@ -23,7 +23,7 @@ void DirectoryViewBundle::stop( IBundleContext* context )
 
 BundleConfigPtr DirectoryViewBundle::bundConfiguration()
 {
-	BundleConfigPtr bundConfig(new BundleConfiguration(
+	BundleConfigPtr bundConfig(new BundleConfig(
 		"view", "DirectoryViewBundle", "DirectoryViewPart.dll"));
 	return bundConfig;
 }

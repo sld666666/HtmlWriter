@@ -14,7 +14,7 @@
 using service::IBundle;
 using service::IBundleContext;
 using service::BundleConfigPtr;
-using service::BundleConfiguration;
+using service::BundleConfig;
 
 class DIRECTORYVIEWPART_EXPORT DirectoryViewBundle : public IBundle
 {

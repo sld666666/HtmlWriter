@@ -4,6 +4,7 @@
 #include "ServiceLoader.h"
 #include "instantiation/ObjectCreator.h"
 #include "interface/IBundle.h"
+#include "pluginconfig.h"
 
 using std::string;
 
@@ -19,11 +20,12 @@ namespace service{
 	bool ServiceLoader::loadPlugins()
 	{
 		bool rtn(false);
-		
-		ObjectCreator<IBundle> objectCreator("D:\\project\\git\\HtmlWriter\\Debug\\plugin"
-			, "DirectoryViewBundle.dll");
-		IBundle* bundle = objectCreator.createObject();
-		ObjectCreator<IBundle>::addInstance(bundle);
+ 		PluginConfig::instance().getPlugins();
+// 		
+// 		ObjectCreator<IBundle> objectCreator("D:\\project\\git\\HtmlWriter\\Debug\\plugin"
+// 			, "DirectoryViewBundle.dll");
+// 		IBundle* bundle = objectCreator.createObject();
+// 		ObjectCreator<IBundle>::addInstance(bundle);
 		return rtn;
 	}
 
