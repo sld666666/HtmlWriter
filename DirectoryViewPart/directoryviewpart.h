@@ -3,10 +3,11 @@
 
 #include "directoryviewpart_global.h"
 #include "workbench/ViewPart.h"
+#include "DirectoryViewWidget.h"
 
 using namespace UiUtils;
 
-class DIRECTORYVIEWPART_EXPORT DirectoryViewPart : public ViewPart
+class   DirectoryViewPart : public QObject
 {
 	Q_OBJECT
 public:
@@ -17,6 +18,7 @@ public:
 	virtual void createPartControl(QWidget* parent);
 
 private:
+	DirectoryViewWidget*	directoryViewWidget_;
 
 };
 

@@ -42,9 +42,9 @@ namespace service{
 
 		HMODULE hMod = NULL;
 		try{
-			string test("D:/project/git/HtmlWriter/Debug/plugin/DirectoryViewPart.dll");
-			wstring widestr = wstring(test.begin(), test.end());
-			hMod = LoadLibrary( widestr.c_str() );
+			string dllPath(str.str());
+			wstring wDllPath = wstring(dllPath.begin(), dllPath.end());
+			hMod = LoadLibrary( wDllPath.c_str() );
 		}
 		catch( exception &exc ){
 			hMod = NULL;

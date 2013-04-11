@@ -3,6 +3,10 @@
 
 #include <QMainWindow>
 #include "ui_WorkBench.h"
+#include "ServiceLoader.h"
+#include "interface/IBundle.h"
+
+using namespace service;
 
 class WorkBench : public QMainWindow
 {
@@ -13,7 +17,7 @@ public:
 	~WorkBench();
 
 private:
-	void	appendDockWidget(const QString& name);
+	void	appendDockWidget(const IBundle* bundle);
 
 private:
 	Ui::WorkBench ui;

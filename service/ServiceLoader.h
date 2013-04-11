@@ -9,6 +9,7 @@
 #define SERVICE_SERVICE_H
 
 #include "service_global.h"
+#include "pluginconfig.h"
 
 namespace service{
 	class SERVICE_EXPORT ServiceLoader
@@ -19,6 +20,9 @@ namespace service{
 		~ServiceLoader();
 	public:
 		bool	loadPlugins();
+
+	private:
+		void	loadPlugins(const BundleConfigPtr bundleConfig);
 	};
 }
 

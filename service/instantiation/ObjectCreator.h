@@ -28,14 +28,10 @@ namespace service{
 
 		static BaseT* createObjectFromDll( const string& path, const string& dllName);	
 
-		static vector<BaseT*>* getInstances();
-
-		static void addInstance(BaseT* instance);
 
 	private:					
 		string path_;
 		string dllName_;
-		static vector<BaseT*>* instances_;
 	};
 
 
@@ -76,26 +72,6 @@ namespace service{
 		return SystemOperation<BaseT, WinDllCreator>::createObjectFromDll( path
 			, dllName);
 	}
-
-	template<typename BaseT>
-	vector<BaseT*>* ObjectCreator<BaseT>::getInstances()
-	{
-		if (!instances_) instances_ = new vector<BaseT*>();
-
-		return instances_;
-
-	}
-
-	template<typename BaseT>
-	void ObjectCreator<BaseT>::addInstance(BaseT* instance)
-	{	
-		getInstances()->push_back(instance);
-	}
-
-	template<typename BaseT>
-	vector<BaseT*>* ObjectCreator<BaseT>::instances_(NULL);
-
-
 }
 
 

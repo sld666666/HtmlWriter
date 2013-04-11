@@ -14,13 +14,13 @@
 #include <boost/shared_ptr.hpp>
 
 using namespace std;
+using boost::shared_ptr;
 
 namespace service{
 	class BundleConfig
 	{
 	public:
 		BundleConfig( const string &serviceName
-							, const string &className
 							, const string &dllName)
 			: serviceName_( serviceName )
 			, dllName_(dllName)
@@ -46,5 +46,13 @@ namespace service{
 	};
 
 	typedef boost::shared_ptr<BundleConfig> BundleConfigPtr;
+
+
+	namespace RegisteredSevice
+	{
+		const string BENCHVIEW = "benchview";
+
+
+	}
 }
 #endif

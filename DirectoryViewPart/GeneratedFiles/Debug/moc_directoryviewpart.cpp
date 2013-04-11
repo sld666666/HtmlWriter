@@ -1,7 +1,7 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'directoryviewpart.h'
+** Meta object code from reading C++ file 'DirectoryViewPart.h'
 **
-** Created: Wed Apr 10 20:27:19 2013
+** Created: Thu Apr 11 19:41:56 2013
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -10,7 +10,7 @@
 #include "StdAfx.h"
 #include "../../directoryviewpart.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'directoryviewpart.h' doesn't include <QObject>."
+#error "The header file 'DirectoryViewPart.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 62
 #error "This file was generated using the moc from 4.7.4. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -39,7 +39,7 @@ static const char qt_meta_stringdata_DirectoryViewPart[] = {
 };
 
 const QMetaObject DirectoryViewPart::staticMetaObject = {
-    { &ViewPart::staticMetaObject, qt_meta_stringdata_DirectoryViewPart,
+    { &QObject::staticMetaObject, qt_meta_stringdata_DirectoryViewPart,
       qt_meta_data_DirectoryViewPart, 0 }
 };
 
@@ -57,12 +57,12 @@ void *DirectoryViewPart::qt_metacast(const char *_clname)
     if (!_clname) return 0;
     if (!strcmp(_clname, qt_meta_stringdata_DirectoryViewPart))
         return static_cast<void*>(const_cast< DirectoryViewPart*>(this));
-    return ViewPart::qt_metacast(_clname);
+    return QObject::qt_metacast(_clname);
 }
 
 int DirectoryViewPart::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = ViewPart::qt_metacall(_c, _id, _a);
+    _id = QObject::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     return _id;

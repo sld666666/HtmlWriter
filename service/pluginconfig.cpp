@@ -1,14 +1,10 @@
-#include <boost/filesystem/path.hpp>
-#include <boost/filesystem/operations.hpp>
-
-#include "pluginconfig.h"
-#include "CustomDefinition.h"
-
-
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/xml_parser.hpp>
 
 #include <boost/any.hpp>
+#include "pluginconfig.h"
+#include "CustomDefinition.h"
+#include "ApplicationConfig.h"
 
 using namespace boost::property_tree;
 using boost::property_tree::ptree;
@@ -35,14 +31,20 @@ namespace service{
 		ptree tree;
 		xml_parser::read_xml(fileName, tree);
 
-		BOOST_AUTO(child, pt.get_child("plugins.plugin")); 
-		for(BOOST_AUTO(pos, child.begin()); pos != child.end(); ++pos){
-			string name = pos->second.get<string>("name");
-			string service = pos->second.get<string>("service");
-		}
-
-		FOREACH(ptree::value_type &node, tree.get_child("plugins.plugin")){
-		;
+		FOREACH(ptree::value_type& val, tree.get_child("plugins"))
+		{
+			string name, service;
+			FOREACH(ptree::value_type& val, tree.get_child("plugins.plugin"))
+			{
+				string key = val.first;
+				if ("name" == key){
+					name = val.second.data();
+				}else if ("service" == key){
+					service = val.second.data();
+				}
+			}
+			BundleConfigPtr config(new BundleConfig(service, name));
+			bundleConfigs.push_back(config);
 		}
 
 		return bundleConfigs;
@@ -50,6 +52,7 @@ namespace service{
 
 	string PluginConfig::getFileName()
 	{
-		return filesystem::initial_path<filesystem::path>().string() + "/config/pluginConfig.xml";
+		return ApplicationConfig::instance().getAPPConfigPath()
+			+ "/pluginConfig.xml";
 	}
 }

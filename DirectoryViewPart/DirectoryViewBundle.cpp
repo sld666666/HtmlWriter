@@ -1,5 +1,6 @@
 #include "StdAfx.h"
 #include "DirectoryViewBundle.h"
+#include "DirectoryViewPart.h"
 
 DirectoryViewBundle::DirectoryViewBundle()
 {
@@ -11,19 +12,23 @@ DirectoryViewBundle::~DirectoryViewBundle()
 
 }
 
-void DirectoryViewBundle::start( IBundleContext* context )
+void DirectoryViewBundle::start( BundleContext* context )const
+{
+	if (!context)return;
+
+	QWidget* parent = static_cast<QWidget*>(context->getParent());
+	DirectoryViewPart	directoryViewPart;
+	directoryViewPart.createPartControl(parent);
+}
+
+void DirectoryViewBundle::stop( BundleContext* context )const
 {
 
 }
 
-void DirectoryViewBundle::stop( IBundleContext* context )
-{
-
-}
-
-BundleConfigPtr DirectoryViewBundle::bundConfiguration()
+BundleConfigPtr DirectoryViewBundle::getBundlelConfig() const
 {
 	BundleConfigPtr bundConfig(new BundleConfig(
-		"view", "DirectoryViewBundle", "DirectoryViewPart.dll"));
+		service::RegisteredSevice::BENCHVIEW, "DirectoryViewPart.dll"));
 	return bundConfig;
 }

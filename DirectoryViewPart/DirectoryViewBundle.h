@@ -11,26 +11,25 @@
 #include "interface/IBundle.h"
 #include "directoryviewpart_global.h"
 
+
 using service::IBundle;
-using service::IBundleContext;
+using service::BundleContext;
 using service::BundleConfigPtr;
 using service::BundleConfig;
 
-class DIRECTORYVIEWPART_EXPORT DirectoryViewBundle : public IBundle
+class  DirectoryViewBundle : public IBundle
 {
 public:
 	DirectoryViewBundle();
 	~DirectoryViewBundle();
 
 public:
-	virtual void start( IBundleContext* context );
+	virtual void start( BundleContext* context )const;
 
-	virtual void stop( IBundleContext* context );
+	virtual void stop( BundleContext* context )const;
 
-protected:
-	virtual BundleConfigPtr bundConfiguration();
+	virtual BundleConfigPtr getBundlelConfig()const;
 
-private:
 	
 };
 

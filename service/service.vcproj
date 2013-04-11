@@ -38,7 +38,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="&quot;.\GeneratedFiles&quot;;&quot;$(QTDIR)\include&quot;;&quot;.\GeneratedFiles\$(ConfigurationName)&quot;;&quot;$(QTDIR)\include\QtCore&quot;;&quot;.\&quot;"
+				AdditionalIncludeDirectories=".\GeneratedFiles;&quot;$(QTDIR)\include&quot;;&quot;.\GeneratedFiles\$(ConfigurationName)&quot;;&quot;$(QTDIR)\include\QtCore&quot;;.\"
 				PreprocessorDefinitions=",UNICODE,WIN32,QT_LARGEFILE_SUPPORT;QT_NO_DEBUG,NDEBUG;QT_CORE_LIB;SERVICE_LIB"
 				RuntimeLibrary="2"
 				TreatWChar_tAsBuiltInType="false"
@@ -158,6 +158,10 @@
 			ReferencedProjectIdentifier="{A147FC86-4A37-463E-A4C7-CE8800159C89}"
 			RelativePathToProject=".\utils\utils.vcproj"
 		/>
+		<ProjectReference
+			ReferencedProjectIdentifier="{035E5F72-7190-46A8-A58A-DD83680AEF84}"
+			RelativePathToProject=".\Ui\Ui.vcproj"
+		/>
 	</References>
 	<Files>
 		<Filter
@@ -165,6 +169,10 @@
 			Filter="cpp;cxx;c;def"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
+			<File
+				RelativePath=".\ApplicationConfig.cpp"
+				>
+			</File>
 			<File
 				RelativePath=".\pluginconfig.cpp"
 				>
@@ -184,11 +192,19 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
+				RelativePath=".\ApplicationConfig.h"
+				>
+			</File>
+			<File
 				RelativePath=".\BundleConfig.h"
 				>
 			</File>
 			<File
-				RelativePath=".\interface\IBundle.h"
+				RelativePath=".\BundleFunctors.h"
+				>
+			</File>
+			<File
+				RelativePath=".\BundlesContainer.h"
 				>
 			</File>
 			<File
@@ -211,11 +227,15 @@
 				Name="interface"
 				>
 				<File
+					RelativePath=".\interface\BundleContext.h"
+					>
+				</File>
+				<File
 					RelativePath=".\interface\IAdministrationProvider.h"
 					>
 				</File>
 				<File
-					RelativePath=".\interface\IBundleContext.h"
+					RelativePath=".\interface\IBundle.h"
 					>
 				</File>
 			</Filter>

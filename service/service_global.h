@@ -5,8 +5,11 @@
 #include <string>
 #include <vector>
 #include <list>
+#include <algorithm>
+#include <boost/bind.hpp>
 
 using namespace std;
+using boost::bind;
 
 #ifdef SERVICE_LIB
 # define SERVICE_EXPORT Q_DECL_EXPORT
