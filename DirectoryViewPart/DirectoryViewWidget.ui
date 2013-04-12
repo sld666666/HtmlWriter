@@ -13,11 +13,7 @@
   <property name="windowTitle">
    <string>DirectoryViewWidget</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <widget class="QTreeView" name="treeViewFileInfo_"/>
-   </item>
-  </layout>
+  <layout class="QGridLayout" name="gridLayout"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

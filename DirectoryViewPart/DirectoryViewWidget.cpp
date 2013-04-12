@@ -3,11 +3,14 @@
 #include <QSortFilterProxyModel>
 #include "DirectoryViewWidget.h"
 #include "FileCreator.h"
+#include "DirTreeViewFilter.h"
 
 DirectoryViewWidget::DirectoryViewWidget(QWidget *parent)
 	: QWidget(parent)
+	, directoryTreeView_(new DirectoryTreeView(this))
 {
 	ui.setupUi(this);
+	this->layout()->addWidget(directoryTreeView_);
 	initCtrl();
 	innitConnect();
 }
@@ -19,32 +22,22 @@ DirectoryViewWidget::~DirectoryViewWidget()
 
 void DirectoryViewWidget::initCtrl()
 {
-	QString test = "D:\\project\\";
-	fileSystemModel_.setRootPath(test);
-	QSortFilterProxyModel *proxyModel = new QSortFilterProxyModel();
-	proxyModel->setSourceModel(&fileSystemModel_);
-	proxyModel->setFilterRegExp(QRegExp("d", Qt::CaseInsensitive,QRegExp::FixedString));
-	proxyModel->setFilterKeyColumn(0);
-	//ui.treeViewFileInfo_->setRootIndex(fileSystemModel_.index("E:\\project"));
-	ui.treeViewFileInfo_->setModel(proxyModel);
-	ui.treeViewFileInfo_->setAnimated(false);
-	ui.treeViewFileInfo_->setIndentation(25);
-	ui.treeViewFileInfo_->setSortingEnabled(true);
-	ui.treeViewFileInfo_->setContextMenuPolicy(Qt::CustomContextMenu);
+	directoryTreeView_->setModel(&fileSystemModel_);
+	filterFileDirs();
 }
 
 void DirectoryViewWidget::innitConnect()
 {
-	connect(ui.treeViewFileInfo_, SIGNAL(customContextMenuRequested(const QPoint))
+	connect(directoryTreeView_, SIGNAL(customContextMenuRequested(const QPoint))
 		, this, SLOT(showRightMenuSlot(const QPoint)));
 
-	connect(ui.treeViewFileInfo_, SIGNAL(doubleClicked(const QModelIndex &))
+	connect(directoryTreeView_, SIGNAL(doubleClicked(const QModelIndex &))
 		, this, SLOT(onDoubleClickedItemSlot(const QModelIndex &)));
 }
 
 void DirectoryViewWidget::showRightMenuSlot(const QPoint point)
 {
-	QMenu *qMenu = new QMenu(ui.treeViewFileInfo_);
+	QMenu *qMenu = new QMenu(directoryTreeView_);
 
 	QAction* acttionNewFolder = new QAction("&new folder",this);
 	connect(acttionNewFolder, SIGNAL(triggered()), this, SLOT(newFolderSlot()));
@@ -90,10 +83,16 @@ void DirectoryViewWidget::deleteSlot()
 QString DirectoryViewWidget::getSelectItemPath()
 {
 	QString itemPath("");
-	QItemSelectionModel* selecitonModel = ui.treeViewFileInfo_->selectionModel();
+	QItemSelectionModel* selecitonModel = directoryTreeView_->selectionModel();
 	if (selecitonModel){
-		QModelIndex modelIndex = selecitonModel->currentIndex();
-		itemPath = fileSystemModel_.filePath(modelIndex); 
+		if (selecitonModel->selectedRows().isEmpty()){
+			int i(0);
+		}
+		else{
+			QModelIndex modelIndex = selecitonModel->currentIndex();
+			itemPath = fileSystemModel_.filePath(modelIndex); 
+		}
+		
 	}
 	return itemPath;
 }
@@ -116,11 +115,17 @@ bool DirectoryViewWidget::getNewFilePath(const QString& itemPath
 void DirectoryViewWidget::onDoubleClickedItemSlot(const QModelIndex & modelIndex)
 {
 	QString itemPath = fileSystemModel_.filePath(modelIndex); 
+	DirTreeViewFilter().doFilter(directoryTreeView_, fileSystemModel_);
 // 	QFile file(itemPath); // Read the text from a file
 // 	if (file.open(QIODevice::ReadOnly)) {
 // 		QTextStream stream(&file);
 // 		ui.textEditText_->setText(stream.readAll());
 // 	}
+}
+
+void DirectoryViewWidget::filterFileDirs()
+{
+	DirTreeViewFilter().doFilter(directoryTreeView_, fileSystemModel_);
 }
 
 

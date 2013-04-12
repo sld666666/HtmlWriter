@@ -13,6 +13,7 @@
 
 #include "ui_DirectoryViewWidget.h"
 #include "directoryviewpart_global.h"
+#include "DirectoryTreeView.h"
 
 class DirectoryViewWidget : public QWidget
 {
@@ -21,6 +22,8 @@ class DirectoryViewWidget : public QWidget
 public:
 	DirectoryViewWidget(QWidget *parent = 0);
 	~DirectoryViewWidget();
+
+	void		filterFileDirs();
 	
 private:
 	void		initCtrl();
@@ -40,6 +43,7 @@ private:
 private:
 	Ui::DirectoryViewWidget ui;
 	QFileSystemModel fileSystemModel_;
+	DirectoryTreeView*	 directoryTreeView_;
 };
 
 #endif // DIRECTORYVIEWWIDGET_H

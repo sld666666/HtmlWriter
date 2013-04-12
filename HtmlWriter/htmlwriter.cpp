@@ -5,7 +5,6 @@
 #include <sstream>
 
 #include "htmlwriter.h"
-#include "FileCreator.h"
 #include "markdown/markdown-tokens.h"
 #include "action/ActionConfigurer.h"
 #include "ServiceLoader.h"
