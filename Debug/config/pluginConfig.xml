@@ -5,4 +5,8 @@
 	<name>DirectoryViewPart.dll</name>
 	<service>benchview</service>
 </plugin>
+<plugin>
+	<name>MarkdownEditorViewPart.dll</name>
+	<service>benchview</service>
+</plugin>
 </plugins>

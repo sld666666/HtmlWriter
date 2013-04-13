@@ -1,4 +1,3 @@
-#include "StdAfx.h"
 #include "DirectoryViewBundle.h"
 #include "DirectoryViewPart.h"
 

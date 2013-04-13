@@ -1,14 +1,16 @@
 #ifndef MARKDOWNEDITORVIEWPART_H
 #define MARKDOWNEDITORVIEWPART_H
 
-#include "markdowneditorviewpart_global.h"
+#include "workbench/ViewPart.h"
 
-class MARKDOWNEDITORVIEWPART_EXPORT MarkdownEditorViewPart
+class MarkdownEditorViewPart : public QObject
 {
 public:
 	MarkdownEditorViewPart();
 	~MarkdownEditorViewPart();
 
+public:
+	virtual void createPartControl(QWidget* parent);
 private:
 
 };

@@ -1,9 +1,9 @@
-#include "StdAfx.h"
 #include <QMenu>
 #include <QSortFilterProxyModel>
 #include "DirectoryViewWidget.h"
 #include "FileCreator.h"
 #include "DirTreeViewFilter.h"
+#include "DataManager.h"
 
 DirectoryViewWidget::DirectoryViewWidget(QWidget *parent)
 	: QWidget(parent)
@@ -116,11 +116,7 @@ void DirectoryViewWidget::onDoubleClickedItemSlot(const QModelIndex & modelIndex
 {
 	QString itemPath = fileSystemModel_.filePath(modelIndex); 
 	DirTreeViewFilter().doFilter(directoryTreeView_, fileSystemModel_);
-// 	QFile file(itemPath); // Read the text from a file
-// 	if (file.open(QIODevice::ReadOnly)) {
-// 		QTextStream stream(&file);
-// 		ui.textEditText_->setText(stream.readAll());
-// 	}
+	data::DataManager::instance().addData(itemPath.toStdString());
 }
 
 void DirectoryViewWidget::filterFileDirs()

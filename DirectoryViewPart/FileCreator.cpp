@@ -1,4 +1,3 @@
-#include "StdAfx.h"
 #include <QDir>
 #include "FileCreator.h"
 

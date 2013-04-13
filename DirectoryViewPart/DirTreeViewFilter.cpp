@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+
 #include "DirTreeViewFilter.h"
 
 DirTreeViewFilter::DirTreeViewFilter(QObject *parent)

@@ -9,3 +9,9 @@ MarkdownEditorViewPart::~MarkdownEditorViewPart()
 {
 
 }
+
+void MarkdownEditorViewPart::createPartControl(QWidget* parent)
+{
+	if (!parent)return;
+
+}

@@ -2,8 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="MarkdownEditorViewPart"
-	ProjectGUID="{0CA7C5E0-F285-4B0E-8D1F-2BAFE19C9F97}"
+	Name="data"
+	ProjectGUID="{B3A20627-019E-47D2-84CF-63046090B98F}"
+	RootNamespace="data"
 	Keyword="Qt4VSv1.0"
 	TargetFrameworkVersion="0"
 	>
@@ -38,8 +39,8 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="&quot;.\GeneratedFiles&quot;;&quot;$(QTDIR)\include&quot;;&quot;.\GeneratedFiles\$(ConfigurationName)&quot;;&quot;$(QTDIR)\include\QtCore&quot;;&quot;$(QTDIR)\include\QtGui&quot;;&quot;.\&quot;"
-				PreprocessorDefinitions=",UNICODE,WIN32,QT_LARGEFILE_SUPPORT;QT_NO_DEBUG,NDEBUG;QT_CORE_LIB;QT_GUI_LIB;MARKDOWNEDITORVIEWPART_LIB"
+				AdditionalIncludeDirectories="&quot;.\GeneratedFiles&quot;;&quot;$(QTDIR)\include&quot;;&quot;.\GeneratedFiles\$(ConfigurationName)&quot;;&quot;$(QTDIR)\include\QtCore&quot;;&quot;.\&quot;"
+				PreprocessorDefinitions=",UNICODE,WIN32,QT_LARGEFILE_SUPPORT;QT_NO_DEBUG,NDEBUG;QT_CORE_LIB;DATASTREAM_LIB"
 				RuntimeLibrary="2"
 				TreatWChar_tAsBuiltInType="false"
 				DebugInformationFormat="0"
@@ -55,7 +56,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="qtmain.lib QtCore4.lib QtGui4.lib"
+				AdditionalDependencies="qtmain.lib QtCore4.lib"
 				OutputFile="$(OutDir)\$(ProjectName).dll"
 				AdditionalLibraryDirectories="$(QTDIR)\lib"
 				GenerateDebugInformation="false"
@@ -107,8 +108,8 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories=".\GeneratedFiles;.;&quot;$(QTDIR)\include&quot;;&quot;.\GeneratedFiles\$(ConfigurationName)&quot;;&quot;$(QTDIR)\include\QtCore&quot;;.\..\Ui;.\..\service;&quot;$(QTDIR)\include\QtGui&quot;;.\..\DataStream;.\..\utils"
-				PreprocessorDefinitions=",UNICODE,WIN32,QT_LARGEFILE_SUPPORT;QT_CORE_LIB;QT_GUI_LIB;MARKDOWNEDITORVIEWPART_LIB"
+				AdditionalIncludeDirectories=".\GeneratedFiles;&quot;$(QTDIR)\include&quot;;&quot;.\GeneratedFiles\$(ConfigurationName)&quot;;&quot;$(QTDIR)\include\QtCore&quot;;.\;.\..\utils"
+				PreprocessorDefinitions=",UNICODE,WIN32,QT_LARGEFILE_SUPPORT;QT_CORE_LIB;DATASTREAM_LIB"
 				RuntimeLibrary="3"
 				TreatWChar_tAsBuiltInType="false"
 				DebugInformationFormat="3"
@@ -124,8 +125,8 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="qtmaind.lib QtCored4.lib QtGuid4.lib"
-				OutputFile="$(OutDir)\plugin\$(ProjectName).dll"
+				AdditionalDependencies="qtmaind.lib QtCored4.lib"
+				OutputFile="$(OutDir)\$(ProjectName).dll"
 				AdditionalLibraryDirectories="$(QTDIR)\lib"
 				GenerateDebugInformation="true"
 				SubSystem="2"
@@ -155,14 +156,6 @@
 	</Configurations>
 	<References>
 		<ProjectReference
-			ReferencedProjectIdentifier="{B3A20627-019E-47D2-84CF-63046090B98F}"
-			RelativePathToProject=".\DataStream\DataStream.vcproj"
-		/>
-		<ProjectReference
-			ReferencedProjectIdentifier="{035E5F72-7190-46A8-A58A-DD83680AEF84}"
-			RelativePathToProject=".\Ui\Ui.vcproj"
-		/>
-		<ProjectReference
 			ReferencedProjectIdentifier="{A147FC86-4A37-463E-A4C7-CE8800159C89}"
 			RelativePathToProject=".\utils\utils.vcproj"
 		/>
@@ -174,19 +167,11 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\dll.cpp"
+				RelativePath=".\DataManager.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\MarkdownEditorViewBundle.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\MarkdownEditorViewPart.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\stdafx.cpp"
+				RelativePath=".\DataStream.cpp"
 				>
 			</File>
 		</Filter>
@@ -196,19 +181,15 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\MarkdownEditorViewBundle.h"
+				RelativePath=".\DataManager.h"
 				>
 			</File>
 			<File
-				RelativePath=".\MarkdownEditorViewPart.h"
+				RelativePath=".\DataStream.h"
 				>
 			</File>
 			<File
-				RelativePath=".\markdowneditorviewpart_global.h"
-				>
-			</File>
-			<File
-				RelativePath=".\stdafx.h"
+				RelativePath=".\datastream_global.h"
 				>
 			</File>
 		</Filter>

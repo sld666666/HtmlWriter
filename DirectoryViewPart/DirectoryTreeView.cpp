@@ -1,4 +1,3 @@
-#include "StdAfx.h"
 #include "DirectoryTreeView.h"
 
 DirectoryTreeView::DirectoryTreeView(QWidget *parent)
