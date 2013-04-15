@@ -35,8 +35,10 @@ void WorkBench::appendDockWidget(const IBundle* bundle)
 	QString name = QString::fromStdString(bundle->getBundlelConfig()->getDllName());
 	QDockWidget *dock = new QDockWidget(name, this);
 	QWidget* widget = new QWidget(dock);
-	UiUtils::UiHelper::updateWidgetWithVLayout(widget);
+	widget->setMinimumWidth(200);
+	dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
 	dock->setWidget(widget);
+	widget->setStyleSheet("background-color: rgb(100, 161, 79);");
 	addDockWidget(Qt::LeftDockWidgetArea, dock, Qt::Horizontal);
 	BundleContext* context(new BundleContext());
  	context->setParent(widget);

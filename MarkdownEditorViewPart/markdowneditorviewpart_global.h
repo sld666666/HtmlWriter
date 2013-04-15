@@ -2,6 +2,9 @@
 #define MARKDOWNEDITORVIEWPART_GLOBAL_H
 
 #include <QtCore/qglobal.h>
+#include <boost/shared_ptr.hpp>
+
+using boost::shared_ptr;
 
 #ifdef MARKDOWNEDITORVIEWPART_LIB
 # define MARKDOWNEDITORVIEWPART_EXPORT Q_DECL_EXPORT

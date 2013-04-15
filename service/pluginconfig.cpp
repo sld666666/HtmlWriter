@@ -8,7 +8,6 @@
 
 using namespace boost::property_tree;
 using boost::property_tree::ptree;
-
 using namespace boost;
 
 namespace service{
@@ -33,14 +32,15 @@ namespace service{
 
 		FOREACH(ptree::value_type& val, tree.get_child("plugins"))
 		{
+			string test = val.first;
 			string name, service;
-			FOREACH(ptree::value_type& val, tree.get_child("plugins.plugin"))
+			FOREACH(ptree::value_type& valChild, val.second)
 			{
-				string key = val.first;
+				string key = valChild.first;
 				if ("name" == key){
-					name = val.second.data();
+					name = valChild.second.data();
 				}else if ("service" == key){
-					service = val.second.data();
+					service = valChild.second.data();
 				}
 			}
 			BundleConfigPtr config(new BundleConfig(service, name));
@@ -53,6 +53,6 @@ namespace service{
 	string PluginConfig::getFileName()
 	{
 		return ApplicationConfig::instance().getAPPConfigPath()
-			+ "/pluginConfig.xml";
+			+ "/framework/pluginConfig.xml";
 	}
 }

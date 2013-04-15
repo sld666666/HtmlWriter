@@ -1,7 +1,7 @@
 #include <windows.h>
 #include "interface/IBundle.h"
 #include "instantiation/ObjectCreator.h"
-#include "DirectoryViewBundle.h"
+#include "MarkdownEditorViewBundle.h"
 
 #define DLL extern "C" __declspec(dllexport)
 
@@ -14,7 +14,7 @@ BOOL APIENTRY DllMain( HANDLE hModule,
 }
 
 DLL service::IBundle* createObject()
-{	
-	return new DirectoryViewBundle();
+{
+	return new MarkdownEditorViewBundle();
 }
 

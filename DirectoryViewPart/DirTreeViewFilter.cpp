@@ -1,5 +1,5 @@
-
 #include "DirTreeViewFilter.h"
+#include "DirectoryViewPartConfig.h"
 
 DirTreeViewFilter::DirTreeViewFilter(QObject *parent)
 	: QObject(parent)
@@ -16,7 +16,8 @@ void DirTreeViewFilter::doFilter(QTreeView* treeView
 								 , QFileSystemModel& fileModel)
 {
 	if (!treeView)return;
-	QString path = "D:\\temp";
+	QString path = QString::fromStdString(DirectoryViewPartConfig::instance()
+		.getValue(DirectoryViewPartConfigKey::LOCATION));
 	fileModel.setRootPath(path);
 	fileModel.sort(0);
 	QModelIndex curIndex = getModelIndexInDirPath(treeView, path);

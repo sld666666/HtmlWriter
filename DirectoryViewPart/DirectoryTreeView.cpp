@@ -13,7 +13,7 @@ DirectoryTreeView::~DirectoryTreeView()
 
 void DirectoryTreeView::focusOutEvent(QFocusEvent *event)
 {
-	selectionModel()->clear();
+	//selectionModel()->clear();
 }
 
 void DirectoryTreeView::initControls()
@@ -22,6 +22,13 @@ void DirectoryTreeView::initControls()
 	this->setIndentation(25);
 	this->setSortingEnabled(true);
 	this->setContextMenuPolicy(Qt::CustomContextMenu);
+	this->setSelectionBehavior(QAbstractItemView::SelectRows);
+	this->setEditTriggers(QAbstractItemView::NoEditTriggers);
+	this->setSelectionMode(QAbstractItemView::SingleSelection);
+}
+
+void DirectoryTreeView::onlyShowFisrtColumn()
+{
 	this->setColumnHidden(1, true);
 	this->setColumnHidden(2, true);
 	this->setColumnHidden(3, true);

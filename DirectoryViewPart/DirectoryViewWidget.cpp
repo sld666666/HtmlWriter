@@ -4,6 +4,7 @@
 #include "FileCreator.h"
 #include "DirTreeViewFilter.h"
 #include "DataManager.h"
+#include "DirectoryViewPartConfig.h"
 
 DirectoryViewWidget::DirectoryViewWidget(QWidget *parent)
 	: QWidget(parent)
@@ -23,6 +24,7 @@ DirectoryViewWidget::~DirectoryViewWidget()
 void DirectoryViewWidget::initCtrl()
 {
 	directoryTreeView_->setModel(&fileSystemModel_);
+	directoryTreeView_->onlyShowFisrtColumn();
 	filterFileDirs();
 }
 
@@ -50,6 +52,7 @@ void DirectoryViewWidget::showRightMenuSlot(const QPoint point)
 
 	qMenu->addAction(acttionNewFolder);
 	qMenu->addAction(actionNewFile);
+	qMenu->addAction(actionDelete);
 
 	qMenu->exec(QCursor::pos()); //在鼠标点击的位置显示鼠标右键菜单
 }
@@ -78,6 +81,10 @@ void DirectoryViewWidget::newFileSlot()
 
 void DirectoryViewWidget::deleteSlot()
 {
+	QString filePath = getSelectItemPath();
+	if (QFile::exists(filePath)){
+		QFile::remove(filePath);
+	}
 }
 
 QString DirectoryViewWidget::getSelectItemPath()
@@ -86,7 +93,9 @@ QString DirectoryViewWidget::getSelectItemPath()
 	QItemSelectionModel* selecitonModel = directoryTreeView_->selectionModel();
 	if (selecitonModel){
 		if (selecitonModel->selectedRows().isEmpty()){
-			int i(0);
+			QString path = QString::fromStdString(DirectoryViewPartConfig::
+				instance().getValue(DirectoryViewPartConfigKey::LOCATION));
+			return path;
 		}
 		else{
 			QModelIndex modelIndex = selecitonModel->currentIndex();

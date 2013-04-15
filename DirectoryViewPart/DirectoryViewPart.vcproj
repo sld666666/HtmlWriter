@@ -115,7 +115,7 @@
 				RuntimeLibrary="3"
 				TreatWChar_tAsBuiltInType="false"
 				UsePrecompiledHeader="0"
-				PrecompiledHeaderThrough="StdAfx.h"
+				PrecompiledHeaderThrough=""
 				PrecompiledHeaderFile="$(IntDir)\$(TargetName).pch"
 				ObjectFile="$(IntDir)\"
 				DebugInformationFormat="3"
@@ -173,6 +173,10 @@
 			ReferencedProjectIdentifier="{B3A20627-019E-47D2-84CF-63046090B98F}"
 			RelativePathToProject=".\DataStream\DataStream.vcproj"
 		/>
+		<ProjectReference
+			ReferencedProjectIdentifier="{C98A0F1E-0DFE-4D6F-8E11-4295DCADC71D}"
+			RelativePathToProject=".\service\service.vcproj"
+		/>
 	</References>
 	<Files>
 		<Filter
@@ -193,6 +197,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\DirectoryViewPartConfig.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\DirectoryViewWidget.cpp"
 				>
 			</File>
@@ -201,7 +209,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\dll.cpp"
+				RelativePath=".\dllDirectoryViewPart.cpp"
 				>
 			</File>
 			<File
@@ -273,6 +281,32 @@
 			<File
 				RelativePath=".\directoryviewpart_global.h"
 				>
+			</File>
+			<File
+				RelativePath=".\DirectoryViewPartConfig.h"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description=""
+						CommandLine=""
+						AdditionalDependencies=""
+						Outputs=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description=""
+						CommandLine=""
+						AdditionalDependencies=""
+						Outputs=""
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath=".\DirectoryViewWidget.h"

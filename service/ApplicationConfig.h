@@ -13,7 +13,7 @@
 
 
 namespace service{
-	class ApplicationConfig : public ISingleton<ApplicationConfig>
+	class SERVICE_EXPORT ApplicationConfig : public ISingleton<ApplicationConfig>
 	{
 	public:
 		~ApplicationConfig();

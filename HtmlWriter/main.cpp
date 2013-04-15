@@ -12,6 +12,8 @@ void initCodec()
 		QTextCodec::setCodecForCStrings(codec);   
 		QTextCodec::setCodecForTr(codec);
 	}
+
+	std::locale::global(std::locale(""));//设置为系统语言环境
 }
 
 int main(int argc, char *argv[])

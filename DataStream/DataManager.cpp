@@ -19,7 +19,7 @@ namespace data{
 		bool rtn(false);
 
 		fstream stream;
-		stream.open("DataStream.h", fstream::in | fstream::out);
+		stream.open(key.c_str(), fstream::in | fstream::out);
 		if (stream.is_open())
 		{
 			stream.seekg (0, stream.end);

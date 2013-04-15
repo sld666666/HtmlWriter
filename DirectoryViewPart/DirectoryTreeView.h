@@ -11,6 +11,8 @@ public:
 	DirectoryTreeView(QWidget *parent);
 	~DirectoryTreeView();
 
+	void		onlyShowFisrtColumn();
+
 protected:
 	virtual		void focusOutEvent(QFocusEvent *event);
 private:

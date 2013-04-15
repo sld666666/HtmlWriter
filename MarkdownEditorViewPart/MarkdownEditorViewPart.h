@@ -2,6 +2,7 @@
 #define MARKDOWNEDITORVIEWPART_H
 
 #include "workbench/ViewPart.h"
+#include "MarkdownEditorWidget.h"
 
 class MarkdownEditorViewPart : public QObject
 {
@@ -12,6 +13,7 @@ public:
 public:
 	virtual void createPartControl(QWidget* parent);
 private:
+	 	
 
 };
 
