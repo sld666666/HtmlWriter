@@ -24,15 +24,26 @@ namespace UiUtils{
 
 	public:
 		Menu(const QString& title, QWidget * parent = 0);
+
+		Menu(const QString& title, IContext* context, QWidget * parent = 0);
+
+		Menu(IContext* context, QWidget * parent = 0);
+
 		~Menu();
 
 	void	add(IAction* action);
 
 	private:
+		vector<IAction*> actions_;
+
+	private slots:
+		void	actionTriggeredSlot(bool checked);
+
+	private:
+		IContext*	context_;
 
 	};
 
-	typedef shared_ptr<Menu> MenuPtr;
 }
 
 

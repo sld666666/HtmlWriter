@@ -1,19 +1,23 @@
 #include <QMenu>
 #include <QSortFilterProxyModel>
 #include "DirectoryViewWidget.h"
-#include "FileCreator.h"
 #include "DirTreeViewFilter.h"
 #include "DataManager.h"
-#include "DirectoryViewPartConfig.h"
+#include "context/TableSelectionContext.h"
+#include "action/DirectoryViewActions.h"
+
+using UiUtils::TableSelectionContext;
 
 DirectoryViewWidget::DirectoryViewWidget(QWidget *parent)
 	: QWidget(parent)
 	, directoryTreeView_(new DirectoryTreeView(this))
+	, tableMenu_(new Menu(new TableSelectionContext(directoryTreeView_), this))
 {
 	ui.setupUi(this);
 	this->layout()->addWidget(directoryTreeView_);
 	initCtrl();
 	innitConnect();
+	initTableMenu();
 }
 
 DirectoryViewWidget::~DirectoryViewWidget()
@@ -28,6 +32,15 @@ void DirectoryViewWidget::initCtrl()
 	filterFileDirs();
 }
 
+void DirectoryViewWidget::initTableMenu()
+{
+	if (tableMenu_){
+		tableMenu_->add(new NewFolderAction("&new folder",this));
+		tableMenu_->add(new NewFileAction("&new file",this));
+		tableMenu_->add(new DeleteAction("&delete",this));
+	}
+}
+
 void DirectoryViewWidget::innitConnect()
 {
 	connect(directoryTreeView_, SIGNAL(customContextMenuRequested(const QPoint))
@@ -39,92 +52,12 @@ void DirectoryViewWidget::innitConnect()
 
 void DirectoryViewWidget::showRightMenuSlot(const QPoint point)
 {
-	QMenu *qMenu = new QMenu(directoryTreeView_);
-
-	QAction* acttionNewFolder = new QAction("&new folder",this);
-	connect(acttionNewFolder, SIGNAL(triggered()), this, SLOT(newFolderSlot()));
-
-	QAction* actionNewFile = new QAction("&new file", this);
-	connect(actionNewFile, SIGNAL(triggered()), this, SLOT(newFileSlot()));
-
-	QAction* actionDelete = new QAction("&delete", this);
-	connect(actionDelete, SIGNAL(triggered()), this, SLOT(deleteSlot()));
-
-	qMenu->addAction(acttionNewFolder);
-	qMenu->addAction(actionNewFile);
-	qMenu->addAction(actionDelete);
-
-	qMenu->exec(QCursor::pos()); //在鼠标点击的位置显示鼠标右键菜单
-}
-
-void DirectoryViewWidget::newFolderSlot()
-{
-	QString newFilePath = getSelectItemPath();
-	if ((!newFilePath.isEmpty()) 
-		&& getNewFilePath(newFilePath, newFilePath)){
-			if (!QDir().mkdir(newFilePath)){
-			}	
-	}	
-}
-
-void DirectoryViewWidget::newFileSlot()
-{
-	QString newFilePath = getSelectItemPath();
-	if ((!newFilePath.isEmpty()) 
-		&& getNewFilePath(newFilePath, newFilePath)){
-			QFile file(newFilePath);
-			if(file.open(QFile::ReadWrite|QFile::Text)){
-				file.close();  
-			}
-	}	
-}
-
-void DirectoryViewWidget::deleteSlot()
-{
-	QString filePath = getSelectItemPath();
-	if (QFile::exists(filePath)){
-		QFile::remove(filePath);
-	}
-}
-
-QString DirectoryViewWidget::getSelectItemPath()
-{
-	QString itemPath("");
-	QItemSelectionModel* selecitonModel = directoryTreeView_->selectionModel();
-	if (selecitonModel){
-		if (selecitonModel->selectedRows().isEmpty()){
-			QString path = QString::fromStdString(DirectoryViewPartConfig::
-				instance().getValue(DirectoryViewPartConfigKey::LOCATION));
-			return path;
-		}
-		else{
-			QModelIndex modelIndex = selecitonModel->currentIndex();
-			itemPath = fileSystemModel_.filePath(modelIndex); 
-		}
-		
-	}
-	return itemPath;
-}
-
-bool DirectoryViewWidget::getNewFilePath(const QString& itemPath
-									, QString& rtnPath)
-{
-	bool rtn(false);
-	rtnPath = itemPath;
-	FileCreator fileCreator(rtnPath, this);
-	fileCreator.show();
-	if (QDialog::Accepted == fileCreator.exec()){
-		rtnPath = fileCreator.filePath();
-	 		rtn = true;
-	}
-
-	return rtn;
+	tableMenu_->exec(QCursor::pos()); //在鼠标点击的位置显示鼠标右键菜单
 }
 
 void DirectoryViewWidget::onDoubleClickedItemSlot(const QModelIndex & modelIndex)
 {
 	QString itemPath = fileSystemModel_.filePath(modelIndex); 
-	DirTreeViewFilter().doFilter(directoryTreeView_, fileSystemModel_);
 	data::DataManager::instance().addData(itemPath.toStdString());
 }
 

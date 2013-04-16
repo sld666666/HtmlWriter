@@ -14,6 +14,9 @@
 #include "ui_DirectoryViewWidget.h"
 #include "directoryviewpart_global.h"
 #include "DirectoryTreeView.h"
+#include "action\Menu.h"
+
+using UiUtils::Menu;
 
 class DirectoryViewWidget : public QWidget
 {
@@ -28,12 +31,10 @@ public:
 private:
 	void		initCtrl();
 	void		innitConnect();
+	void		initTableMenu();
 
 private slots:
 	void		showRightMenuSlot(const QPoint point);
-	void		newFolderSlot();
-	void		newFileSlot();
-	void		deleteSlot();
 	void		onDoubleClickedItemSlot(const QModelIndex & modelIndex);
 
 private:
@@ -42,8 +43,9 @@ private:
 
 private:
 	Ui::DirectoryViewWidget ui;
-	QFileSystemModel fileSystemModel_;
-	DirectoryTreeView*	 directoryTreeView_;
+	QFileSystemModel		fileSystemModel_;
+	DirectoryTreeView*		directoryTreeView_;
+	Menu*					tableMenu_;
 };
 
 #endif // DIRECTORYVIEWWIDGET_H

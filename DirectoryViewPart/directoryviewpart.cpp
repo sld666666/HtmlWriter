@@ -1,8 +1,7 @@
 #include "DirectoryViewPart.h"
 
 DirectoryViewPart::DirectoryViewPart()
-:QObject(NULL)
-, directoryViewWidget_(NULL)
+: directoryViewWidget_(NULL)
 {
 
 }

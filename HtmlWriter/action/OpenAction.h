@@ -3,8 +3,10 @@
 
 #include <QObject>
 #include "action/IAction.h"
+#include "context/IContext.h"
 
 using UiUtils::IAction;
+using UiUtils::IContext;
 
 class OpenAction : public IAction
 {
@@ -14,11 +16,7 @@ public:
 	OpenAction(const QString& text, QObject * parent = 0);
 	~OpenAction();
 
-protected:
-	virtual	void	onRun();
-
-private:
-	
+	virtual	void	execute(IContext* context);
 };
 
 #endif // OPENACTION_H

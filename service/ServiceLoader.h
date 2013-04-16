@@ -22,7 +22,7 @@ namespace service{
 		bool	loadPlugins();
 
 	private:
-		void	loadPlugins(const BundleConfigPtr bundleConfig);
+		void	loadPlugins(const PluginDescPtr bundleConfig);
 	};
 }
 

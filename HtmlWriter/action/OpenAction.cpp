@@ -11,7 +11,8 @@ OpenAction::~OpenAction()
 
 }
 
-void OpenAction::onRun()
+
+void OpenAction::execute(IContext* context)
 {
 
 }

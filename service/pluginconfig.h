@@ -11,7 +11,7 @@
 #include <QObject>
 #include "ISingleton.h"
 #include "service_global.h"
-#include "BundleConfig.h"
+#include "PluginDesc.h"
 
 namespace service{
 	class PluginConfig : public ISingleton<PluginConfig>
@@ -21,7 +21,7 @@ namespace service{
 	public:
 		~PluginConfig();
 
-		vector<BundleConfigPtr> getPlugins();
+		vector<PluginDescPtr> getPlugins();
 
 	protected:
 		virtual	string getFileName();

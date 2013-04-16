@@ -8,12 +8,12 @@
 namespace UiUtils{
 	class UI_EXPORT ViewPart : public IViewPart
 	{
-		Q_OBJECT
 
 	public:
-		ViewPart(QObject *parent);
+		ViewPart();
 		~ViewPart();
-	public:
+
+	protected:
 		virtual void createPartControl(QWidget* parent);
 
 	private:

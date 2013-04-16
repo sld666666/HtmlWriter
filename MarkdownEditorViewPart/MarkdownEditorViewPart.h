@@ -1,17 +1,22 @@
 #ifndef MARKDOWNEDITORVIEWPART_H
 #define MARKDOWNEDITORVIEWPART_H
 
-#include "workbench/ViewPart.h"
+#include "workbench/IEditorPart.h"
 #include "MarkdownEditorWidget.h"
 
-class MarkdownEditorViewPart : public QObject
+using UiUtils::IEditorPart;
+
+class MarkdownEditorViewPart : public IEditorPart
 {
 public:
 	MarkdownEditorViewPart();
 	~MarkdownEditorViewPart();
 
 public:
-	virtual void createPartControl(QWidget* parent);
+	virtual		void createPartControl(QWidget* parent);
+	virtual		void doSave();
+	virtual		void doSaveAs();
+
 private:
 	 	
 

@@ -1,8 +1,7 @@
 #include "IWorkbenchPart.h"
 
 namespace UiUtils{
-	IWorkbenchPart::IWorkbenchPart(QObject *parent)
-		: QObject(parent)
+	IWorkbenchPart::IWorkbenchPart()
 	{
 
 	}
@@ -10,6 +9,12 @@ namespace UiUtils{
 	IWorkbenchPart::~IWorkbenchPart()
 	{
 
+	}
+
+	void IWorkbenchPart::sartService(BundleContext* context)
+	{
+		QWidget* parent = static_cast<QWidget*>(context->getParent());
+		if (parent)createPartControl(parent);
 	}
 }
 

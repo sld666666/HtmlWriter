@@ -23,8 +23,6 @@ void DirectoryTreeView::initControls()
 	this->setSortingEnabled(true);
 	this->setContextMenuPolicy(Qt::CustomContextMenu);
 	this->setSelectionBehavior(QAbstractItemView::SelectRows);
-	this->setEditTriggers(QAbstractItemView::NoEditTriggers);
-	this->setSelectionMode(QAbstractItemView::SingleSelection);
 }
 
 void DirectoryTreeView::onlyShowFisrtColumn()

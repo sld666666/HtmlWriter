@@ -10,6 +10,7 @@
 
 #include "interface/IBundle.h"
 #include "markdowneditorviewpart_global.h"
+#include "MarkdownEditorViewPart.h"
 
 using service::IBundle;
 using service::BundleContext;
@@ -29,6 +30,8 @@ public:
 
 	virtual BundleConfigPtr getBundlelConfig()const;
 
+private:
+	MarkdownEditorViewPart*		markdownEditorViewPart_;
 	
 };
 

@@ -2,14 +2,13 @@
 #define DIRECTORYVIEWPART_H
 
 #include "directoryviewpart_global.h"
-#include "workbench/ViewPart.h"
+#include "workbench/IViewPart.h"
 #include "DirectoryViewWidget.h"
 
 using namespace UiUtils;
 
-class   DirectoryViewPart : public QObject
+class   DirectoryViewPart : public IViewPart
 {
-	Q_OBJECT
 public:
 	DirectoryViewPart();
 	~DirectoryViewPart();

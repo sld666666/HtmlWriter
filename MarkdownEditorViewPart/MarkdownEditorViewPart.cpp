@@ -19,3 +19,13 @@ void MarkdownEditorViewPart::createPartControl(QWidget* parent)
 		new MarkdownEditorWidget(parent));
 
 }
+
+void MarkdownEditorViewPart::doSave()
+{
+
+}
+
+void MarkdownEditorViewPart::doSaveAs()
+{
+
+}

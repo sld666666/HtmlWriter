@@ -7,9 +7,11 @@
 #include <list>
 #include <algorithm>
 #include <boost/bind.hpp>
+#include <boost/shared_ptr.hpp>
 
 using namespace std;
 using boost::bind;
+using boost::shared_ptr;
 
 #ifdef SERVICE_LIB
 # define SERVICE_EXPORT Q_DECL_EXPORT

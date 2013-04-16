@@ -2,6 +2,11 @@
 #define UI_GLOBAL_H
 
 #include <QtCore/qglobal.h>
+#include <boost/shared_ptr.hpp>
+#include <vector>
+
+using boost::shared_ptr;
+using std::vector;
 
 #ifdef UI_LIB
 # define UI_EXPORT Q_DECL_EXPORT
@@ -9,7 +14,6 @@
 # define UI_EXPORT Q_DECL_IMPORT
 #endif
 
-#include <boost/shared_ptr.hpp>
-using boost::shared_ptr;
+
 
 #endif // UI_GLOBAL_H

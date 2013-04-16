@@ -1,7 +1,8 @@
 #include "DirectoryViewBundle.h"
-#include "DirectoryViewPart.h"
+
 
 DirectoryViewBundle::DirectoryViewBundle()
+:directoryViewPart_(new DirectoryViewPart())
 {
 
 }
@@ -13,11 +14,9 @@ DirectoryViewBundle::~DirectoryViewBundle()
 
 void DirectoryViewBundle::start( BundleContext* context )const
 {
-	if (!context)return;
-
-	QWidget* parent = static_cast<QWidget*>(context->getParent());
-	DirectoryViewPart	directoryViewPart;
-	directoryViewPart.createPartControl(parent);
+	if (directoryViewPart_){
+		directoryViewPart_->sartService(context);
+	}
 }
 
 void DirectoryViewBundle::stop( BundleContext* context )const
@@ -28,6 +27,8 @@ void DirectoryViewBundle::stop( BundleContext* context )const
 BundleConfigPtr DirectoryViewBundle::getBundlelConfig() const
 {
 	BundleConfigPtr bundConfig(new BundleConfig(
-		service::RegisteredSevice::BENCHVIEW, "DirectoryViewPart.dll"));
+		service::RegisteredSevice::BENCHVIEW
+		, "DirectoryViewPart.dll"
+		, directoryViewPart_));
 	return bundConfig;
 }

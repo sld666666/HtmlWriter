@@ -22,9 +22,9 @@ namespace service{
 	}
 
 
-	vector<BundleConfigPtr> PluginConfig::getPlugins()
+	vector<PluginDescPtr> PluginConfig::getPlugins()
 	{
-		vector<BundleConfigPtr> bundleConfigs;
+		vector<PluginDescPtr> bundleConfigs;
 
 		string fileName = getFileName();
 		ptree tree;
@@ -43,7 +43,7 @@ namespace service{
 					service = valChild.second.data();
 				}
 			}
-			BundleConfigPtr config(new BundleConfig(service, name));
+			PluginDescPtr config(new PluginDesc(service, name));
 			bundleConfigs.push_back(config);
 		}
 

@@ -14,15 +14,13 @@
 #include "IWorkbenchPart.h"
 
 namespace UiUtils{
-	class IEditorPart : public IWorkbenchPart
+	class UI_EXPORT IEditorPart : public IWorkbenchPart
 	{
-		Q_OBJECT
-
 	public:
-		IEditorPart(QObject *parent);
+		IEditorPart();
 		~IEditorPart();
 
-	public:
+	protected:
 		virtual void createPartControl(QWidget* parent) = 0;
 		virtual void doSave() = 0;
 		virtual void doSaveAs() = 0;

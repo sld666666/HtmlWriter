@@ -10,6 +10,7 @@
 
 #include "interface/IBundle.h"
 #include "directoryviewpart_global.h"
+#include "DirectoryViewPart.h"
 
 
 using service::IBundle;
@@ -30,6 +31,8 @@ public:
 
 	virtual BundleConfigPtr getBundlelConfig()const;
 
+private:
+	DirectoryViewPart*		directoryViewPart_;
 	
 };
 

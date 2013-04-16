@@ -21,7 +21,7 @@ namespace service{
 	bool ServiceLoader::loadPlugins()
 	{
 		bool rtn(false);
-		vector<BundleConfigPtr> bundleConfigs = PluginConfig::instance().getPlugins();
+		vector<PluginDescPtr> bundleConfigs = PluginConfig::instance().getPlugins();
 		
 		for_each(bundleConfigs.begin(), bundleConfigs.end()
 			, bind(&ServiceLoader::loadPlugins, this, _1));
@@ -29,7 +29,7 @@ namespace service{
 		return rtn;
 	}
 
-	void ServiceLoader::loadPlugins(const BundleConfigPtr bundleConfig)
+	void ServiceLoader::loadPlugins(const PluginDescPtr bundleConfig)
 	{
 		ObjectCreator<IBundle> objectCreator(ApplicationConfig::instance().getAppPluginPath()
 			, bundleConfig->getDllName());

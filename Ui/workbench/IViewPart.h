@@ -7,14 +7,12 @@
 #include "IWorkbenchPart.h"
 
 namespace UiUtils{
-	class IViewPart : public IWorkbenchPart
+	class UI_EXPORT IViewPart : public IWorkbenchPart
 	{
-		Q_OBJECT
-
 	public:
-		IViewPart(QObject *parent);
+		IViewPart();
 		~IViewPart();
-	public:
+	protected:
 		virtual void createPartControl(QWidget* parent) = 0;
 
 	private:

@@ -216,6 +216,14 @@
 				RelativePath=".\FileCreator.cpp"
 				>
 			</File>
+			<Filter
+				Name="action"
+				>
+				<File
+					RelativePath=".\action\DirectoryViewActions.cpp"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -260,10 +268,10 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Moc&apos;ing DirectoryViewPart.h..."
-						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DDIRECTORYVIEWPART_LIB -D_WINDLL  &quot;-I.\GeneratedFiles&quot; &quot;-I.&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot; &quot;-fStdAfx.h&quot; &quot;-f../../DirectoryViewPart.h&quot;&#x0D;&#x0A;"
-						AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
-						Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;;&quot;.\GeneratedFiles\$(ConfigurationName)\moc_directoryviewpart.cpp&quot;"
+						Description=""
+						CommandLine=""
+						AdditionalDependencies=""
+						Outputs=""
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -271,10 +279,10 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Moc&apos;ing DirectoryViewPart.h..."
-						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;   -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_CORE_LIB -DDIRECTORYVIEWPART_LIB -D_WINDLL  &quot;-I.\GeneratedFiles&quot; &quot;-I.&quot; &quot;-I$(QTDIR)\include&quot; &quot;-I.\GeneratedFiles\$(ConfigurationName)\.&quot; &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I.\..\Ui&quot; &quot;-I.\..\service&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I.\..\DataStream&quot; &quot;-I.\..\utils&quot; &quot;$(InputPath)&quot; -o &quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;&#x0D;&#x0A;"
-						AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
-						Outputs="&quot;.\GeneratedFiles\$(ConfigurationName)\moc_$(InputName).cpp&quot;;&quot;.\GeneratedFiles\$(ConfigurationName)\moc_directoryviewpart.cpp&quot;"
+						Description=""
+						CommandLine=""
+						AdditionalDependencies=""
+						Outputs=""
 					/>
 				</FileConfiguration>
 			</File>
@@ -386,6 +394,36 @@
 					/>
 				</FileConfiguration>
 			</File>
+			<Filter
+				Name="action"
+				>
+				<File
+					RelativePath=".\action\DirectoryViewActions.h"
+					>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+							Description=""
+							CommandLine=""
+							AdditionalDependencies=""
+							Outputs=""
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCustomBuildTool"
+							Description=""
+							CommandLine=""
+							AdditionalDependencies=""
+							Outputs=""
+						/>
+					</FileConfiguration>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="Form Files"
@@ -484,18 +522,6 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\GeneratedFiles\Release\moc_directoryviewpart.cpp"
-					>
-					<FileConfiguration
-						Name="Debug|Win32"
-						ExcludedFromBuild="true"
-						>
-						<Tool
-							Name="VCCLCompilerTool"
-						/>
-					</FileConfiguration>
-				</File>
-				<File
 					RelativePath=".\GeneratedFiles\Release\moc_DirectoryViewWidget.cpp"
 					>
 					<FileConfiguration
@@ -539,18 +565,6 @@
 				>
 				<File
 					RelativePath=".\GeneratedFiles\Debug\moc_DirectoryTreeView.cpp"
-					>
-					<FileConfiguration
-						Name="Release|Win32"
-						ExcludedFromBuild="true"
-						>
-						<Tool
-							Name="VCCLCompilerTool"
-						/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath=".\GeneratedFiles\Debug\moc_directoryviewpart.cpp"
 					>
 					<FileConfiguration
 						Name="Release|Win32"

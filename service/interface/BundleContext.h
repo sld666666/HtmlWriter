@@ -10,7 +10,6 @@
 #define SERVICE_BUNDLECONTEXT_H
 
 namespace service{
-
 	class BundleContext
 	{
 	public:

@@ -12,6 +12,7 @@
 #include <QAction>
 
 #include "ui_global.h"
+#include "context/IContext.h"
 
 namespace UiUtils{
 	class UI_EXPORT IAction : public QAction
@@ -21,20 +22,9 @@ namespace UiUtils{
 	public:
 		IAction(const QString& text, QObject * parent = 0);
 		~IAction();
-	
-	protected:
-		virtual	void	onRun() = 0;
 
-	private slots:
-		void onTrigger();
-
-	private:
-		void	initConnect();
-
+		virtual	void	execute(IContext* context) = 0;
 	};
-
-	typedef shared_ptr<IAction>	IActionPtr;
-
 }
 
 

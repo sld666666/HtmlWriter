@@ -1,8 +1,7 @@
 #include "ViewPart.h"
 
 namespace UiUtils{
-	ViewPart::ViewPart(QObject *parent)
-		: IViewPart(parent)
+	ViewPart::ViewPart()
 	{
 
 	}

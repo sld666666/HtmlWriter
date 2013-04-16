@@ -1,7 +1,8 @@
 #include "MarkdownEditorViewBundle.h"
-#include "MarkdownEditorViewPart.h"
+
 
 MarkdownEditorViewBundle::MarkdownEditorViewBundle()
+:markdownEditorViewPart_(new MarkdownEditorViewPart())
 {
 
 }
@@ -13,11 +14,7 @@ MarkdownEditorViewBundle::~MarkdownEditorViewBundle()
 
 void MarkdownEditorViewBundle::start( BundleContext* context )const
 {
-	if (!context)return;
-
-	QWidget* parent = static_cast<QWidget*>(context->getParent());
- 	MarkdownEditorViewPart	directoryViewPart;
- 	directoryViewPart.createPartControl(parent);
+	markdownEditorViewPart_->sartService(context);
 }
 
 void MarkdownEditorViewBundle::stop( BundleContext* context )const
@@ -28,6 +25,8 @@ void MarkdownEditorViewBundle::stop( BundleContext* context )const
 BundleConfigPtr MarkdownEditorViewBundle::getBundlelConfig() const
 {
 	BundleConfigPtr bundConfig(new BundleConfig(
-		service::RegisteredSevice::BENCHVIEW, "MarkdownEditorViewPart.dll"));
+		service::RegisteredSevice::BENCHVIEW
+		, "MarkdownEditorViewPart.dll"
+		, markdownEditorViewPart_));
 	return bundConfig;
 }

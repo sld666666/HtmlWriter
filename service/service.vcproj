@@ -158,10 +158,6 @@
 			ReferencedProjectIdentifier="{A147FC86-4A37-463E-A4C7-CE8800159C89}"
 			RelativePathToProject=".\utils\utils.vcproj"
 		/>
-		<ProjectReference
-			ReferencedProjectIdentifier="{035E5F72-7190-46A8-A58A-DD83680AEF84}"
-			RelativePathToProject=".\Ui\Ui.vcproj"
-		/>
 	</References>
 	<Files>
 		<Filter
@@ -174,11 +170,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\pluginconfig.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\service.cpp"
+				RelativePath=".\PluginConfig.cpp"
 				>
 			</File>
 			<File
@@ -208,11 +200,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\pluginconfig.h"
+				RelativePath=".\PluginConfig.h"
 				>
 			</File>
 			<File
-				RelativePath=".\service.h"
+				RelativePath=".\PluginDesc.h"
 				>
 			</File>
 			<File
@@ -236,6 +228,10 @@
 				</File>
 				<File
 					RelativePath=".\interface\IBundle.h"
+					>
+				</File>
+				<File
+					RelativePath=".\interface\IService.h"
 					>
 				</File>
 			</Filter>
