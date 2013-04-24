@@ -31,16 +31,20 @@ namespace UiUtils{
 
 		~Menu();
 
-	void	add(IAction* action);
-
-	private:
-		vector<IAction*> actions_;
+	protected:
+		virtual vector<IAction*>	getActions()	= 0;
 
 	private slots:
 		void	actionTriggeredSlot(bool checked);
+		void	onAboutToShowSlot();
+
+	private:
+		void	add(IAction* action);
+		void	initConnect();
 
 	private:
 		IContext*	context_;
+		vector<IAction*> actions_;
 
 	};
 

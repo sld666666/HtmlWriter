@@ -17,6 +17,8 @@ public:
 	~WorkBench();
 
 private:
+	void	initBundles();
+	void	initActionBar();
 	void	appendDockWidget(const IBundle* bundle);
 
 private:

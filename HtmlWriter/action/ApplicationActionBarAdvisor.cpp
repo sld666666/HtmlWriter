@@ -19,7 +19,7 @@ void ApplicationActionBarAdvisor::makeActions()
 
 void ApplicationActionBarAdvisor::fillMenuBar(const MenuManagerPtr menuManager)
 {
-	Menu* fileMenu(new Menu(tr("File")));
-	fileMenu->addAction(OpenAction_);
-	menuManager->addMenu(fileMenu);
+// 	Menu* fileMenu(new Menu(tr("File")));
+// 	fileMenu->addAction(OpenAction_);
+// 	menuManager->addMenu(fileMenu);
 }

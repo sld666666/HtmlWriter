@@ -3,16 +3,34 @@
 #include "BundleFunctors.h"
 #include "BundlesContainer.h"
 #include "UiHelper.h"
+#include "action/MenuBarFileMenu.h"
 
 
 WorkBench::WorkBench(QWidget *parent)
 	: QMainWindow(parent)
 {
  	ui.setupUi(this);
+	UiUtils::UiHelper::updateWidgetWithHLayout(this);
 
+	initBundles();
+	initActionBar();
+
+}
+
+WorkBench::~WorkBench()
+{
+
+}
+
+void WorkBench::initActionBar()
+{
+	 menuBar()->addMenu(new MenuBarFileMenu(NULL, this));
+}
+
+void WorkBench::initBundles() 
+{
 	service::ServiceLoader serviceLoader;
 	serviceLoader.loadPlugins();
-
 
 	vector<IBundle*> bundles = BundlesContainer::instance().getBundles();
 	vector<IBundle*> benchViewBundle(bundles.size());
@@ -23,11 +41,6 @@ WorkBench::WorkBench(QWidget *parent)
 		, bind(&WorkBench::appendDockWidget, this, _1));
 }
 
-WorkBench::~WorkBench()
-{
-
-}
-
 void WorkBench::appendDockWidget(const IBundle* bundle)
 {
 	if (!bundle)return;
@@ -35,10 +48,11 @@ void WorkBench::appendDockWidget(const IBundle* bundle)
 	QString name = QString::fromStdString(bundle->getBundlelConfig()->getDllName());
 	QDockWidget *dock = new QDockWidget(name, this);
 	QWidget* widget = new QWidget(dock);
+	UiUtils::UiHelper::updateWidgetWithHLayout(widget);
 	widget->setMinimumWidth(200);
 	dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
 	dock->setWidget(widget);
-	widget->setStyleSheet("background-color: rgb(100, 161, 79);");
+	setCentralWidget(dock);
 	addDockWidget(Qt::LeftDockWidgetArea, dock, Qt::Horizontal);
 	BundleContext* context(new BundleContext());
  	context->setParent(widget);

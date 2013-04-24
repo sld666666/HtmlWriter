@@ -12,6 +12,7 @@ namespace UiUtils{
 	public:
 		IViewPart();
 		~IViewPart();
+		virtual void reflesh(const QString& filePath) = 0;
 	protected:
 		virtual void createPartControl(QWidget* parent) = 0;
 

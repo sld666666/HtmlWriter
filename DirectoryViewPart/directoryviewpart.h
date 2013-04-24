@@ -13,6 +13,7 @@ public:
 	DirectoryViewPart();
 	~DirectoryViewPart();
 
+	virtual void reflesh(const QString& filePath);
 public:
 	virtual void createPartControl(QWidget* parent);
 

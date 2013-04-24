@@ -4,14 +4,15 @@
 #include "DirTreeViewFilter.h"
 #include "DataManager.h"
 #include "context/TableSelectionContext.h"
-#include "action/DirectoryViewActions.h"
+
+#include "ViewServiceOperator.h"
 
 using UiUtils::TableSelectionContext;
 
 DirectoryViewWidget::DirectoryViewWidget(QWidget *parent)
 	: QWidget(parent)
 	, directoryTreeView_(new DirectoryTreeView(this))
-	, tableMenu_(new Menu(new TableSelectionContext(directoryTreeView_), this))
+	, tableMenu_(new DirectoryViewRightMenu(new TableSelectionContext(directoryTreeView_), this))
 {
 	ui.setupUi(this);
 	this->layout()->addWidget(directoryTreeView_);
@@ -34,11 +35,6 @@ void DirectoryViewWidget::initCtrl()
 
 void DirectoryViewWidget::initTableMenu()
 {
-	if (tableMenu_){
-		tableMenu_->add(new NewFolderAction("&new folder",this));
-		tableMenu_->add(new NewFileAction("&new file",this));
-		tableMenu_->add(new DeleteAction("&delete",this));
-	}
 }
 
 void DirectoryViewWidget::innitConnect()
@@ -58,7 +54,9 @@ void DirectoryViewWidget::showRightMenuSlot(const QPoint point)
 void DirectoryViewWidget::onDoubleClickedItemSlot(const QModelIndex & modelIndex)
 {
 	QString itemPath = fileSystemModel_.filePath(modelIndex); 
-	data::DataManager::instance().addData(itemPath.toStdString());
+	data::DataManager::instance().addData(itemPath);
+	UiUtils::ViewServiceOperator::instance().viewReflesh(
+		QString::fromStdString(BUNDELNAME), itemPath);
 }
 
 void DirectoryViewWidget::filterFileDirs()

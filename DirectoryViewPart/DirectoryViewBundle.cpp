@@ -28,7 +28,7 @@ BundleConfigPtr DirectoryViewBundle::getBundlelConfig() const
 {
 	BundleConfigPtr bundConfig(new BundleConfig(
 		service::RegisteredSevice::BENCHVIEW
-		, "DirectoryViewPart.dll"
+		, BUNDELNAME
 		, directoryViewPart_));
 	return bundConfig;
 }

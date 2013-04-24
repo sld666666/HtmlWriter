@@ -15,8 +15,9 @@ namespace UiUtils{
 
 		virtual	void	sartService(BundleContext* context);
 
+		virtual void	reflesh(const QString& filePath) = 0;
 	protected:
-		virtual void createPartControl(QWidget* parent) = 0;
+		virtual void	createPartControl(QWidget* parent) = 0;
 
 	private:
 

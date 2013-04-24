@@ -14,9 +14,8 @@
 #include "ui_DirectoryViewWidget.h"
 #include "directoryviewpart_global.h"
 #include "DirectoryTreeView.h"
-#include "action\Menu.h"
+#include "action\DirectoryViewRightMenu.h"
 
-using UiUtils::Menu;
 
 class DirectoryViewWidget : public QWidget
 {
@@ -45,7 +44,7 @@ private:
 	Ui::DirectoryViewWidget ui;
 	QFileSystemModel		fileSystemModel_;
 	DirectoryTreeView*		directoryTreeView_;
-	Menu*					tableMenu_;
+	UiUtils::Menu*			tableMenu_;
 };
 
 #endif // DIRECTORYVIEWWIDGET_H

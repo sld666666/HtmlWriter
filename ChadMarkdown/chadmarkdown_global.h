@@ -1,0 +1,12 @@
+#ifndef CHADMARKDOWN_GLOBAL_H
+#define CHADMARKDOWN_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#ifdef CHADMARKDOWN_LIB
+# define CHADMARKDOWN_EXPORT Q_DECL_EXPORT
+#else
+# define CHADMARKDOWN_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // CHADMARKDOWN_GLOBAL_H

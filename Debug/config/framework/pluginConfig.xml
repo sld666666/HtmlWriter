@@ -9,4 +9,8 @@
 	<name>MarkdownEditorViewPart.dll</name>
 	<service>benchview</service>
 </plugin>
+<plugin>
+	<name>HtmlPreviewViewPart.dll</name>
+	<service>benchview</service>
+</plugin>
 </plugins>

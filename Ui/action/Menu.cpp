@@ -4,6 +4,7 @@ namespace UiUtils{
 	Menu::Menu(const QString& title, QWidget * parent)
 		: QMenu(title, parent)
 	{
+		initConnect();
 	}
 
 	Menu::Menu(const QString& title
@@ -12,6 +13,7 @@ namespace UiUtils{
 		: QMenu(title, parent)
 		, context_(context)
 	{
+		initConnect();
 	}
 
 	Menu::Menu(IContext* context
@@ -19,11 +21,16 @@ namespace UiUtils{
 			: QMenu(parent)
 			, context_(context)
 	{
-
+		initConnect();
 	}
 
 	Menu::~Menu()
 	{
+	}
+
+	void  Menu::initConnect()
+	{
+		connect(this, SIGNAL(aboutToShow()), this, SLOT(onAboutToShowSlot()));
 	}
 
 	void Menu::add(IAction* action)
@@ -42,5 +49,14 @@ namespace UiUtils{
 		{
 			action->execute(context_);
 		}					
+	}
+
+	void Menu::onAboutToShowSlot()
+	{
+		if (actions_.empty()){
+			actions_ = getActions();
+			for_each(actions_.begin(), actions_.end(), 
+				bind(&Menu::add, this, _1));
+		}
 	}
 }

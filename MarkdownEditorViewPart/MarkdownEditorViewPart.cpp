@@ -2,6 +2,7 @@
 
 
 MarkdownEditorViewPart::MarkdownEditorViewPart()
+: markdownEditorWidget_(NULL)
 {
 
 }
@@ -11,12 +12,17 @@ MarkdownEditorViewPart::~MarkdownEditorViewPart()
 
 }
 
+void MarkdownEditorViewPart::reflesh(const QString& filePath)
+{
+	markdownEditorWidget_->reflesh(filePath);
+}
+
 void MarkdownEditorViewPart::createPartControl(QWidget* parent)
 {
 	if (!parent)return;
 	
-	MarkdownEditorWidget* markdownEditorWidget(
-		new MarkdownEditorWidget(parent));
+	markdownEditorWidget_ =	new MarkdownEditorWidget(parent);
+	parent->layout()->addWidget(markdownEditorWidget_);
 
 }
 

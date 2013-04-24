@@ -26,7 +26,7 @@ BundleConfigPtr MarkdownEditorViewBundle::getBundlelConfig() const
 {
 	BundleConfigPtr bundConfig(new BundleConfig(
 		service::RegisteredSevice::BENCHVIEW
-		, "MarkdownEditorViewPart.dll"
+		, BUNDELNAME
 		, markdownEditorViewPart_));
 	return bundConfig;
 }

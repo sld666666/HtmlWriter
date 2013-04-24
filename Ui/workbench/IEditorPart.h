@@ -20,12 +20,12 @@ namespace UiUtils{
 		IEditorPart();
 		~IEditorPart();
 
+		virtual void reflesh(const QString& filePath) = 0;
+
 	protected:
 		virtual void createPartControl(QWidget* parent) = 0;
 		virtual void doSave() = 0;
 		virtual void doSaveAs() = 0;
-
-
 	private:
 
 	};

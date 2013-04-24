@@ -16,15 +16,17 @@ namespace data{
 	public:
 		~DataManager();
 
-		bool	addData(const string& key);
-		void	deleteData(const string& key);
-		void	getString(const string& key, string& rtn);
+		bool	addData(const QString& key);
+		void	insert(const QString& key, const QString& value);
+		void	deleteData(const QString& key);
+		void	getString(const QString& key, QString& rtn);
+		bool	writeData(const QString& key);	
 
 	private:
 		DataManager();
 		friend class ISingleton<DataManager>;
 	private:
-		map<string, char*> datas_;
+		map<QString, QString> datas_;
 	};
 }
 
