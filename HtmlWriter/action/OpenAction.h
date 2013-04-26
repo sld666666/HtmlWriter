@@ -16,7 +16,7 @@ public:
 	OpenAction(const QString& text, QObject * parent = 0);
 	~OpenAction();
 
-	virtual	void	execute(IContext* context);
+	virtual	void	execute();
 };
 
 #endif // OPENACTION_H

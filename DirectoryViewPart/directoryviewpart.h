@@ -6,6 +6,7 @@
 #include "DirectoryViewWidget.h"
 
 using namespace UiUtils;
+using namespace service;
 
 class   DirectoryViewPart : public IViewPart
 {
@@ -13,9 +14,14 @@ public:
 	DirectoryViewPart();
 	~DirectoryViewPart();
 
+	virtual ServiceConfigPtr getServiceConfig() const;
+
 	virtual void reflesh(const QString& filePath);
-public:
+
 	virtual void createPartControl(QWidget* parent);
+
+public:
+	DirectoryViewWidget*	getDirectoryViewWidget() const ;
 
 private:
 	DirectoryViewWidget*	directoryViewWidget_;

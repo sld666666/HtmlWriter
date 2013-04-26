@@ -11,6 +11,7 @@
 #include "ui_global.h"
 #include "ISingleton.h"
 #include "BundlesContainer.h"
+#include "ServiceManager.h"
 
 using namespace service;
 
@@ -21,15 +22,16 @@ namespace  UiUtils{
 	public:
 		~ViewServiceOperator();
 
-		void	viewReflesh(const QString& bundelName, const QString& filePath);
+		void	viewReflesh(const QString& serviceName, const QString& filePath);
 
 	private:
 		ViewServiceOperator();
 		friend class ISingleton<ViewServiceOperator>;
 
 	private:
-		void	doViewReflesh(const QString& bundelName, const QString& filePath);
-		void	refleshViewService(const QString& bundelName, const QString& filePath, IBundle*bundle);
+		void	doViewReflesh(const QString& serviceName, const QString& filePath);
+		void	refleshViewService(const QString& serviceName, const QString& filePath
+			, IService* service);
 	};
 }
 

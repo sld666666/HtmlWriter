@@ -1,8 +1,8 @@
 #include "DirectoryViewRightMenu.h"
 #include "DirectoryViewActions.h"
 
-DirectoryViewRightMenu::DirectoryViewRightMenu(IContext* context, QWidget* parent )
-: UiUtils::Menu(context, parent)
+DirectoryViewRightMenu::DirectoryViewRightMenu(QWidget* parent )
+: UiUtils::Menu(parent)
 {
 
 }
@@ -12,6 +12,12 @@ DirectoryViewRightMenu::~DirectoryViewRightMenu()
 
 }
 
+
+
+ServiceConfigPtr DirectoryViewRightMenu::getServiceConfig() const
+{
+	return ServiceConfigPtr(new ServiceConfig(ST_MENU, "DirectoryViewRightMenu"));
+}
 
 vector<IAction*> DirectoryViewRightMenu::getActions()
 {

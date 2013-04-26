@@ -3,16 +3,13 @@
 #include "DirectoryViewWidget.h"
 #include "DirTreeViewFilter.h"
 #include "DataManager.h"
-#include "context/TableSelectionContext.h"
-
 #include "ViewServiceOperator.h"
 
-using UiUtils::TableSelectionContext;
 
 DirectoryViewWidget::DirectoryViewWidget(QWidget *parent)
 	: QWidget(parent)
 	, directoryTreeView_(new DirectoryTreeView(this))
-	, tableMenu_(new DirectoryViewRightMenu(new TableSelectionContext(directoryTreeView_), this))
+	, tableMenu_(new DirectoryViewRightMenu(this))
 {
 	ui.setupUi(this);
 	this->layout()->addWidget(directoryTreeView_);
@@ -56,12 +53,17 @@ void DirectoryViewWidget::onDoubleClickedItemSlot(const QModelIndex & modelIndex
 	QString itemPath = fileSystemModel_.filePath(modelIndex); 
 	data::DataManager::instance().addData(itemPath);
 	UiUtils::ViewServiceOperator::instance().viewReflesh(
-		QString::fromStdString(BUNDELNAME), itemPath);
+		QString::fromStdString(DIR_VIEW_SERVICENAME), itemPath);
 }
 
 void DirectoryViewWidget::filterFileDirs()
 {
 	DirTreeViewFilter().doFilter(directoryTreeView_, fileSystemModel_);
+}
+
+QAbstractItemView* DirectoryViewWidget::getItemView()
+{
+	return directoryTreeView_;
 }
 
 

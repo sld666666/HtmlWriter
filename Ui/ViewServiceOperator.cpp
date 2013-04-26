@@ -1,6 +1,7 @@
 #include "ViewServiceOperator.h"
 #include "IWorkbenchPart.h"
 
+
 namespace UiUtils{
 	ViewServiceOperator::ViewServiceOperator()
 	{
@@ -10,31 +11,31 @@ namespace UiUtils{
 	{
 	}
 
-	void ViewServiceOperator::viewReflesh(const QString& bundelName
+	void ViewServiceOperator::viewReflesh(const QString& serviceName
 										, const QString& filePath)
 	{
-		doViewReflesh(bundelName, filePath);
+		doViewReflesh(serviceName, filePath);
 	}
 
-	void ViewServiceOperator::doViewReflesh(const QString& bundelName
+	void ViewServiceOperator::doViewReflesh(const QString& serviceName
 										, const QString& filePath)
 	{
-		vector<IBundle*> bundles = BundlesContainer::instance().getBundles();
-		std::for_each(bundles.begin(), bundles.end()
+		vector<IService*> services = ServiceManager::instance().getServices();
+		std::for_each(services.begin(), services.end()
 			, bind(&ViewServiceOperator::refleshViewService
-			, this, bundelName, filePath, _1));
+			, this, serviceName, filePath, _1));
 	}
 
-	void ViewServiceOperator::refleshViewService(const QString& bundelName
+	void ViewServiceOperator::refleshViewService(const QString& serviceName
 												, const QString& filePath
-												, IBundle*bundle)
+												, IService* service)
 	{
-		if (!bundle) return;
+		if (!service) return;
 
-		if (bundle->getBundlelConfig()->getServiceName() == RegisteredSevice::BENCHVIEW
-			&& bundelName.toStdString() != bundle->getBundlelConfig()->getDllName()){
-			IWorkbenchPart* workPart = static_cast<IWorkbenchPart*>( 
-				bundle->getBundlelConfig()->getSerice());
+		if ((service->getServiceConfig()->getServiceType() == ST_VIEW
+			|| service->getServiceConfig()->getServiceType() == ST_EDITOR)
+			&& serviceName.toStdString() != service->getServiceConfig()->getServiceName()){
+			IWorkbenchPart* workPart = static_cast<IWorkbenchPart*>(service);
 			if (workPart){
 				workPart->reflesh(filePath);
 			}

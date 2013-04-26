@@ -12,7 +12,6 @@
 #include <QAction>
 
 #include "ui_global.h"
-#include "context/IContext.h"
 
 namespace UiUtils{
 	class UI_EXPORT IAction : public QAction
@@ -23,7 +22,7 @@ namespace UiUtils{
 		IAction(const QString& text, QObject * parent = 0);
 		~IAction();
 
-		virtual	void	execute(IContext* context) = 0;
+		virtual	void	execute() = 0;
 	};
 }
 

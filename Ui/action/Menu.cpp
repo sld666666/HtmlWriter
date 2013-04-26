@@ -7,19 +7,9 @@ namespace UiUtils{
 		initConnect();
 	}
 
-	Menu::Menu(const QString& title
-		, IContext* context
-		, QWidget * parent)
-		: QMenu(title, parent)
-		, context_(context)
-	{
-		initConnect();
-	}
 
-	Menu::Menu(IContext* context
-			, QWidget * parent)
+	Menu::Menu(QWidget * parent)
 			: QMenu(parent)
-			, context_(context)
 	{
 		initConnect();
 	}
@@ -47,7 +37,7 @@ namespace UiUtils{
 		IAction* action = dynamic_cast<IAction*> (sender());
 		if(action)
 		{
-			action->execute(context_);
+			action->execute();
 		}					
 	}
 

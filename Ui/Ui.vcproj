@@ -233,10 +233,6 @@
 			<Filter
 				Name="context"
 				>
-				<File
-					RelativePath=".\context\TableSelectionContext.cpp"
-					>
-				</File>
 			</Filter>
 		</Filter>
 		<Filter
@@ -555,32 +551,6 @@
 				>
 				<File
 					RelativePath=".\context\IContext.h"
-					>
-					<FileConfiguration
-						Name="Release|Win32"
-						>
-						<Tool
-							Name="VCCustomBuildTool"
-							Description=""
-							CommandLine=""
-							AdditionalDependencies=""
-							Outputs=""
-						/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Debug|Win32"
-						>
-						<Tool
-							Name="VCCustomBuildTool"
-							Description=""
-							CommandLine=""
-							AdditionalDependencies=""
-							Outputs=""
-						/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath=".\context\TableSelectionContext.h"
 					>
 					<FileConfiguration
 						Name="Release|Win32"

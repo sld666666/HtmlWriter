@@ -8,7 +8,8 @@
 using std::map;
 using std::string;
 
-const string BUNDELNAME("DirectoryViewPart.dll");
+const string DIR_VIEW_BUNDELNAME("DirectoryViewPart.dll");
+const string DIR_VIEW_SERVICENAME("DirectoryViewPart");
 
 #ifdef DIRECTORYVIEWPART_LIB
 # define DIRECTORYVIEWPART_EXPORT Q_DECL_EXPORT

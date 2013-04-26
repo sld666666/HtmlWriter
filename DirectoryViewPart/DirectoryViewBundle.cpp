@@ -1,4 +1,5 @@
 #include "DirectoryViewBundle.h"
+#include "ServiceManager.h"
 
 
 DirectoryViewBundle::DirectoryViewBundle()
@@ -15,7 +16,7 @@ DirectoryViewBundle::~DirectoryViewBundle()
 void DirectoryViewBundle::start( BundleContext* context )const
 {
 	if (directoryViewPart_){
-		directoryViewPart_->sartService(context);
+		ServiceManager::instance().appendService(directoryViewPart_);
 	}
 }
 
@@ -28,7 +29,6 @@ BundleConfigPtr DirectoryViewBundle::getBundlelConfig() const
 {
 	BundleConfigPtr bundConfig(new BundleConfig(
 		service::RegisteredSevice::BENCHVIEW
-		, BUNDELNAME
-		, directoryViewPart_));
+		, DIR_VIEW_BUNDELNAME));
 	return bundConfig;
 }

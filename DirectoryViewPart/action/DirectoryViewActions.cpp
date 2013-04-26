@@ -4,6 +4,8 @@
 #include "DirectoryViewActions.h"
 #include "DirectoryViewPartConfig.h"
 #include "FileCreator.h"
+#include "ServiceManager.h"
+#include "../DirectoryViewPart.h"
 
 IDirectoryViewAction::IDirectoryViewAction(const QString& text
 										   , QObject * parent)
@@ -16,24 +18,28 @@ IDirectoryViewAction::~IDirectoryViewAction()
 
 }
 
-void IDirectoryViewAction::execute(IContext* context)
+void IDirectoryViewAction::execute()
 {
-	selectContext_ = static_cast<TableSelectionContext*>(context);
-	if (selectContext_){
-		QString filePath = getSelectItemPath(); 
-		doExeute(filePath);
+	IService* service = ServiceManager::instance().find(DIR_VIEW_SERVICENAME);
+	DirectoryViewPart* dirViewPart = static_cast<DirectoryViewPart*>(service);
+	if (dirViewPart){
+		parentItemView_ = dirViewPart->getDirectoryViewWidget()->getItemView();
+		if (parentItemView_){
+			QString filePath = getSelectItemPath(); 
+			doExeute(filePath);
+		}
 	}
 }
 
-TableSelectionContext*	IDirectoryViewAction::getContext()
+QAbstractItemView*	IDirectoryViewAction::parentItemView()
 {
-	return selectContext_;
+	return parentItemView_;
 }
 
 QString IDirectoryViewAction::getSelectItemPath()
 {
 	QString itemPath("");
-	QItemSelectionModel* selecitonModel = getContext()->getItemView()->selectionModel();
+	QItemSelectionModel* selecitonModel = parentItemView()->selectionModel();
 	if (selecitonModel){
 		if (selecitonModel->selectedRows().isEmpty()){
 			QString path = QString::fromStdString(DirectoryViewPartConfig::
@@ -43,7 +49,7 @@ QString IDirectoryViewAction::getSelectItemPath()
 		else{
 			QModelIndex modelIndex = selecitonModel->currentIndex();
 			QFileSystemModel* fileSystemModel = static_cast<QFileSystemModel*>(
-				getContext()->getItemView()->model());
+				parentItemView()->model());
 			if (fileSystemModel){
 				itemPath = fileSystemModel->filePath(modelIndex); 
 			}	
@@ -57,8 +63,7 @@ bool IDirectoryViewAction::getNewFilePath(const QString& itemPath
 {
 	bool rtn(false);
 	rtnPath = itemPath;
-	FileCreator fileCreator(rtnPath, getContext()
-		?getContext()->getItemView()->parentWidget():NULL);
+	FileCreator fileCreator(rtnPath, parentItemView()->parentWidget());
 
 	fileCreator.show();
 	if (QDialog::Accepted == fileCreator.exec()){

@@ -177,6 +177,10 @@
 				RelativePath=".\ServiceLoader.cpp"
 				>
 			</File>
+			<File
+				RelativePath=".\ServiceManager.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -212,8 +216,42 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ServiceContainer.h"
+				>
+			</File>
+			<File
+				RelativePath=".\ServiceFunctors.h"
+				>
+			</File>
+			<File
 				RelativePath=".\ServiceLoader.h"
 				>
+			</File>
+			<File
+				RelativePath=".\ServiceManager.h"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description=""
+						CommandLine=""
+						AdditionalDependencies=""
+						Outputs=""
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description=""
+						CommandLine=""
+						AdditionalDependencies=""
+						Outputs=""
+					/>
+				</FileConfiguration>
 			</File>
 			<Filter
 				Name="interface"
@@ -232,6 +270,10 @@
 				</File>
 				<File
 					RelativePath=".\interface\IService.h"
+					>
+				</File>
+				<File
+					RelativePath=".\interface\ServiceConfig.h"
 					>
 				</File>
 			</Filter>
@@ -265,6 +307,18 @@
 			UniqueIdentifier="{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}"
 			SourceControlFiles="false"
 			>
+			<Filter
+				Name="Release"
+				Filter="cpp;moc"
+				SourceControlFiles="false"
+				>
+			</Filter>
+			<Filter
+				Name="Debug"
+				Filter="cpp;moc"
+				SourceControlFiles="false"
+				>
+			</Filter>
 		</Filter>
 	</Files>
 	<Globals>

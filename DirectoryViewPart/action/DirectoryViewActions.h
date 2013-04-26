@@ -1,11 +1,9 @@
 #ifndef DIRECTORYVIEWACTIONS_H
 #define DIRECTORYVIEWACTIONS_H
+#include <QAbstractItemView>
 #include "action/IAction.h"
-#include "context/TableSelectionContext.h"
 
 using UiUtils::IAction;
-using UiUtils::IContext;
-using UiUtils::TableSelectionContext;
 
 class IDirectoryViewAction : public IAction
 {
@@ -13,7 +11,7 @@ public:
 	IDirectoryViewAction(const QString& text, QObject * parent);
 	~IDirectoryViewAction();
 
-	virtual	void	execute(IContext* context);
+	virtual	void	execute();
 
 private:
 	QString		getSelectItemPath();
@@ -21,11 +19,11 @@ protected:
 	virtual	void  doExeute(const QString& filePath) = 0;
 
 	bool		getNewFilePath(const QString& itemPath, QString& rtnPath);
-	TableSelectionContext*	getContext();
+	QAbstractItemView*	parentItemView();
 	QString		convertToFolderPath(const QString& filePath);
 
 private:
-	TableSelectionContext*	selectContext_;
+	QAbstractItemView*	parentItemView_;;
 };
 
 

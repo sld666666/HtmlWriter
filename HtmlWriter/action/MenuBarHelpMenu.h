@@ -1,33 +1,31 @@
 /** 
-* @file         MenuBarFileMenu.h 
+* @file         MenuBarHelpMenu.h 
 * @Synopsis       
 * @author         diwu.sld
 * @version      1.0
 * @date         2013-4-25
 */
-#ifndef MENUBARFILEMENU_H
-#define MENUBARFILEMENU_H
+#ifndef MENUBARHELPMENU_H
+#define MENUBARHELPMENU_H
 
 #include <QObject>
 #include <QWidget>
 #include "action/Menu.h"
 
 using namespace UiUtils;
-
-class MenuBarFileMenu : public UiUtils::Menu
+class MenuBarHelpMenu : public UiUtils::Menu
 {
 	Q_OBJECT
 
 public:
-	MenuBarFileMenu(QWidget * parent = 0);
-	~MenuBarFileMenu();
+	MenuBarHelpMenu(QWidget * parent = 0);
+	~MenuBarHelpMenu();
 
 	virtual ServiceConfigPtr getServiceConfig() const;
-
 protected:
 	virtual vector<UiUtils::IAction*>	getActions();
 private:
 	
 };
 
-#endif // MENUBARFILEMENU_H
+#endif // MENUBARHELPMENU_H

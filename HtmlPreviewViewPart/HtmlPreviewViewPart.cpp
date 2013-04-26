@@ -11,6 +11,11 @@ HtmlPreviewViewPart::~HtmlPreviewViewPart()
 
 }
 
+ServiceConfigPtr HtmlPreviewViewPart::getServiceConfig() const
+{
+	return ServiceConfigPtr(new ServiceConfig(ST_VIEW, "HtmlPreviewViewPart"));
+}
+
 void HtmlPreviewViewPart::reflesh(const QString& filePath)
 {
 	if (htmlPreviewWidget_){

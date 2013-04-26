@@ -12,7 +12,7 @@ OpenAction::~OpenAction()
 }
 
 
-void OpenAction::execute(IContext* context)
+void OpenAction::execute()
 {
 
 }

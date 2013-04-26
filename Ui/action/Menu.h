@@ -13,21 +13,20 @@
 
 #include "ui_global.h"
 #include "IAction.h"
+#include "interface/IService.h"
 
-#include "ui_global.h"
+using namespace service;
 
 namespace UiUtils{
 
 	class UI_EXPORT Menu : public QMenu
+		, public IService
 	{
 		Q_OBJECT
 
 	public:
 		Menu(const QString& title, QWidget * parent = 0);
-
-		Menu(const QString& title, IContext* context, QWidget * parent = 0);
-
-		Menu(IContext* context, QWidget * parent = 0);
+		Menu(QWidget * parent = 0);
 
 		~Menu();
 
@@ -43,7 +42,6 @@ namespace UiUtils{
 		void	initConnect();
 
 	private:
-		IContext*	context_;
 		vector<IAction*> actions_;
 
 	};

@@ -12,7 +12,6 @@
 #include <sstream>
 #include <string>
 #include <boost/shared_ptr.hpp>
-#include "interface/IService.h"
 
 using namespace std;
 using boost::shared_ptr;
@@ -22,11 +21,9 @@ namespace service{
 	{
 	public:
 		BundleConfig( const string &serviceName
-					, const string &dllName
-					, IService* service)
+					, const string &dllName)
 			: serviceName_( serviceName )
 			, dllName_(dllName)
-			, service_(service)
 		{
 
 		}
@@ -35,7 +32,6 @@ namespace service{
 
 		string getDllName(){return dllName_;}
 
-		IService*	getSerice(){return service_;}
 
 		string toString(){
 			ostringstream infoStream;
@@ -48,7 +44,6 @@ namespace service{
 	private:	
 		string serviceName_;
 		string dllName_;
-		IService*	service_;
 	};
 
 	typedef boost::shared_ptr<BundleConfig> BundleConfigPtr;

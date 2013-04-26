@@ -1,26 +1,25 @@
 /** 
-* @file         MenuBarFileMenu.h 
+* @file         MenuBarEditorMenu.h 
 * @Synopsis       
 * @author         diwu.sld
 * @version      1.0
 * @date         2013-4-25
 */
-#ifndef MENUBARFILEMENU_H
-#define MENUBARFILEMENU_H
+#ifndef MENUBAREDITORMENU_H
+#define MENUBAREDITORMENU_H
 
 #include <QObject>
 #include <QWidget>
 #include "action/Menu.h"
 
 using namespace UiUtils;
-
-class MenuBarFileMenu : public UiUtils::Menu
+class MenuBarEditorMenu : public UiUtils::Menu
 {
 	Q_OBJECT
 
 public:
-	MenuBarFileMenu(QWidget * parent = 0);
-	~MenuBarFileMenu();
+	MenuBarEditorMenu(QWidget * parent = 0);
+	~MenuBarEditorMenu();
 
 	virtual ServiceConfigPtr getServiceConfig() const;
 

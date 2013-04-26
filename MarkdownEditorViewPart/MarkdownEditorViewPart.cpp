@@ -1,6 +1,5 @@
 #include "MarkdownEditorViewPart.h"
 
-
 MarkdownEditorViewPart::MarkdownEditorViewPart()
 : markdownEditorWidget_(NULL)
 {
@@ -10,6 +9,11 @@ MarkdownEditorViewPart::MarkdownEditorViewPart()
 MarkdownEditorViewPart::~MarkdownEditorViewPart()
 {
 
+}
+
+ServiceConfigPtr MarkdownEditorViewPart::getServiceConfig() const
+{
+	return ServiceConfigPtr(new ServiceConfig(ST_EDITOR, BUNDELNAME));
 }
 
 void MarkdownEditorViewPart::reflesh(const QString& filePath)

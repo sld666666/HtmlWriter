@@ -26,6 +26,8 @@ public:
 	~DirectoryViewWidget();
 
 	void		filterFileDirs();
+
+	QAbstractItemView* getItemView();
 	
 private:
 	void		initCtrl();

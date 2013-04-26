@@ -11,11 +11,6 @@ namespace UiUtils{
 
 	}
 
-	void IWorkbenchPart::sartService(BundleContext* context)
-	{
-		QWidget* parent = static_cast<QWidget*>(context->getParent());
-		if (parent)createPartControl(parent);
-	}
 }
 
 

@@ -1,5 +1,5 @@
 #include "HtmlPreviewBundle.h"
-
+#include "ServiceManager.h"
 
 HtmlPreviewBundle::HtmlPreviewBundle()
 :htmlPreviewViewPart_(new HtmlPreviewViewPart())
@@ -15,7 +15,7 @@ HtmlPreviewBundle::~HtmlPreviewBundle()
 void HtmlPreviewBundle::start( BundleContext* context )const
 {
 	if (htmlPreviewViewPart_){
-		htmlPreviewViewPart_->sartService(context);
+		ServiceManager::instance().appendService(htmlPreviewViewPart_);
 	}
 }
 
@@ -28,7 +28,6 @@ BundleConfigPtr HtmlPreviewBundle::getBundlelConfig() const
 {
 	BundleConfigPtr bundConfig(new BundleConfig(
 		service::RegisteredSevice::BENCHVIEW
-		, "HtmlPreviewBundle.dll"
-		, htmlPreviewViewPart_));
+		, "HtmlPreviewBundle.dll"));
 	return bundConfig;
 }

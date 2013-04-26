@@ -5,6 +5,7 @@
 #include "ui_WorkBench.h"
 #include "ServiceLoader.h"
 #include "interface/IBundle.h"
+#include "ServiceManager.h"
 
 using namespace service;
 
@@ -18,8 +19,12 @@ public:
 
 private:
 	void	initBundles();
+	void	initSelfServices();
+	void	initViewPart();
 	void	initActionBar();
-	void	appendDockWidget(const IBundle* bundle);
+	void	startBundle(const IBundle* bundle);
+	void	appendDockWidget(IService* service);
+	void	appendMenuBar(IService* service);
 
 private:
 	Ui::WorkBench ui;

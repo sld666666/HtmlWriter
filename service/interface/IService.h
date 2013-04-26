@@ -12,6 +12,7 @@
 
 #include "service_global.h"
 #include "BundleContext.h"
+#include "ServiceConfig.h"
 
 namespace service
 {
@@ -20,11 +21,9 @@ namespace service
 	public:
 		IService(){};
 		~IService(){};
-
-		virtual	void sartService(BundleContext* context) = 0;
+		
+		virtual ServiceConfigPtr getServiceConfig() const = 0;
 	};
-
-	typedef shared_ptr<IService> IServicePtr;
 }
 
 

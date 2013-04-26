@@ -10,9 +10,10 @@ class DirectoryViewRightMenu : public UiUtils::Menu
 	Q_OBJECT
 
 public:
-	DirectoryViewRightMenu(UiUtils::IContext* context, QWidget * parent = 0);
+	DirectoryViewRightMenu(QWidget * parent = 0);
 	~DirectoryViewRightMenu();
 
+	ServiceConfigPtr getServiceConfig() const;
 protected:
 	virtual vector<UiUtils::IAction*>	getActions();
 
