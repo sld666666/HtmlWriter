@@ -15,8 +15,10 @@ class OpenAction : public IAction
 public:
 	OpenAction(const QString& text, QObject * parent = 0);
 	~OpenAction();
-
+	
 	virtual	void	execute();
+
+	virtual	long	serviceId();
 };
 
 #endif // OPENACTION_H

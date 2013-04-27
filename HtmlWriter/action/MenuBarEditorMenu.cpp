@@ -11,9 +11,9 @@ MenuBarEditorMenu::~MenuBarEditorMenu()
 
 }
 
-ServiceConfigPtr MenuBarEditorMenu::getServiceConfig() const
+long MenuBarEditorMenu::serviceId()
 {
-	return ServiceConfigPtr(new ServiceConfig(ST_MENU, "MenuBarEditorMenu"));
+	return RegisteredSeviceID::RSI_MENU_EDITOR;
 }
 
 vector<IAction*> MenuBarEditorMenu::getActions()

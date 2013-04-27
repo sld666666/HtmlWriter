@@ -11,9 +11,9 @@ MenuBarHelpMenu::~MenuBarHelpMenu()
 
 }
 
-ServiceConfigPtr MenuBarHelpMenu::getServiceConfig() const
+long MenuBarHelpMenu::serviceId()
 {
-	return ServiceConfigPtr(new ServiceConfig(ST_MENU, "MenuBarHelpMenu"));
+	return RegisteredSeviceID::RSI_MENU_HELP;
 }
 
 vector<IAction*> MenuBarHelpMenu::getActions()

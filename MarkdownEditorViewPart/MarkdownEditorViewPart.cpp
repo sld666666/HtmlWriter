@@ -11,9 +11,9 @@ MarkdownEditorViewPart::~MarkdownEditorViewPart()
 
 }
 
-ServiceConfigPtr MarkdownEditorViewPart::getServiceConfig() const
+long MarkdownEditorViewPart::serviceId()
 {
-	return ServiceConfigPtr(new ServiceConfig(ST_EDITOR, BUNDELNAME));
+	return RegisteredSeviceID::RSI_EDITOR_MARKDOWNEDITORVIEW;
 }
 
 void MarkdownEditorViewPart::reflesh(const QString& filePath)

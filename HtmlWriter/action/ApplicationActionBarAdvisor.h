@@ -9,26 +9,22 @@
 #define APPLICATIONACTIONBARADVISOR_H
 
 #include <QObject>
-#include "action/ActionBarAdvisor.h"
-#include "action/MenuManager.h"
-#include "action/ActionConfigurer.h"
-#include "action/OpenAction.h"
+#include <QMenuBar>
+#include <QToolBar>
 
-using namespace UiUtils;
-
-class ApplicationActionBarAdvisor : public ActionBarAdvisor
+class ApplicationActionBarAdvisor : public QObject
 {
 	Q_OBJECT
 
 public:
-	ApplicationActionBarAdvisor(ActionConfigurerPtr actionConfig);
+	ApplicationActionBarAdvisor();
 	~ApplicationActionBarAdvisor();
+
+	virtual	void fillMenuBar(QMenuBar* menuBar);
+	virtual	void fillToolBar(QToolBar* toolBar);
+
 protected:
 	virtual	void makeActions();
-	virtual	void fillMenuBar(const MenuManagerPtr menuManager);
-private:
-	OpenAction*		OpenAction_;
+	
 };
-
-typedef shared_ptr<ApplicationActionBarAdvisor> ApplicationActionBarAdvisorPtr;
 #endif // APPLICATIONACTIONBARADVISOR_H

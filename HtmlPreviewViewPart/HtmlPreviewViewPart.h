@@ -13,7 +13,7 @@ public:
 	HtmlPreviewViewPart();
 	~HtmlPreviewViewPart();
 
-	virtual	ServiceConfigPtr getServiceConfig() const ;
+	virtual long serviceId();
 
 	virtual void reflesh(const QString& filePath);
 

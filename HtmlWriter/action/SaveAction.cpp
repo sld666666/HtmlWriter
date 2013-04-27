@@ -16,3 +16,8 @@ void SaveAction::execute()
 {
 
 }
+
+long SaveAction::serviceId()
+{
+	return -1;
+}

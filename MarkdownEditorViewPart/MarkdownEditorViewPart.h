@@ -12,10 +12,8 @@ public:
 	MarkdownEditorViewPart();
 	~MarkdownEditorViewPart();
 
-	virtual		ServiceConfigPtr getServiceConfig() const ;
-
+	virtual		long serviceId();
 	virtual		void reflesh(const QString& filePath);
-
 	virtual		void createPartControl(QWidget* parent);
 	virtual		void doSave();
 	virtual		void doSaveAs();

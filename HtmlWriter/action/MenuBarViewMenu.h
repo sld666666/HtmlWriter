@@ -20,7 +20,7 @@ class MenuBarViewMenu : public UiUtils::Menu
 public:
 	MenuBarViewMenu(QWidget * parent = 0);
 	~MenuBarViewMenu();
-	virtual ServiceConfigPtr getServiceConfig() const;
+	virtual long serviceId();
 protected:
 	virtual vector<UiUtils::IAction*>	getActions();
 private:

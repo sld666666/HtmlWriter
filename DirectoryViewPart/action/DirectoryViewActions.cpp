@@ -18,6 +18,11 @@ IDirectoryViewAction::~IDirectoryViewAction()
 
 }
 
+long IDirectoryViewAction::serviceId()
+{
+	return RegisteredSeviceID::RSI_UNREGISTER;
+}
+
 void IDirectoryViewAction::execute()
 {
 	IService* service = ServiceManager::instance().find(DIR_VIEW_SERVICENAME);

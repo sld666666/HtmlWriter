@@ -48,12 +48,9 @@ namespace service{
 
 	typedef boost::shared_ptr<BundleConfig> BundleConfigPtr;
 
-
-	namespace RegisteredSevice
-	{
+	namespace RegisteredSevice{
 		const string BENCHVIEW = "benchview";
-
-
 	}
+	
 }
 #endif

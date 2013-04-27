@@ -24,6 +24,8 @@ public:
 	~SaveAsAction();
 
 	virtual	void	execute();
+
+	virtual	long	serviceId();
 };
 
 #endif // OPENACTION_H

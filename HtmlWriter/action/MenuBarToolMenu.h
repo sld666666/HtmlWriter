@@ -21,7 +21,7 @@ public:
 	MenuBarToolMenu(QWidget * parent = 0);
 	~MenuBarToolMenu();
 
-	virtual ServiceConfigPtr getServiceConfig() const;
+	virtual long serviceId();
 protected:
 	virtual vector<UiUtils::IAction*>	getActions();
 private:

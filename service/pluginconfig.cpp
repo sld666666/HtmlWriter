@@ -1,7 +1,7 @@
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/xml_parser.hpp>
-
 #include <boost/any.hpp>
+
 #include "pluginconfig.h"
 #include "CustomDefinition.h"
 #include "ApplicationConfig.h"

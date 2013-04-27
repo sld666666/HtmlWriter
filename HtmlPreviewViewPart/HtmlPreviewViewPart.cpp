@@ -11,9 +11,9 @@ HtmlPreviewViewPart::~HtmlPreviewViewPart()
 
 }
 
-ServiceConfigPtr HtmlPreviewViewPart::getServiceConfig() const
+long HtmlPreviewViewPart::serviceId()
 {
-	return ServiceConfigPtr(new ServiceConfig(ST_VIEW, "HtmlPreviewViewPart"));
+	return RegisteredSeviceID::RSI_VIEW_HTMLPREVIEW;
 }
 
 void HtmlPreviewViewPart::reflesh(const QString& filePath)

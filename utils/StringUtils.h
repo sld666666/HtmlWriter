@@ -20,6 +20,14 @@ namespace utils{
 		StringUtils();
 		~StringUtils();
 
+		template <typename T>
+		static T  strTo(const string& str){
+			stringstream ss(str);
+			T rtn;
+			ss >> rtn;
+			return rtn;
+		}
+	
 	};
 
 

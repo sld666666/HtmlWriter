@@ -14,9 +14,9 @@ MenuBarFileMenu::~MenuBarFileMenu()
 
 }
 
-ServiceConfigPtr MenuBarFileMenu::getServiceConfig() const
+long MenuBarFileMenu::serviceId()
 {
-	return ServiceConfigPtr(new ServiceConfig(ST_MENU, "MenuBarFileMenu"));
+	return RegisteredSeviceID::RSI_MENU_FILE;
 }
 
 vector<IAction*> MenuBarFileMenu::getActions()

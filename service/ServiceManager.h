@@ -18,6 +18,7 @@ namespace service{
 	{
 	public:
 		~ServiceManager();
+	public:
 		void				appendService(IService* service);
 
 		vector<IService*>	getServices();

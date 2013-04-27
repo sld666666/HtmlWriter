@@ -12,6 +12,7 @@ public:
 	~IDirectoryViewAction();
 
 	virtual	void	execute();
+	virtual	long	serviceId();
 
 private:
 	QString		getSelectItemPath();

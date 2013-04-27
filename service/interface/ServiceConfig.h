@@ -9,12 +9,14 @@
 #define SERVICECONFIG_SERVICE_H
 
 #include "service_global.h"
+#include "GlobalServiceConstant.h"
 
 
 namespace service
 {
 	enum SERVICETYPES{
-		ST_VIEW = 0,
+		ST_UNKOWN = 0,
+		ST_VIEW = 1,
 		ST_EDITOR ,
 		ST_MENU 
 
@@ -22,9 +24,10 @@ namespace service
 	class SERVICE_EXPORT ServiceConfig
 	{
 	public:
-		ServiceConfig(SERVICETYPES type, const string& name)
+		ServiceConfig(SERVICETYPES type, const string& name, long id)
 			: serviceType_(type)
 			, serviceName_(name)
+			, serviceId_(id)
 		{
 
 		}
@@ -39,9 +42,14 @@ namespace service
 
 		void			setServiceName(const string& serviceName){serviceName_ = serviceName;}
 		string			getServiceName(){return serviceName_;}
+
+		long			getServiceId(){return serviceId_;}
+		void			setServiceId(long id ){serviceId_ = id;}
+
 	private:
 		SERVICETYPES serviceType_;
 		string		serviceName_;
+		long		serviceId_;
 	};
 
 	typedef shared_ptr<ServiceConfig> ServiceConfigPtr;

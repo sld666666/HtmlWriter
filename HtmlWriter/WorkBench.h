@@ -21,7 +21,8 @@ private:
 	void	initBundles();
 	void	initSelfServices();
 	void	initViewPart();
-	void	initActionBar();
+	void	initMenuBar();
+	void	initToolBar();
 	void	startBundle(const IBundle* bundle);
 	void	appendDockWidget(IService* service);
 	void	appendMenuBar(IService* service);

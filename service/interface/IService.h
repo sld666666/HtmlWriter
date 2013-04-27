@@ -13,6 +13,7 @@
 #include "service_global.h"
 #include "BundleContext.h"
 #include "ServiceConfig.h"
+#include "ServiceConfigManager.h"
 
 namespace service
 {
@@ -22,7 +23,12 @@ namespace service
 		IService(){};
 		~IService(){};
 		
-		virtual ServiceConfigPtr getServiceConfig() const = 0;
+		virtual long serviceId() = 0;
+
+		ServiceConfigPtr getServiceConfig(){
+			return ServiceConfigManager::instance()
+				.getServiceConfig(serviceId());
+		}
 	};
 }
 

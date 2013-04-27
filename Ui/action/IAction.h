@@ -10,11 +10,15 @@
 
 #include <QObject>
 #include <QAction>
+#include "interface/IService.h"
 
 #include "ui_global.h"
 
+using namespace service;
+
 namespace UiUtils{
 	class UI_EXPORT IAction : public QAction
+		, public IService
 	{
 		Q_OBJECT
 

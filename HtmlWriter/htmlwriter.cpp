@@ -22,9 +22,6 @@ HtmlWriter::HtmlWriter(QWidget *parent, Qt::WFlags flags)
 	service::ServiceLoader serviceLoader;
 	serviceLoader.loadPlugins();
 
-	ActionConfigurerPtr actionConfig(new ActionConfigurer((ui.menuBar)));
-	appActionBarAdvisor_ = (ApplicationActionBarAdvisorPtr(
-		new ApplicationActionBarAdvisor(actionConfig)));
 }
 
 HtmlWriter::~HtmlWriter()

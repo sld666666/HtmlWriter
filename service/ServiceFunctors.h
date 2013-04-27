@@ -15,7 +15,7 @@ namespace service{
 	class ServiceFunctors
 	{
 	public:
-		static bool	 matchedByType(const IService* service
+		static bool	 matchedByType(IService* service
 								, SERVICETYPES serviceType)
 		{ 
 			return (service 
@@ -23,7 +23,7 @@ namespace service{
 					&& serviceType == service->getServiceConfig()->getServiceType());
 		}
 
-		static bool	 isViewOrEditorService(const IService* service)
+		static bool	 isViewOrEditorService(IService* service)
 		{ 
 			return (service 
 				&& service->getServiceConfig().get()
@@ -31,7 +31,7 @@ namespace service{
 					|| ST_EDITOR == service->getServiceConfig()->getServiceType()));
 		}
 
-		static bool	matchByName(const IService* service
+		static bool	matchByName(IService* service
 							, const string name)
 		{
 			return (service 

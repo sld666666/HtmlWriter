@@ -23,7 +23,7 @@ WorkBench::WorkBench(QWidget *parent)
 	initBundles();
 	initSelfServices();
 	initViewPart();
-	initActionBar();
+	initMenuBar();
 
 }
 
@@ -41,7 +41,12 @@ void WorkBench::initSelfServices()
 	ServiceManager::instance().appendService(new MenuBarHelpMenu(this));
 }
 
-void WorkBench::initActionBar()
+void WorkBench::initToolBar()
+{
+	//ui.mainToolBar_->add
+}
+
+void WorkBench::initMenuBar()
 {
 	vector<IService*> service = ServiceManager::instance().getServices();
 	vector<IService*> menuServices(service.size());
@@ -57,9 +62,9 @@ void WorkBench::appendMenuBar(IService* service)
 	if (!service) return;
 
 	Menu* menu = static_cast<Menu*>(service);
-	if (menu){
-		 menuBar()->addMenu(menu);
-	}
+// 	if (menu){
+// 		 menuBar()->addMenu(menu);
+// 	}
 }
 
 void WorkBench::initViewPart()

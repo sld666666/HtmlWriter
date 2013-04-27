@@ -11,9 +11,9 @@ MenuBarViewMenu::~MenuBarViewMenu()
 
 }
 
-ServiceConfigPtr MenuBarViewMenu::getServiceConfig() const
+long MenuBarViewMenu::serviceId()
 {
-	return ServiceConfigPtr(new ServiceConfig(ST_MENU, "MenuBarViewMenu"));
+	return RegisteredSeviceID::RSI_MENU_VIEW;
 }
 
 

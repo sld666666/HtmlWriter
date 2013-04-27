@@ -14,9 +14,9 @@ DirectoryViewRightMenu::~DirectoryViewRightMenu()
 
 
 
-ServiceConfigPtr DirectoryViewRightMenu::getServiceConfig() const
+long DirectoryViewRightMenu::serviceId()
 {
-	return ServiceConfigPtr(new ServiceConfig(ST_MENU, "DirectoryViewRightMenu"));
+	return RegisteredSeviceID::RSI_UNREGISTER;
 }
 
 vector<IAction*> DirectoryViewRightMenu::getActions()

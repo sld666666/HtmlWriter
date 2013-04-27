@@ -13,7 +13,7 @@ public:
 	DirectoryViewRightMenu(QWidget * parent = 0);
 	~DirectoryViewRightMenu();
 
-	ServiceConfigPtr getServiceConfig() const;
+	virtual		long serviceId();
 protected:
 	virtual vector<UiUtils::IAction*>	getActions();
 

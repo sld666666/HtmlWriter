@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?serviceConfig version='1.1.0'?>
+<!-- RegisterType ST_UNKOWN = 0, ST_VIEW = 1, ST_EDITOR = 2, ST_MENU = 3--> 
+<services>
+<!-- view area--> 
+<service>
+	<id>1001</id>
+	<type>1</type>
+	<name>HtmlPreviewViewPart</name>
+</service>
+<service>
+	<id>1002</id>
+	<type>1</type>
+	<name>DirectoryViewPart</name>
+</service>
+<!-- editor area--> 
+<service>
+	<id>2001</id>
+	<type>2</type>
+	<name>MarkdownEditorViewPart</name>
+</service>
+<!-- menu area--> 
+<service>
+	<id>3001</id>
+	<type>3</type>
+	<name>MenuBarEditorMenu</name>
+</service>
+<service>
+	<id>3002</id>
+	<type>3</type>
+	<name>MenuBarFileMenu</name>
+</service>
+<service>
+	<id>3003</id>
+	<type>3</type>
+	<name>MenuBarViewMenu</name>
+</service>
+<service>
+	<id>3004</id>
+	<type>3</type>
+	<name>MenuBarToolMenu</name>
+</service>
+<service>
+	<id>3005</id>
+	<type>3</type>
+	<name>MenuBarHelpMenu</name>
+</service>
+</services>

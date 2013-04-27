@@ -11,10 +11,9 @@ DirectoryViewPart::~DirectoryViewPart()
 
 }
 
-ServiceConfigPtr DirectoryViewPart::getServiceConfig() const
+long DirectoryViewPart::serviceId()
 {
-	ServiceConfigPtr serviceConfig(new ServiceConfig(ST_VIEW, DIR_VIEW_SERVICENAME));
-	return serviceConfig;
+	return RegisteredSeviceID::RSI_VIEW_DIRECTORYVIEW;
 }
 
 void DirectoryViewPart::createPartControl(QWidget* parent)

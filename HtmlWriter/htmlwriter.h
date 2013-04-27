@@ -45,7 +45,7 @@ private:
 	QFileSystemModel model_;
 	QString	workingItemPath_;
 
-	ApplicationActionBarAdvisorPtr	 appActionBarAdvisor_;
+	ApplicationActionBarAdvisor	 appActionBarAdvisor_;
 };
 
 #endif // HTMLWRITER_H
