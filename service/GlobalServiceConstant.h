@@ -19,6 +19,8 @@ namespace RegisteredSeviceID
 
 	//action 4000
 	const long RSI_ACTION_OPEN = 4001;
+	const long RSI_ACTION_SAVE = 4002;
+	const long RSI_ACTION_SAVEAS = 4003;
 
 
 }

@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?serviceConfig version='1.1.0'?>
 <!-- RegisterType ST_UNKOWN = 0, ST_VIEW = 1, ST_EDITOR = 2, ST_MENU = 3--> 
+<!-- RegisterType ST_ACTION =4 --> 
 <services>
 <!-- view area--> 
 <service>
@@ -44,5 +45,21 @@
 	<id>3005</id>
 	<type>3</type>
 	<name>MenuBarHelpMenu</name>
+</service>
+<!-- action area--> 
+<service>
+	<id>4001</id>
+	<type>4</type>
+	<name>open</name>
+</service>
+<service>
+	<id>4002</id>
+	<type>4</type>
+	<name>save</name>
+</service>
+<service>
+	<id>4003</id>
+	<type>4</type>
+	<name>saveas</name>
 </service>
 </services>

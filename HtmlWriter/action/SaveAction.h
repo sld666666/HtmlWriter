@@ -20,12 +20,14 @@ class SaveAction : public IAction
 	Q_OBJECT
 
 public:
-	SaveAction(const QString& text, QObject * parent = 0);
+	SaveAction(QObject * parent = 0);
 	~SaveAction();
 
 	virtual	void	execute();
 
 	virtual	long	serviceId();
+
+	virtual QString title();
 };
 
 #endif // OPENACTION_H

@@ -23,10 +23,13 @@ namespace UiUtils{
 		Q_OBJECT
 
 	public:
-		IAction(const QString& text, QObject * parent = 0);
+		IAction(QObject * parent = 0);
 		~IAction();
 
 		virtual	void	execute() = 0;
+
+		virtual QString title() = 0;
+
 	};
 }
 

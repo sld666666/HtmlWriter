@@ -1,7 +1,7 @@
 #include "SaveAsAction.h"
 
-SaveAsAction::SaveAsAction(const QString& text, QObject * parent)
-	: IAction(text, parent)
+SaveAsAction::SaveAsAction(QObject * parent)
+	: IAction(parent)
 {
 
 }
@@ -19,5 +19,10 @@ void SaveAsAction::execute()
 
 long SaveAsAction::serviceId()
 {
-	return -1;
+	return RegisteredSeviceID::RSI_ACTION_SAVEAS;
+}
+
+QString SaveAsAction::title()
+{
+	return tr("&saveAs");
 }

@@ -7,9 +7,8 @@
 #include "ServiceManager.h"
 #include "../DirectoryViewPart.h"
 
-IDirectoryViewAction::IDirectoryViewAction(const QString& text
-										   , QObject * parent)
-	: IAction(text, parent)
+IDirectoryViewAction::IDirectoryViewAction(QObject * parent)
+	: IAction(parent)
 {
 }
 
@@ -87,6 +86,21 @@ QString IDirectoryViewAction::convertToFolderPath(const QString& filePath)
 		rtn.remove("/"+fileInfo.fileName());
 	}
 	return rtn;
+}
+
+QString NewFolderAction::title()
+{
+	return tr("&new folder");
+}
+
+QString NewFileAction::title()
+{
+	return tr("&new file");
+}
+
+QString DeleteAction::title()
+{
+	return tr("&delete");
 }
 
 void NewFolderAction::doExeute(const QString& filePath)

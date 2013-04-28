@@ -39,6 +39,14 @@ namespace service{
 				&& name == service->getServiceConfig()->getServiceName());
 		}
 
+		static bool	matchById(IService* service
+			, long id)
+		{
+			return (service 
+				&& service->getServiceConfig().get()
+				&& id == service->getServiceConfig()->getServiceId());
+		}
+
 	};
 
 }

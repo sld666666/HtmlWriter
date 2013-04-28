@@ -30,5 +30,14 @@ namespace service{
 		
 		return (iter != services.end())?(*iter):NULL;
 	}
+
+	IService* ServiceManager::find(long id)
+	{
+		vector<IService*> services = getServices();
+		vector<IService*>::iterator iter = find_if(services.begin(), services.end()
+			,bind(&ServiceFunctors::matchById, _1, id));
+
+		return (iter != services.end())?(*iter):NULL;
+	}
 }
 

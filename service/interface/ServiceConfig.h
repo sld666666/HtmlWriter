@@ -18,7 +18,8 @@ namespace service
 		ST_UNKOWN = 0,
 		ST_VIEW = 1,
 		ST_EDITOR ,
-		ST_MENU 
+		ST_MENU ,
+		ST_ACTION
 
 	};
 	class SERVICE_EXPORT ServiceConfig

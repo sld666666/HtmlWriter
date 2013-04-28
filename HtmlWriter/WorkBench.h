@@ -6,6 +6,7 @@
 #include "ServiceLoader.h"
 #include "interface/IBundle.h"
 #include "ServiceManager.h"
+#include "action/ApplicationActionBarAdvisor.h"
 
 using namespace service;
 
@@ -25,10 +26,11 @@ private:
 	void	initToolBar();
 	void	startBundle(const IBundle* bundle);
 	void	appendDockWidget(IService* service);
-	void	appendMenuBar(IService* service);
+	
 
 private:
 	Ui::WorkBench ui;
+	ApplicationActionBarAdvisor appActionAdvisor_;
 };
 
 #endif // WORKBENCH_H

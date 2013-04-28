@@ -22,8 +22,8 @@ long DirectoryViewRightMenu::serviceId()
 vector<IAction*> DirectoryViewRightMenu::getActions()
 {
 	vector<UiUtils::IAction*>  actions;
-	actions.push_back(new NewFolderAction("&new folder",this));
-	actions.push_back(new NewFileAction("&new file",this));
-	actions.push_back(new DeleteAction("&delete",this));
+	actions.push_back(new NewFolderAction(this));
+	actions.push_back(new NewFileAction(this));
+	actions.push_back(new DeleteAction(this));
 	return actions;
 }

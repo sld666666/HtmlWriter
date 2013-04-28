@@ -2,6 +2,7 @@
 #include "OpenAction.h"
 #include "SaveAction.h"
 #include "SaveAsAction.h"
+#include "action/ActionHelper.h"
 
 MenuBarFileMenu::MenuBarFileMenu(QWidget * parent)
 	: Menu( tr("&File"), parent)
@@ -21,9 +22,10 @@ long MenuBarFileMenu::serviceId()
 
 vector<IAction*> MenuBarFileMenu::getActions()
 {
-	vector<IAction*>  actions;
-	actions.push_back(new OpenAction(tr("&open")));
-	actions.push_back(new SaveAction(tr("&save")));
-	actions.push_back(new SaveAsAction(tr("&saveAs")));
-	return actions;
+	vector<long> actionIds;
+	actionIds.push_back(RegisteredSeviceID::RSI_ACTION_OPEN);
+	actionIds.push_back(RegisteredSeviceID::RSI_ACTION_SAVE);
+	actionIds.push_back(RegisteredSeviceID::RSI_ACTION_SAVEAS);
+	
+	return ActionHelper::getActions(actionIds);
 }

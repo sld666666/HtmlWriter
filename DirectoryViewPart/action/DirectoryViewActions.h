@@ -8,7 +8,7 @@ using UiUtils::IAction;
 class IDirectoryViewAction : public IAction
 {
 public:
-	IDirectoryViewAction(const QString& text, QObject * parent);
+	IDirectoryViewAction(QObject * parent);
 	~IDirectoryViewAction();
 
 	virtual	void	execute();
@@ -31,10 +31,12 @@ private:
 class NewFolderAction : public IDirectoryViewAction
 {
 public:
-	NewFolderAction(const QString& text, QObject * parent)
-		: IDirectoryViewAction(text, parent){}
+	NewFolderAction(QObject * parent)
+		: IDirectoryViewAction(parent){}
 
 	~NewFolderAction(){}
+
+	virtual QString title();
 
 protected:
 	virtual	void  doExeute(const QString& filePath);
@@ -43,10 +45,12 @@ protected:
 class NewFileAction : public IDirectoryViewAction
 {
 public:
-	NewFileAction(const QString& text, QObject * parent)
-		: IDirectoryViewAction(text, parent){}
+	NewFileAction(QObject * parent)
+		: IDirectoryViewAction(parent){}
 
 	~NewFileAction(){}
+
+	virtual QString title() ;
 
 protected:
 	virtual	void  doExeute(const QString& filePath);
@@ -55,10 +59,12 @@ protected:
 class DeleteAction : public IDirectoryViewAction
 {
 public:
-	DeleteAction(const QString& text, QObject * parent)
-		: IDirectoryViewAction(text, parent){}
+	DeleteAction(QObject * parent)
+		: IDirectoryViewAction(parent){}
 
 	~DeleteAction(){}
+
+	virtual QString title();
 
 protected:
 	virtual	void  doExeute(const QString& filePath);

@@ -3,8 +3,8 @@
 
 namespace UiUtils{
 
-	IAction::IAction(const QString& text, QObject * parent)
-		: QAction(text, parent)
+	IAction::IAction(QObject * parent)
+		: QAction(parent)
 	{
 	}
 

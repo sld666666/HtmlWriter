@@ -27,7 +27,6 @@ protected:
 	virtual	void makeActions();
 	virtual	void fillMenuBar(const MenuManagerPtr menuManager);
 private:
-	OpenAction*		OpenAction_;
 };
 
 typedef shared_ptr<ApplicationToolBarAdvisor> ApplicationActionBarAdvisorPtr;

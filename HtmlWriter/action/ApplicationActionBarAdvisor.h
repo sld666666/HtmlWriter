@@ -11,6 +11,11 @@
 #include <QObject>
 #include <QMenuBar>
 #include <QToolBar>
+#include "ServiceManager.h"
+#include "action/ActionHelper.h"
+
+using namespace service;
+using namespace UiUtils;
 
 class ApplicationActionBarAdvisor : public QObject
 {
@@ -25,6 +30,9 @@ public:
 
 protected:
 	virtual	void makeActions();
+private:
+	void	appendMenuBar(IService* service, QMenuBar* menuBar);
+	void	appendToolAction(QToolBar* toolBar, IAction* action);
 	
 };
 #endif // APPLICATIONACTIONBARADVISOR_H

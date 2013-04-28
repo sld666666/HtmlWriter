@@ -4,13 +4,9 @@
 #include "ServiceFunctors.h"
 #include "BundlesContainer.h"
 #include "UiHelper.h"
-#include "AlgorithmEx.h"
-#include "action/MenuBarFileMenu.h"
-#include "action/MenuBarEditorMenu.h"
-#include "action/MenuBarViewMenu.h"
-#include "action/MenuBarToolMenu.h"
-#include "action/MenuBarHelpMenu.h"
+#include "SelfServicesRegister.h"
 #include "workbench/IWorkbenchPart.h"
+#include "AlgorithmEx.h"	
 
 using namespace UiUtils;
 
@@ -34,11 +30,8 @@ WorkBench::~WorkBench()
 
 void WorkBench::initSelfServices()
 {
-	ServiceManager::instance().appendService(new MenuBarFileMenu(this));
-	ServiceManager::instance().appendService(new MenuBarEditorMenu(this));
-	ServiceManager::instance().appendService(new MenuBarViewMenu(this));
-	ServiceManager::instance().appendService(new MenuBarToolMenu(this));
-	ServiceManager::instance().appendService(new MenuBarHelpMenu(this));
+	SelfServicesRegister::registerMenu(this);
+	SelfServicesRegister::registerAction();
 }
 
 void WorkBench::initToolBar()
@@ -48,23 +41,8 @@ void WorkBench::initToolBar()
 
 void WorkBench::initMenuBar()
 {
-	vector<IService*> service = ServiceManager::instance().getServices();
-	vector<IService*> menuServices(service.size());
-	copy_if(service.begin(), service.end(), menuServices.begin()
-		, bind(&ServiceFunctors::matchedByType, _1, ST_MENU));
-
-	for_each(menuServices.begin(), menuServices.end()
-		, bind(&WorkBench::appendMenuBar, this, _1));
-}
-
-void WorkBench::appendMenuBar(IService* service)
-{
-	if (!service) return;
-
-	Menu* menu = static_cast<Menu*>(service);
-// 	if (menu){
-// 		 menuBar()->addMenu(menu);
-// 	}
+	appActionAdvisor_.fillMenuBar(menuBar());
+	appActionAdvisor_.fillToolBar(ui.mainToolBar_);
 }
 
 void WorkBench::initViewPart()

@@ -24,6 +24,7 @@ namespace service{
 		vector<IService*>	getServices();
 
 		IService*			find(const string& name);
+		IService*			find(long id);
 
 	private:
 		ServiceManager();

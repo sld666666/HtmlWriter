@@ -26,6 +26,7 @@ namespace UiUtils{
 	void Menu::add(IAction* action)
 	{
 		if (action){
+			action->setText(action->title());
 			this->addAction(action);
 			connect(action, SIGNAL(triggered(bool))
 				, this, SLOT(actionTriggeredSlot(bool)));
