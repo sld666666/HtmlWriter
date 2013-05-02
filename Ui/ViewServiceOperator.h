@@ -23,6 +23,10 @@ namespace  UiUtils{
 		~ViewServiceOperator();
 
 		void	viewReflesh(const QString& serviceName, const QString& filePath);
+		
+		void	saveEditors();
+
+		void	saveAsEditor(const QString& targetPath);
 
 	private:
 		ViewServiceOperator();
@@ -32,6 +36,10 @@ namespace  UiUtils{
 		void	doViewReflesh(const QString& serviceName, const QString& filePath);
 		void	refleshViewService(const QString& serviceName, const QString& filePath
 			, IService* service);
+
+		void	doSaveEditors(IService* service);
+
+		void	doSaveAsEditors(IService* service, const QString& targetPath);
 	};
 }
 

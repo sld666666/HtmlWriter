@@ -21,6 +21,7 @@ namespace data{
 		void	deleteData(const QString& key);
 		void	getString(const QString& key, QString& rtn);
 		bool	writeData(const QString& key);	
+		bool	writeData(const QString& key, const QString& datas);
 
 	private:
 		DataManager();

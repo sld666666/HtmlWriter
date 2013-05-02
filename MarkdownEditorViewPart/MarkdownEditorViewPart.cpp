@@ -32,10 +32,14 @@ void MarkdownEditorViewPart::createPartControl(QWidget* parent)
 
 void MarkdownEditorViewPart::doSave()
 {
-
+	if (markdownEditorWidget_){
+		markdownEditorWidget_->save();
+	}
 }
 
-void MarkdownEditorViewPart::doSaveAs()
+void MarkdownEditorViewPart::doSaveAs(const QString& targetPath)
 {
-
+	if (markdownEditorWidget_){
+		markdownEditorWidget_->saveAs(targetPath);
+	}
 }

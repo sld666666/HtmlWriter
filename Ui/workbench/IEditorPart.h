@@ -21,7 +21,7 @@ namespace UiUtils{
 		~IEditorPart();
 
 		virtual void doSave() = 0;
-		virtual void doSaveAs() = 0;
+		virtual void doSaveAs(const QString& targetPath) = 0;
 
 	};
 }

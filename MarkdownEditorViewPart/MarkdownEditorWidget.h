@@ -16,7 +16,11 @@ public:
 	~MarkdownEditorWidget();
 
 	void reflesh(const QString& filePath);
+	void save();
+	void saveAs(const QString& targetPath);
 
+private:
+	void doSave(MarkdownTextEdit* textEdit);
 private slots:
 	void onEditorTextChangedSlot();
 private:

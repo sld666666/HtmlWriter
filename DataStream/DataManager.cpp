@@ -46,6 +46,22 @@ namespace data{
 		return rtn;
 	}
 
+	bool DataManager::writeData(const QString& key
+								, const QString& datas)
+	{	
+		bool rtn(false);
+
+		QFile file(key);
+		if(file.open(QIODevice::WriteOnly)){
+			QTextStream out(&file);
+			out.setCodec("UTF-8");
+			out << datas;
+
+			file.close();
+		}
+		return rtn;
+	}
+
 	void DataManager::deleteData(const QString& key)
 	{
 

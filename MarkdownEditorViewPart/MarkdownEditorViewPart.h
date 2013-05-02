@@ -16,7 +16,7 @@ public:
 	virtual		void reflesh(const QString& filePath);
 	virtual		void createPartControl(QWidget* parent);
 	virtual		void doSave();
-	virtual		void doSaveAs();
+	virtual		void doSaveAs(const QString& targetPath);
 
 private:
 	 MarkdownEditorWidget* markdownEditorWidget_;

@@ -41,5 +41,30 @@ void MarkdownEditorWidget::onEditorTextChangedSlot()
 		UiUtils::ViewServiceOperator::instance().viewReflesh(
 			QString::fromStdString(BUNDELNAME), textPath);
 	}
+}
+
+void MarkdownEditorWidget::save()
+{
+	for_each(markdownTextEdits_.begin(), markdownTextEdits_.end()
+		, bind(&MarkdownEditorWidget::doSave, this, _1));
+}
+
+void MarkdownEditorWidget::saveAs(const QString& targetPath)
+{
+	MarkdownTextEdit* textEdit = static_cast<MarkdownTextEdit*>(
+		ui.tabWidgetEditor_->currentWidget());
+	if (textEdit){
+		QString textPath = textEdit->getPath();
+		data::DataManager::instance().writeData(textPath, textEdit->toPlainText());
 	}
+}
+
+
+void MarkdownEditorWidget::doSave(MarkdownTextEdit* textEdit)
+{
+	if (!textEdit)return;
+
+	QString textPath = textEdit->getPath();
+	data::DataManager::instance().writeData(textPath);
+}
 

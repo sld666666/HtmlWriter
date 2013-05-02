@@ -1,5 +1,6 @@
 #include "ViewServiceOperator.h"
 #include "IWorkbenchPart.h"
+#include "IEditorPart.h"
 
 
 namespace UiUtils{
@@ -15,6 +16,20 @@ namespace UiUtils{
 										, const QString& filePath)
 	{
 		doViewReflesh(serviceName, filePath);
+	}
+
+	void ViewServiceOperator::saveEditors()
+	{
+		vector<IService*> services = ServiceManager::instance().getServices();
+		std::for_each(services.begin(), services.end()
+			, bind(&ViewServiceOperator::doSaveEditors, this, _1));
+	}
+
+	void ViewServiceOperator::saveAsEditor(const QString& targetPath)
+	{
+		vector<IService*> services = ServiceManager::instance().getServices();
+		std::for_each(services.begin(), services.end()
+			, bind(&ViewServiceOperator::doSaveAsEditors, this, _1, targetPath));
 	}
 
 	void ViewServiceOperator::doViewReflesh(const QString& serviceName
@@ -38,6 +53,30 @@ namespace UiUtils{
 			IWorkbenchPart* workPart = static_cast<IWorkbenchPart*>(service);
 			if (workPart){
 				workPart->reflesh(filePath);
+			}
+		}
+	}
+
+	void ViewServiceOperator::doSaveEditors(IService* service)
+	{
+		if (!service) return;
+
+		if (service->getServiceConfig()->getServiceType() == ST_EDITOR){
+				IEditorPart* workPart = static_cast<IEditorPart*>(service);
+				if (workPart){
+					workPart->doSave();
+				}
+		}
+	}
+
+	void ViewServiceOperator::doSaveAsEditors(IService* service, const QString& targetPath)
+	{
+		if (!service) return;
+
+		if (service->getServiceConfig()->getServiceType() == ST_EDITOR){
+			IEditorPart* workPart = static_cast<IEditorPart*>(service);
+			if (workPart){
+				workPart->doSaveAs(targetPath);
 			}
 		}
 	}
