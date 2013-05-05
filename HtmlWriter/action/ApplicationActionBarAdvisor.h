@@ -11,6 +11,7 @@
 #include <QObject>
 #include <QMenuBar>
 #include <QToolBar>
+#include <QMainWindow>
 #include "ServiceManager.h"
 #include "action/ActionHelper.h"
 
@@ -26,13 +27,14 @@ public:
 	~ApplicationActionBarAdvisor();
 
 	virtual	void fillMenuBar(QMenuBar* menuBar);
-	virtual	void fillToolBar(QToolBar* toolBar);
+	virtual	void fillToolBar(QMainWindow* mainWnd);
 
 protected:
 	virtual	void makeActions();
+
 private:
 	void	appendMenuBar(IService* service, QMenuBar* menuBar);
-	void	appendToolAction(QToolBar* toolBar, IAction* action);
+	void	appendToolBar(IService* service, QMainWindow* mainWnd);
 	
 };
 #endif // APPLICATIONACTIONBARADVISOR_H

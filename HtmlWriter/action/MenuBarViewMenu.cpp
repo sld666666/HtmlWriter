@@ -1,7 +1,7 @@
 #include "MenuBarViewMenu.h"
 
 MenuBarViewMenu::MenuBarViewMenu(QWidget * parent)
-	: Menu( tr("&Editor"), parent)
+	: Menu( tr("&View"), parent)
 {
 
 }

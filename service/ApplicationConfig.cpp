@@ -35,4 +35,9 @@ namespace service{
 		return getCurAppPath() + "/plugin";
 	}
 
+	string ApplicationConfig::getIconPath()
+	{
+		return getCurAppPath() + "/res" + "/images" + "/icon";
+	}
+
 }

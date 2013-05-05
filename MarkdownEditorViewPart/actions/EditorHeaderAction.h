@@ -1,12 +1,12 @@
 /** 
-* @file         SaveAction.h 
+* @file         EditorHeaderAction.h 
 * @Synopsis       
 * @author         diwu.sld
 * @version      1.0
 * @date         2013-4-25
 */
-#ifndef SAVEACTION_H
-#define SAVEACTION_H
+#ifndef SAVEASACTION_H
+#define SAVEASACTION_H
 
 #include <QObject>
 #include "action/IAction.h"
@@ -15,13 +15,13 @@
 using UiUtils::IAction;
 using UiUtils::IContext;
 
-class SaveAction : public IAction
+class EditorHeaderAction : public IAction
 {
 	Q_OBJECT
 
 public:
-	SaveAction(QObject * parent = 0);
-	~SaveAction();
+	EditorHeaderAction(QObject * parent = 0);
+	~EditorHeaderAction();
 
 	virtual	void	execute();
 
@@ -29,7 +29,7 @@ public:
 
 	virtual QString title();
 
-	virtual	QIcon	getIcon();
+	virtual QIcon getIcon();
 };
 
 #endif // OPENACTION_H

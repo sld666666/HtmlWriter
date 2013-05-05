@@ -3,6 +3,7 @@
 
 #include "OpenAction.h"
 #include "ViewServiceOperator.h"
+#include "ApplicationConfig.h"
 
 using  UiUtils::ViewServiceOperator;
 OpenAction::OpenAction(QObject * parent)
@@ -36,4 +37,11 @@ long OpenAction::serviceId()
 QString OpenAction::title()
 {
 	return tr("&open");
+}
+
+QIcon OpenAction::getIcon()
+{
+	QString image = QString::fromStdString(ApplicationConfig::instance().getIconPath())
+		+ "/fileopen.png";
+	return QIcon(image);
 }

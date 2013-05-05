@@ -1,7 +1,11 @@
 #include "ApplicationActionBarAdvisor.h"
 #include "action/Menu.h"
+#include "action/IToolBar.h"
 #include "ServiceFunctors.h"
 #include "AlgorithmEx.h"
+#include "FunctionUtils.h"
+
+using namespace utils;
 
 ApplicationActionBarAdvisor::ApplicationActionBarAdvisor()
 {
@@ -28,25 +32,31 @@ void ApplicationActionBarAdvisor::fillMenuBar(QMenuBar* menuBar)
 		, bind(&ApplicationActionBarAdvisor::appendMenuBar, this, _1, menuBar));
 }
 
-void ApplicationActionBarAdvisor::fillToolBar(QToolBar* toolBar)
+void ApplicationActionBarAdvisor::fillToolBar(QMainWindow* mainWnd)
 {
-	if (!toolBar)return;
-	vector<long> fillIds;
-	fillIds.push_back(RegisteredSeviceID::RSI_ACTION_OPEN);
-	fillIds.push_back(RegisteredSeviceID::RSI_ACTION_SAVE);
-	fillIds.push_back(RegisteredSeviceID::RSI_ACTION_SAVEAS);
-	vector<IAction*> actions = ActionHelper::getActions(fillIds);
-	for_each(actions.begin(), actions.end()
-		, bind(&ApplicationActionBarAdvisor::appendToolAction, this, toolBar, _1));
+	vector<IService*> service = ServiceManager::instance().getServices();
+	vector<IService*> toolBarServices(service.size());
+	copy_if(service.begin(), service.end(), toolBarServices.begin()
+		, bind(&ServiceFunctors::matchedByType, _1, ST_TOOLBAR));
+
+	remove_if(toolBarServices.begin(), toolBarServices.end(), utils::isZore<IService*>);
+	sort(toolBarServices.begin(), toolBarServices.end(), ServiceFunctors::smallerId);
+	for_each(toolBarServices.begin(), toolBarServices.end()
+		, bind(&ApplicationActionBarAdvisor::appendToolBar, this, _1, mainWnd));
 }
 
-void ApplicationActionBarAdvisor::appendToolAction(QToolBar* toolBar, IAction* action)
-{
-	if (!action)return;
 
-	QString text = action->title();
-	action->setStatusTip(text);
-	toolBar->addAction(action);
+
+void ApplicationActionBarAdvisor::appendToolBar(IService* service
+												, QMainWindow* mainWnd)
+{
+	if (!service || !mainWnd) return;
+
+	IToolBar* toolBar = static_cast<IToolBar*>(service);
+	if (toolBar){
+		mainWnd->addToolBar(toolBar);
+		toolBar->fills();
+	}
 }
 
 void ApplicationActionBarAdvisor::appendMenuBar(IService* service
@@ -59,3 +69,4 @@ void ApplicationActionBarAdvisor::appendMenuBar(IService* service
 		menuBar->addMenu(menu);
 	}
 }
+

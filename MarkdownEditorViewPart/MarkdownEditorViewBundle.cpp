@@ -1,5 +1,6 @@
 #include "MarkdownEditorViewBundle.h"
 #include "ServiceManager.h"
+#include "ActionsRegister.h"
 
 
 MarkdownEditorViewBundle::MarkdownEditorViewBundle()
@@ -17,6 +18,7 @@ void MarkdownEditorViewBundle::start( BundleContext* context )const
 {
 	if (markdownEditorViewPart_){
 		ServiceManager::instance().appendService(markdownEditorViewPart_);
+		ActionsRegister(NULL).registerActions();
 	}
 }
 
@@ -32,3 +34,4 @@ BundleConfigPtr MarkdownEditorViewBundle::getBundlelConfig() const
 		, BUNDELNAME));
 	return bundConfig;
 }
+

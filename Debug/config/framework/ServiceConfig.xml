@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?serviceConfig version='1.1.0'?>
 <!-- RegisterType ST_UNKOWN = 0, ST_VIEW = 1, ST_EDITOR = 2, ST_MENU = 3--> 
-<!-- RegisterType ST_ACTION =4 --> 
+<!-- RegisterType ST_ACTION =4, ST_TOOLBAR=4 --> 
 <services>
 <!-- view area--> 
 <service>
@@ -61,5 +61,16 @@
 	<id>4003</id>
 	<type>4</type>
 	<name>saveas</name>
+</service>
+<!-- toolbar area--> 
+<service>
+	<id>5001</id>
+	<type>5</type>
+	<name>WorkBenchToolBar</name>
+</service>
+<service>
+	<id>5002</id>
+	<type>5</type>
+	<name>MarkdownEditorToolBar</name>
 </service>
 </services>

@@ -24,6 +24,8 @@ namespace service{
 
 		string	getAppPluginPath();
 
+		string	getIconPath();
+
 	private:
 		ApplicationConfig();
 

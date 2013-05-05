@@ -6,7 +6,8 @@
 #include "UiHelper.h"
 #include "SelfServicesRegister.h"
 #include "workbench/IWorkbenchPart.h"
-#include "AlgorithmEx.h"	
+#include "AlgorithmEx.h"
+#include "action/WorkBenchToolBar.h"
 
 using namespace UiUtils;
 
@@ -20,6 +21,7 @@ WorkBench::WorkBench(QWidget *parent)
 	initSelfServices();
 	initViewPart();
 	initMenuBar();
+	initToolBar();
 
 }
 
@@ -32,17 +34,17 @@ void WorkBench::initSelfServices()
 {
 	SelfServicesRegister::registerMenu(this);
 	SelfServicesRegister::registerAction();
+	SelfServicesRegister::registerToolBar(this);
 }
 
 void WorkBench::initToolBar()
 {
-	//ui.mainToolBar_->add
+	appActionAdvisor_.fillToolBar(this);
 }
 
 void WorkBench::initMenuBar()
 {
 	appActionAdvisor_.fillMenuBar(menuBar());
-	appActionAdvisor_.fillToolBar(ui.mainToolBar_);
 }
 
 void WorkBench::initViewPart()

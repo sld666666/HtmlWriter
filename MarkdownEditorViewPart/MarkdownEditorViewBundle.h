@@ -30,6 +30,7 @@ public:
 
 	virtual BundleConfigPtr getBundlelConfig()const;
 
+
 private:
 	MarkdownEditorViewPart*		markdownEditorViewPart_;
 	

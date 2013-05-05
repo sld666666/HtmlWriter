@@ -19,7 +19,8 @@ namespace service
 		ST_VIEW = 1,
 		ST_EDITOR ,
 		ST_MENU ,
-		ST_ACTION
+		ST_ACTION,
+		ST_TOOLBAR
 
 	};
 	class SERVICE_EXPORT ServiceConfig

@@ -47,6 +47,15 @@ namespace service{
 				&& id == service->getServiceConfig()->getServiceId());
 		}
 
+		static bool	smallerId(IService* first, IService* second)
+		{
+			bool rtn = (first 
+				&& second
+				&& first->serviceId() < second->serviceId());
+
+			return rtn;
+		}
+
 	};
 
 }

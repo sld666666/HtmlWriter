@@ -1,4 +1,5 @@
 #include "IAction.h"
+#include "ApplicationConfig.h"
 
 
 namespace UiUtils{
@@ -11,6 +12,13 @@ namespace UiUtils{
 	IAction::~IAction()
 	{
 
+	}
+
+	QIcon IAction::getIcon()
+	{
+		QString image = QString::fromStdString(ApplicationConfig::instance().getIconPath())
+			+ "/default.png";
+		return QIcon(image);
 	}
 }
 

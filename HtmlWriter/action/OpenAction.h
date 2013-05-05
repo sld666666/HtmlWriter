@@ -21,6 +21,8 @@ public:
 	virtual	long	serviceId();
 
 	virtual QString title();
+
+	virtual	QIcon	getIcon();
 };
 
 #endif // OPENACTION_H

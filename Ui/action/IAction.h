@@ -30,6 +30,8 @@ namespace UiUtils{
 
 		virtual QString title() = 0;
 
+		virtual	QIcon	getIcon();
+
 	};
 }
 

@@ -21,6 +21,11 @@ namespace RegisteredSeviceID
 	const long RSI_ACTION_OPEN = 4001;
 	const long RSI_ACTION_SAVE = 4002;
 	const long RSI_ACTION_SAVEAS = 4003;
+	const long RSI_ACTION_EDITORHEADER = 4004;
+
+	//toolbar
+	const long RSI_TOOLBAR_WORKBENCH = 5001;
+	const long RSI_TOOLBAR_MARKDOWNEDITOR = 5002;
 
 
 }

@@ -14,11 +14,11 @@
 
 namespace utils{
 
-	class UTILS_EXPORT FunctionUtils
-	{
-	public:
-		
-	};
+	template <typename T>
+	static bool	isZore(T val){
+		bool rtn = (0 == val);
+		return rtn;
+	}
 
 }
 #endif
