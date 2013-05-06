@@ -2,6 +2,8 @@
 #define RICHEDITORVIEWPART_H
 
 #include "workbench/IEditorPart.h"
+#include "RichEditorWidget.h"
+
 
 using UiUtils::IEditorPart;
 
@@ -17,8 +19,10 @@ public:
 	virtual		void createPartControl(QWidget* parent);
 	virtual		void doSave();
 	virtual		void doSaveAs(const QString& targetPath);
+public:
+	RichEditorWidget*	getRichEditorWidget() const ;
 private:
-
+	RichEditorWidget*	richEditorWidget_;
 };
 
 #endif // RICHEDITORVIEWPART_H

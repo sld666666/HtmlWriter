@@ -1,5 +1,5 @@
-#ifndef WORKBENCHTOOLBAR_H
-#define WORKBENCHTOOLBAR_H
+#ifndef MARKDOWNEDITORTOOLBAR_H
+#define MARKDOWNEDITORTOOLBAR_H
 
 #include <QObject>
 #include "action/IToolBar.h"
@@ -23,4 +23,4 @@ private:
 	
 };
 
-#endif // WORKBENCHTOOLBAR_H
+#endif // MARKDOWNEDITORTOOLBAR_H

@@ -5,8 +5,8 @@
 #include "markdowneditorviewpart_global.h"
 #include "ui_MarkdownEditorWidget.h"
 #include "markdowneditorviewpart_global.h"
-#include "MarkdownTextEdit.h"
-
+#include "widget/TextEdit.h"
+using namespace  UiUtils;
 class MarkdownEditorWidget : public QWidget
 {
 	Q_OBJECT
@@ -20,12 +20,12 @@ public:
 	void saveAs(const QString& targetPath);
 
 private:
-	void doSave(MarkdownTextEdit* textEdit);
+	void doSave(TextEdit* textEdit);
 private slots:
 	void onEditorTextChangedSlot();
 private:
 	Ui::MarkdownEditorWidget ui;
-	vector<MarkdownTextEdit*>  markdownTextEdits_;
+	vector<TextEdit*>  markdownTextEdits_;
 };
 
 #endif // MARKDOWNEDITORWIDGET_H

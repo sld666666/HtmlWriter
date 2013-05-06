@@ -78,4 +78,9 @@
 	<type>5</type>
 	<name>MarkdownEditorToolBar</name>
 </service>
+<service>
+	<id>5003</id>
+	<type>5</type>
+	<name>RichEditorToolBar</name>
+</service>
 </services>

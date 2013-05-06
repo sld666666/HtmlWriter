@@ -16,14 +16,17 @@ MarkdownEditorWidget::~MarkdownEditorWidget()
 
 void MarkdownEditorWidget::reflesh(const QString& filePath)
 {
-	vector<MarkdownTextEdit*>::iterator iter =  std::find_if(
+	vector<TextEdit*>::iterator iter =  std::find_if(
 		markdownTextEdits_.begin(), markdownTextEdits_.end()
-		, bind(&MarkdownTextEdit::isExist, _1, filePath));
+		, bind(&TextEdit::isExist, _1, filePath));
 
 	if (iter != markdownTextEdits_.end()){
 		ui.tabWidgetEditor_->setCurrentWidget(*iter);
 	}else{
-		MarkdownTextEdit* textEdit = new MarkdownTextEdit(filePath, this);
+		TextEdit* textEdit = new TextEdit(filePath, this);
+		QString data;
+		data::DataManager::instance().getString(filePath, data);
+		textEdit->setText(data);
 		markdownTextEdits_.push_back(textEdit);
 		ui.tabWidgetEditor_->insertTab(markdownTextEdits_.size()-1, textEdit, filePath);
 		ui.tabWidgetEditor_->setCurrentWidget(textEdit);
@@ -34,7 +37,7 @@ void MarkdownEditorWidget::reflesh(const QString& filePath)
 
 void MarkdownEditorWidget::onEditorTextChangedSlot()
 {
-	MarkdownTextEdit* textEdit = static_cast<MarkdownTextEdit*>(sender());
+	TextEdit* textEdit = static_cast<TextEdit*>(sender());
 	if (textEdit){
 		QString textPath = textEdit->getPath();
 		data::DataManager::instance().insert(textPath, textEdit->toPlainText());
@@ -51,7 +54,7 @@ void MarkdownEditorWidget::save()
 
 void MarkdownEditorWidget::saveAs(const QString& targetPath)
 {
-	MarkdownTextEdit* textEdit = static_cast<MarkdownTextEdit*>(
+	TextEdit* textEdit = static_cast<TextEdit*>(
 		ui.tabWidgetEditor_->currentWidget());
 	if (textEdit){
 		QString textPath = textEdit->getPath();
@@ -60,7 +63,7 @@ void MarkdownEditorWidget::saveAs(const QString& targetPath)
 }
 
 
-void MarkdownEditorWidget::doSave(MarkdownTextEdit* textEdit)
+void MarkdownEditorWidget::doSave(TextEdit* textEdit)
 {
 	if (!textEdit)return;
 

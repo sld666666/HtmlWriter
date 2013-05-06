@@ -1,5 +1,6 @@
 #include "RichEditorViewBundle.h"
 #include "ServiceManager.h"
+#include "actions/RichEditorToolBar.h"
 
 
 RichEditorViewBundle::RichEditorViewBundle()
@@ -17,6 +18,7 @@ void RichEditorViewBundle::start( BundleContext* context )const
 {
 	if (richEditorViewPart_){
 		ServiceManager::instance().appendService(richEditorViewPart_);
+		ServiceManager::instance().appendService(new RichEditorToolBar(NULL));
 	}
 }
 

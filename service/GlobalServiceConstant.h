@@ -27,6 +27,7 @@ namespace RegisteredSeviceID
 	//toolbar
 	const long RSI_TOOLBAR_WORKBENCH = 5001;
 	const long RSI_TOOLBAR_MARKDOWNEDITOR = 5002;
+	const long RSI_TOOLBAR_RICHEDITOR = 5003;
 
 
 }

@@ -1,6 +1,7 @@
 #include "RichEditorViewPart.h"
 
 RichEditorViewPart::RichEditorViewPart()
+:richEditorWidget_(NULL)
 {
 
 }
@@ -17,28 +18,35 @@ long RichEditorViewPart::serviceId()
 
 void RichEditorViewPart::reflesh(const QString& filePath)
 {
-	
+	if (richEditorWidget_){
+		richEditorWidget_->reflesh(filePath);
+	}
 }
 
 void RichEditorViewPart::createPartControl(QWidget* parent)
 {
 	if (!parent)return;
 
-// 	markdownEditorWidget_ =	new MarkdownEditorWidget(parent);
-// 	parent->layout()->addWidget(markdownEditorWidget_);
+	richEditorWidget_ =	new RichEditorWidget(parent);
+ 	parent->layout()->addWidget(richEditorWidget_);
 
 }
 
 void RichEditorViewPart::doSave()
 {
-// 	if (markdownEditorWidget_){
-// 		markdownEditorWidget_->save();
-// 	}
+	if (richEditorWidget_){
+		richEditorWidget_->save();
+	}
 }
 
 void RichEditorViewPart::doSaveAs(const QString& targetPath)
 {
-// 	if (markdownEditorWidget_){
-// 		markdownEditorWidget_->saveAs(targetPath);
-// 	}
+	if (richEditorWidget_){
+		richEditorWidget_->saveAs(targetPath);
+	}
+}
+
+RichEditorWidget* RichEditorViewPart::getRichEditorWidget() const
+{
+	return richEditorWidget_;
 }
