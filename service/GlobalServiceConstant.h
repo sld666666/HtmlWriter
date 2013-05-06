@@ -10,6 +10,7 @@ namespace RegisteredSeviceID
 	
 	//editor 2000
 	const long RSI_EDITOR_MARKDOWNEDITORVIEW = 2001;
+	const long RSI_EDITOR_RICHEDITORVIEW = 2002;
 	//menu	3000
 	const long RSI_MENU_EDITOR = 3001;
 	const long RSI_MENU_FILE = 3002;

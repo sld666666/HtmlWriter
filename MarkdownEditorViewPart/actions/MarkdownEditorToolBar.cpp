@@ -21,5 +21,5 @@ vector<IAction*> MarkdownEditorToolBar::getActions()
 
 long MarkdownEditorToolBar::serviceId()
 {
-	return RegisteredSeviceID::RSI_TOOLBAR_WORKBENCH;
+	return RegisteredSeviceID::RSI_TOOLBAR_MARKDOWNEDITOR;
 }

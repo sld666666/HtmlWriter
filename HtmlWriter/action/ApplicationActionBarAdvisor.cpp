@@ -24,8 +24,8 @@ void ApplicationActionBarAdvisor::makeActions()
 void ApplicationActionBarAdvisor::fillMenuBar(QMenuBar* menuBar)
 {
 	vector<IService*> service = ServiceManager::instance().getServices();
-	vector<IService*> menuServices(service.size());
-	copy_if(service.begin(), service.end(), menuServices.begin()
+	vector<IService*> menuServices;
+	copy_if(service.begin(), service.end(), back_inserter(menuServices)
 		, bind(&ServiceFunctors::matchedByType, _1, ST_MENU));
 
 	for_each(menuServices.begin(), menuServices.end()
@@ -35,12 +35,12 @@ void ApplicationActionBarAdvisor::fillMenuBar(QMenuBar* menuBar)
 void ApplicationActionBarAdvisor::fillToolBar(QMainWindow* mainWnd)
 {
 	vector<IService*> service = ServiceManager::instance().getServices();
-	vector<IService*> toolBarServices(service.size());
-	copy_if(service.begin(), service.end(), toolBarServices.begin()
-		, bind(&ServiceFunctors::matchedByType, _1, ST_TOOLBAR));
+	vector<IService*> toolBarServices;
+	remove_copy_if(service.begin(), service.end(), back_inserter(toolBarServices)
+		, bind(&ServiceFunctors::noMatchedByType, _1, ST_TOOLBAR));
 
-	remove_if(toolBarServices.begin(), toolBarServices.end(), utils::isZore<IService*>);
 	sort(toolBarServices.begin(), toolBarServices.end(), ServiceFunctors::smallerId);
+
 	for_each(toolBarServices.begin(), toolBarServices.end()
 		, bind(&ApplicationActionBarAdvisor::appendToolBar, this, _1, mainWnd));
 }

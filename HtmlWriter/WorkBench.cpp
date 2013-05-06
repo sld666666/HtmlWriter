@@ -51,8 +51,8 @@ void WorkBench::initViewPart()
 {
 	vector<IService*> service = ServiceManager::instance().getServices();
 
-	vector<IService*> viewServices(service.size());
-	copy_if(service.begin(), service.end(), viewServices.begin()
+	vector<IService*> viewServices;
+	copy_if(service.begin(), service.end(), back_inserter(viewServices)
 		, bind(&ServiceFunctors::isViewOrEditorService, _1));
 
 	for_each(viewServices.begin(), viewServices.end()

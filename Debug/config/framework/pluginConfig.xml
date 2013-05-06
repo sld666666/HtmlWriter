@@ -13,4 +13,8 @@
 	<name>HtmlPreviewViewPart.dll</name>
 	<service>benchview</service>
 </plugin>
+<plugin>
+	<name>RichEditorViewPart.dll</name>
+	<service>benchview</service>
+</plugin>
 </plugins>

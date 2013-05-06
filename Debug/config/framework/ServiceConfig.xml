@@ -20,6 +20,11 @@
 	<type>2</type>
 	<name>MarkdownEditorViewPart</name>
 </service>
+<service>
+	<id>2002</id>
+	<type>2</type>
+	<name>RichEditorViewPart</name>
+</service>
 <!-- menu area--> 
 <service>
 	<id>3001</id>

@@ -23,6 +23,12 @@ namespace service{
 					&& serviceType == service->getServiceConfig()->getServiceType());
 		}
 
+		static bool	 noMatchedByType(IService* service
+			, SERVICETYPES serviceType)
+		{ 
+			return !matchedByType(service, serviceType);
+		}
+
 		static bool	 isViewOrEditorService(IService* service)
 		{ 
 			return (service 
