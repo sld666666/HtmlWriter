@@ -1,3 +1,4 @@
+#include <QTextDocumentWriter>
 #include "RichEditorWidget.h"
 #include "DataManager.h"
 #include "ViewServiceOperator.h"
@@ -69,7 +70,8 @@ void RichEditorWidget::doSave(TextEdit* textEdit)
 	if (!textEdit)return;
 
 	QString textPath = textEdit->getPath();
-	data::DataManager::instance().writeData(textPath);
+	QTextDocumentWriter writer(textPath);
+	writer.write(textEdit->document());
 }
 
 TextEdit* RichEditorWidget::getCurrentEditor()
