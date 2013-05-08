@@ -1,5 +1,5 @@
 #include "MarkdownAlignJustifyAction.h"
-#include "ApplicationConfig.h"
+#include "config/ApplicationConfig.h"
 
 MarkdownAlignJustifyAction::MarkdownAlignJustifyAction(QObject * parent)
 	: BaseMarkdownAction(parent)
@@ -24,7 +24,7 @@ QString MarkdownAlignJustifyAction::title()
 
 QIcon MarkdownAlignJustifyAction::getIcon()
 {
-	QString image = QString::fromStdString(ApplicationConfig::instance().getIconPath())
+	QString image = QString::fromStdString(utils::ApplicationConfig::instance().getIconPath())
 		+ "/textjustify.png";
 	return QIcon(image);
 }

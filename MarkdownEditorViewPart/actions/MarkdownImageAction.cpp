@@ -1,5 +1,5 @@
 #include "MarkdownImageAction.h"
-#include "ApplicationConfig.h"
+#include "config/ApplicationConfig.h"
 
 MarkdownImageAction::MarkdownImageAction(QObject * parent)
 	: BaseMarkdownAction(parent)
@@ -24,7 +24,7 @@ QString MarkdownImageAction::title()
 
 QIcon MarkdownImageAction::getIcon()
 {
-	QString image = QString::fromStdString(ApplicationConfig::instance().getIconPath())
+	QString image = QString::fromStdString(utils::ApplicationConfig::instance().getIconPath())
 		+ "/mdImage.png";
 	return QIcon(image);
 }

@@ -1,5 +1,5 @@
 #include "MarkdownBlockAction.h"
-#include "ApplicationConfig.h"
+#include "config/ApplicationConfig.h"
 
 MarkdownBlockAction::MarkdownBlockAction(QObject * parent)
 	: BaseMarkdownAction(parent)
@@ -24,7 +24,7 @@ QString MarkdownBlockAction::title()
 
 QIcon MarkdownBlockAction::getIcon()
 {
-	QString image = QString::fromStdString(ApplicationConfig::instance().getIconPath())
+	QString image = QString::fromStdString(utils::ApplicationConfig::instance().getIconPath())
 		+ "/mdBlock.png";
 	return QIcon(image);
 }

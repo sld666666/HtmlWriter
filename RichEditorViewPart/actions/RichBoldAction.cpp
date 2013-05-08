@@ -1,5 +1,5 @@
 #include "RichBoldAction.h"
-#include "ApplicationConfig.h"
+#include "config/ApplicationConfig.h"
 
 RichBoldAction::RichBoldAction(QObject * parent)
 	: BaseRichAction(parent)
@@ -24,7 +24,7 @@ QString RichBoldAction::title()
 
 QIcon RichBoldAction::getIcon()
 {
-	QString image = QString::fromStdString(ApplicationConfig::instance().getIconPath())
+	QString image = QString::fromStdString(utils::ApplicationConfig::instance().getIconPath())
 		+ "/textbold.png";
 	return QIcon(image);
 }

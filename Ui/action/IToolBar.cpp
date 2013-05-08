@@ -1,6 +1,4 @@
 #include "IToolBar.h"
-#include "ApplicationConfig.h"
-
 
 namespace UiUtils{
 

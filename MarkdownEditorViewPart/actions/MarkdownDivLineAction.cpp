@@ -1,5 +1,5 @@
 #include "MarkdownDivLineAction.h"
-#include "ApplicationConfig.h"
+#include "config/ApplicationConfig.h"
 
 MarkdownDivLineAction::MarkdownDivLineAction(QObject * parent)
 	: BaseMarkdownAction(parent)
@@ -24,7 +24,7 @@ QString MarkdownDivLineAction::title()
 
 QIcon MarkdownDivLineAction::getIcon()
 {
-	QString image = QString::fromStdString(ApplicationConfig::instance().getIconPath())
+	QString image = QString::fromStdString(utils::ApplicationConfig::instance().getIconPath())
 		+ "/mdDivLine.png";
 	return QIcon(image);
 }

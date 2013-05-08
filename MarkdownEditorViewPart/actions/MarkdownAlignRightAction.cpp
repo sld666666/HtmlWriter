@@ -1,5 +1,5 @@
 #include "MarkdownAlignRightAction.h"
-#include "ApplicationConfig.h"
+#include "config/ApplicationConfig.h"
 
 MarkdownAlignRightAction::MarkdownAlignRightAction(QObject * parent)
 	: BaseMarkdownAction(parent)
@@ -24,7 +24,7 @@ QString MarkdownAlignRightAction::title()
 
 QIcon MarkdownAlignRightAction::getIcon()
 {
-	QString image = QString::fromStdString(ApplicationConfig::instance().getIconPath())
+	QString image = QString::fromStdString(utils::ApplicationConfig::instance().getIconPath())
 		+ "/textright.png";
 	return QIcon(image);
 }

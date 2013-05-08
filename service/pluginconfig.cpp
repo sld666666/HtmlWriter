@@ -4,7 +4,7 @@
 
 #include "pluginconfig.h"
 #include "CustomDefinition.h"
-#include "ApplicationConfig.h"
+#include "config/ApplicationConfig.h"
 
 using namespace boost::property_tree;
 using boost::property_tree::ptree;
@@ -52,7 +52,7 @@ namespace service{
 
 	string PluginConfig::getFileName()
 	{
-		return ApplicationConfig::instance().getAPPConfigPath()
+		return utils::ApplicationConfig::instance().getAPPConfigPath()
 			+ "/framework/pluginConfig.xml";
 	}
 }

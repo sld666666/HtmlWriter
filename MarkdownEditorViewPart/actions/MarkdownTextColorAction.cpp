@@ -1,6 +1,5 @@
 #include <QColorDialog>
 #include "MarkdownTextColorAction.h"
-#include "ApplicationConfig.h"
 
 MarkdownTextColorAction::MarkdownTextColorAction(QObject * parent)
 	: BaseMarkdownAction(parent)

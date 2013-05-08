@@ -1,6 +1,5 @@
 #include <QColorDialog>
 #include "RichTextColorAction.h"
-#include "ApplicationConfig.h"
 
 RichTextColorAction::RichTextColorAction(QObject * parent)
 	: BaseRichAction(parent)

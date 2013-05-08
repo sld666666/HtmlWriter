@@ -1,5 +1,5 @@
 #include "RichAlignCenterAction.h"
-#include "ApplicationConfig.h"
+#include "config/ApplicationConfig.h"
 
 RichAlignCenterAction::RichAlignCenterAction(QObject * parent)
 	: BaseRichAction(parent)
@@ -24,7 +24,7 @@ QString RichAlignCenterAction::title()
 
 QIcon RichAlignCenterAction::getIcon()
 {
-	QString image = QString::fromStdString(ApplicationConfig::instance().getIconPath())
+	QString image = QString::fromStdString(utils::ApplicationConfig::instance().getIconPath())
 		+ "/textcenter.png";
 	return QIcon(image);
 }

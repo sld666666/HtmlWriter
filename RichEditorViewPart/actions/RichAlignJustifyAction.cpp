@@ -1,5 +1,5 @@
 #include "RichAlignJustifyAction.h"
-#include "ApplicationConfig.h"
+#include "config/ApplicationConfig.h"
 
 RichAlignJustifyAction::RichAlignJustifyAction(QObject * parent)
 	: BaseRichAction(parent)
@@ -24,7 +24,7 @@ QString RichAlignJustifyAction::title()
 
 QIcon RichAlignJustifyAction::getIcon()
 {
-	QString image = QString::fromStdString(ApplicationConfig::instance().getIconPath())
+	QString image = QString::fromStdString(utils::ApplicationConfig::instance().getIconPath())
 		+ "/textjustify.png";
 	return QIcon(image);
 }

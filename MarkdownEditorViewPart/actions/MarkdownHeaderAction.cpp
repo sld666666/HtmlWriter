@@ -1,5 +1,5 @@
 #include "MarkdownHeaderAction.h"
-#include "ApplicationConfig.h"
+#include "config/ApplicationConfig.h"
 
 MarkdownHeaderAction::MarkdownHeaderAction(QObject * parent)
 	: BaseMarkdownAction(parent)
@@ -25,7 +25,7 @@ QString MarkdownHeaderAction::title()
 
 QIcon MarkdownHeaderAction::getIcon()
 {
-	QString image = QString::fromStdString(ApplicationConfig::instance().getIconPath())
+	QString image = QString::fromStdString(utils::ApplicationConfig::instance().getIconPath())
 		+ "/mdHeader.png";
 	return QIcon(image);
 }

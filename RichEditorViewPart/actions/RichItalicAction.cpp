@@ -1,5 +1,5 @@
 #include "RichItalicAction.h"
-#include "ApplicationConfig.h"
+#include "config/ApplicationConfig.h"
 
 RichItalicAction::RichItalicAction(QObject * parent)
 	: BaseRichAction(parent)
@@ -24,7 +24,7 @@ QString RichItalicAction::title()
 
 QIcon RichItalicAction::getIcon()
 {
-	QString image = QString::fromStdString(ApplicationConfig::instance().getIconPath())
+	QString image = QString::fromStdString(utils::ApplicationConfig::instance().getIconPath())
 		+ "/textitalic.png";
 	return QIcon(image);
 }

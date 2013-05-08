@@ -4,7 +4,7 @@
 #include "ServiceLoader.h"
 #include "instantiation/ObjectCreator.h"
 #include "interface/IBundle.h"
-#include "ApplicationConfig.h"
+#include "config/ApplicationConfig.h"
 #include "BundlesContainer.h"
 
 using std::string;
@@ -31,7 +31,7 @@ namespace service{
 
 	void ServiceLoader::loadPlugins(const PluginDescPtr bundleConfig)
 	{
-		ObjectCreator<IBundle> objectCreator(ApplicationConfig::instance().getAppPluginPath()
+		ObjectCreator<IBundle> objectCreator(utils::ApplicationConfig::instance().getAppPluginPath()
 			, bundleConfig->getDllName());
 		IBundle* bundle = objectCreator.createObject();
 		BundlesContainer::instance().appendBundle(bundle);

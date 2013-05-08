@@ -1,5 +1,5 @@
 #include "MarkdownAlignCenterAction.h"
-#include "ApplicationConfig.h"
+#include "config/ApplicationConfig.h"
 
 MarkdownAlignCenterAction::MarkdownAlignCenterAction(QObject * parent)
 	: BaseMarkdownAction(parent)
@@ -24,7 +24,7 @@ QString MarkdownAlignCenterAction::title()
 
 QIcon MarkdownAlignCenterAction::getIcon()
 {
-	QString image = QString::fromStdString(ApplicationConfig::instance().getIconPath())
+	QString image = QString::fromStdString(utils::ApplicationConfig::instance().getIconPath())
 		+ "/textcenter.png";
 	return QIcon(image);
 }

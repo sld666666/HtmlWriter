@@ -1,5 +1,5 @@
 #include "MarkdownItalicAction.h"
-#include "ApplicationConfig.h"
+#include "config/ApplicationConfig.h"
 
 MarkdownItalicAction::MarkdownItalicAction(QObject * parent)
 	: BaseMarkdownAction(parent)
@@ -24,7 +24,7 @@ QString MarkdownItalicAction::title()
 
 QIcon MarkdownItalicAction::getIcon()
 {
-	QString image = QString::fromStdString(ApplicationConfig::instance().getIconPath())
+	QString image = QString::fromStdString(utils::ApplicationConfig::instance().getIconPath())
 		+ "/textitalic.png";
 	return QIcon(image);
 }

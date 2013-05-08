@@ -1,5 +1,5 @@
 #include "MarkdownAlignLeftAction.h"
-#include "ApplicationConfig.h"
+#include "config/ApplicationConfig.h"
 
 MarkdownAlignLeftAction::MarkdownAlignLeftAction(QObject * parent)
 	: BaseMarkdownAction(parent)
@@ -24,7 +24,7 @@ QString MarkdownAlignLeftAction::title()
 
 QIcon MarkdownAlignLeftAction::getIcon()
 {
-	QString image = QString::fromStdString(ApplicationConfig::instance().getIconPath())
+	QString image = QString::fromStdString(utils::ApplicationConfig::instance().getIconPath())
 		+ "/textleft.png";
 	return QIcon(image);
 }

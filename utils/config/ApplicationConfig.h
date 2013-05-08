@@ -9,11 +9,11 @@
 #define SERVICE_APPLICATIONCONFIG_H
 
 #include "ISingleton.h"
-#include "service_global.h"
+#include "utils_global.h"
 
 
-namespace service{
-	class SERVICE_EXPORT ApplicationConfig : public ISingleton<ApplicationConfig>
+namespace utils{
+	class UTILS_EXPORT ApplicationConfig : public ISingleton<ApplicationConfig>
 	{
 	public:
 		~ApplicationConfig();

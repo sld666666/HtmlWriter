@@ -1,5 +1,4 @@
 #include "BaseRichAction.h"
-#include "ApplicationConfig.h"
 #include "ServiceManager.h"
 
 

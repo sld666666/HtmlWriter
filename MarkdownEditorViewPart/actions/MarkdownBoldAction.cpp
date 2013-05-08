@@ -1,5 +1,5 @@
 #include "MarkdownBoldAction.h"
-#include "ApplicationConfig.h"
+#include "config/ApplicationConfig.h"
 
 MarkdownBoldAction::MarkdownBoldAction(QObject * parent)
 	: BaseMarkdownAction(parent)
@@ -24,7 +24,7 @@ QString MarkdownBoldAction::title()
 
 QIcon MarkdownBoldAction::getIcon()
 {
-	QString image = QString::fromStdString(ApplicationConfig::instance().getIconPath())
+	QString image = QString::fromStdString(utils::ApplicationConfig::instance().getIconPath())
 		+ "/textbold.png";
 	return QIcon(image);
 }

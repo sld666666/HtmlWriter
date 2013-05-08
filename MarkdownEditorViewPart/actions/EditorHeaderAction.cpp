@@ -1,5 +1,5 @@
 #include "EditorHeaderAction.h"
-#include "ApplicationConfig.h"
+#include "config/ApplicationConfig.h"
 
 EditorHeaderAction::EditorHeaderAction(QObject * parent)
 	: BaseMarkdownAction(parent)
@@ -24,7 +24,7 @@ QString EditorHeaderAction::title()
 
 QIcon EditorHeaderAction::getIcon()
 {
-	QString image = QString::fromStdString(ApplicationConfig::instance().getIconPath())
+	QString image = QString::fromStdString(utils::ApplicationConfig::instance().getIconPath())
 		+ "/hear.png";
 	return QIcon(image);
 }

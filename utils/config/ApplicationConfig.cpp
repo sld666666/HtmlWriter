@@ -3,7 +3,7 @@
 
 #include "ApplicationConfig.h"
 
-namespace service{
+namespace utils{
 	ApplicationConfig::ApplicationConfig()
 	{
 

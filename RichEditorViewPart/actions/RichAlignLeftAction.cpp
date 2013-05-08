@@ -1,5 +1,5 @@
 #include "RichAlignLeftAction.h"
-#include "ApplicationConfig.h"
+#include "config/ApplicationConfig.h"
 
 RichAlignLeftAction::RichAlignLeftAction(QObject * parent)
 	: BaseRichAction(parent)
@@ -24,7 +24,7 @@ QString RichAlignLeftAction::title()
 
 QIcon RichAlignLeftAction::getIcon()
 {
-	QString image = QString::fromStdString(ApplicationConfig::instance().getIconPath())
+	QString image = QString::fromStdString(utils::ApplicationConfig::instance().getIconPath())
 		+ "/textleft.png";
 	return QIcon(image);
 }

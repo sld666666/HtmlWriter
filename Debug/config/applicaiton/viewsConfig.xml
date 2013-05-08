@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?viewsConfig version='1.1.0'?>
+<views>
+<view>
+	<name>DirectoryViewPart</name>
+	<id>1002</id>
+	<visible>1</visible>
+	<width>-1</width>
+</view>
+</views>

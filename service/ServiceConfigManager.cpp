@@ -5,7 +5,7 @@
 #include "CustomDefinition.h"
 #include "ServiceConfigManager.h"
 #include "StringUtils.h"
-#include "ApplicationConfig.h"
+#include "config/ApplicationConfig.h"
 #include "ServiceConfigFunctors.h"
 
 using namespace boost::property_tree;
@@ -70,7 +70,7 @@ namespace service{
 
 	string ServiceConfigManager::getFileName()
 	{
-		return ApplicationConfig::instance().getAPPConfigPath()
+		return utils::ApplicationConfig::instance().getAPPConfigPath()
 			+ "/framework/ServiceConfig.xml";
 	}
 }

@@ -1,6 +1,6 @@
 #include "SaveAction.h"
 #include "ViewServiceOperator.h"
-#include "ApplicationConfig.h"
+#include "config/ApplicationConfig.h"
 SaveAction::SaveAction(QObject * parent)
 	: IAction(parent)
 {
@@ -30,7 +30,7 @@ QString SaveAction::title()
 
 QIcon	SaveAction::getIcon()
 {
-	QString image = QString::fromStdString(ApplicationConfig::instance().getIconPath())
+	QString image = QString::fromStdString(utils::ApplicationConfig::instance().getIconPath())
 		+ "/save.png";
 	return QIcon(image);
 }
