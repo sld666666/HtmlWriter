@@ -4,7 +4,7 @@
 SaveAction::SaveAction(QObject * parent)
 	: IAction(parent)
 {
-
+	this->setShortcut(Qt::CTRL + Qt::Key_S);
 }
 
 SaveAction::~SaveAction()
@@ -25,7 +25,7 @@ long SaveAction::serviceId()
 
 QString SaveAction::title()
 {
-	return tr("&save");
+	return tr("&save(ctrl+s)");
 }
 
 QIcon	SaveAction::getIcon()

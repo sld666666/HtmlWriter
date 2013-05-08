@@ -71,3 +71,10 @@ void MarkdownEditorWidget::doSave(TextEdit* textEdit)
 	data::DataManager::instance().writeData(textPath);
 }
 
+TextEdit* MarkdownEditorWidget::getCurTextEditor()
+{
+	TextEdit* textEdit = static_cast<TextEdit*>(
+		ui.tabWidgetEditor_->currentWidget());
+
+	return textEdit;
+}

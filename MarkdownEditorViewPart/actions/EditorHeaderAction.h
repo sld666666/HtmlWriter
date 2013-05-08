@@ -9,13 +9,9 @@
 #define SAVEASACTION_H
 
 #include <QObject>
-#include "action/IAction.h"
-#include "context/IContext.h"
+#include "BaseMarkdownAction.h"
 
-using UiUtils::IAction;
-using UiUtils::IContext;
-
-class EditorHeaderAction : public IAction
+class EditorHeaderAction : public BaseMarkdownAction
 {
 	Q_OBJECT
 
@@ -23,13 +19,14 @@ public:
 	EditorHeaderAction(QObject * parent = 0);
 	~EditorHeaderAction();
 
-	virtual	void	execute();
-
 	virtual	long	serviceId();
 
 	virtual QString title();
 
 	virtual QIcon getIcon();
+
+protected:
+	virtual	void	doExecute();
 };
 
 #endif // OPENACTION_H

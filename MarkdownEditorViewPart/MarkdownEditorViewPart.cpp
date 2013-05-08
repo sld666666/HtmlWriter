@@ -43,3 +43,8 @@ void MarkdownEditorViewPart::doSaveAs(const QString& targetPath)
 		markdownEditorWidget_->saveAs(targetPath);
 	}
 }
+
+MarkdownEditorWidget* MarkdownEditorViewPart::getEditor()
+{
+	return markdownEditorWidget_;
+}

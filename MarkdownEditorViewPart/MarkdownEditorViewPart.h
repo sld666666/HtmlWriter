@@ -17,6 +17,8 @@ public:
 	virtual		void createPartControl(QWidget* parent);
 	virtual		void doSave();
 	virtual		void doSaveAs(const QString& targetPath);
+public:
+	MarkdownEditorWidget*	getEditor();
 
 private:
 	 MarkdownEditorWidget* markdownEditorWidget_;

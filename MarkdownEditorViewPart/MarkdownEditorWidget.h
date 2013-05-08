@@ -19,6 +19,8 @@ public:
 	void save();
 	void saveAs(const QString& targetPath);
 
+	TextEdit* getCurTextEditor();
+
 private:
 	void doSave(TextEdit* textEdit);
 private slots:

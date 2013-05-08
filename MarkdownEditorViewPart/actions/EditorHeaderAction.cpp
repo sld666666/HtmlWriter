@@ -2,7 +2,7 @@
 #include "ApplicationConfig.h"
 
 EditorHeaderAction::EditorHeaderAction(QObject * parent)
-	: IAction(parent)
+	: BaseMarkdownAction(parent)
 {
 
 }
@@ -12,15 +12,9 @@ EditorHeaderAction::~EditorHeaderAction()
 
 }
 
-
-void EditorHeaderAction::execute()
-{
-
-}
-
 long EditorHeaderAction::serviceId()
 {
-	return RegisteredSeviceID::RSI_ACTION_EDITORHEADER;
+	return RegisteredSeviceID::RSI_UNREGISTER;
 }
 
 QString EditorHeaderAction::title()
@@ -33,4 +27,9 @@ QIcon EditorHeaderAction::getIcon()
 	QString image = QString::fromStdString(ApplicationConfig::instance().getIconPath())
 		+ "/hear.png";
 	return QIcon(image);
+}
+
+void EditorHeaderAction::doExecute()
+{
+	textEdit_->insertSymmetricalMark(",");
 }

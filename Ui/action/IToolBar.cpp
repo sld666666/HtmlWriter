@@ -25,7 +25,7 @@ namespace UiUtils{
 	{
 		if (action){
 			QString text = action->title();
-			action->setStatusTip(text);
+			action->setToolTip(text);
 			action->setIcon(action->getIcon());
 			this->addAction(action);
 			connect(action, SIGNAL(triggered(bool))

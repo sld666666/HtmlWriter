@@ -18,6 +18,10 @@ namespace UiUtils{
 		QString		getPath();
 
 		void		mergeFormatOnWordOrSelection(QTextCharFormat fmt);
+		void		insertEnter();
+		void		insertMark(const QString& mark);
+		void		insertMark(const QString& mark,const QString& external);
+		void		insertSymmetricalMark(const QString& mark);
 	public:
 		//functor
 		static bool isExist(TextEdit* edit, const QString& path)

@@ -9,14 +9,13 @@ using  UiUtils::ViewServiceOperator;
 OpenAction::OpenAction(QObject * parent)
 	: IAction(parent)
 {
-
+	this->setShortcut(Qt::CTRL + Qt::Key_O);
 }
 
 OpenAction::~OpenAction()
 {
 
 }
-
 
 void OpenAction::execute()
 {
@@ -36,7 +35,7 @@ long OpenAction::serviceId()
 
 QString OpenAction::title()
 {
-	return tr("&open");
+	return tr("&open(ctlr+o)");
 }
 
 QIcon OpenAction::getIcon()
