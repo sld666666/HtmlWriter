@@ -3,12 +3,10 @@
 #include "BundleFunctors.h"
 #include "ServiceFunctors.h"
 #include "BundlesContainer.h"
-#include "UiHelper.h"
 #include "SelfServicesRegister.h"
-#include "workbench/IWorkbenchPart.h"
 #include "AlgorithmEx.h"
 #include "action/WorkBenchToolBar.h"
-#include "config/XmlConfigManager.h"
+#include "DockWidget.h"
 
 using namespace UiUtils;
 using namespace utils;
@@ -42,10 +40,10 @@ void WorkBench::initApplicaion()
 			this->showMaximized();
 		}else{
 			if (xmlAppConfig->width()>0){
-				this->setMinimumWidth(xmlAppConfig->width());
+				this->resize(xmlAppConfig->width(), this->height());
 			}
 			if (xmlAppConfig->height()>0){
-				this->setMinimumHeight(xmlAppConfig->height());
+				this->resize(this->width(), xmlAppConfig->height());
 			}
 		}
 	}
@@ -103,30 +101,7 @@ void WorkBench::startBundle(const IBundle* bundle)
 void WorkBench::appendDockWidget(IService* service)
 {
 	if (!service)return;
-	
-	QString name = QString::fromStdString(service->getServiceConfig()->getServiceName());
-	QDockWidget *dock = new QDockWidget(name, this);
-	QWidget* widget = new QWidget(dock);
-	UiUtils::UiHelper::updateWidgetWithHLayout(widget);
-	widget->setMinimumWidth(200);
-	dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
-	dock->setWidget(widget);
-	setCentralWidget(dock);
-	addDockWidget(Qt::LeftDockWidgetArea, dock, Qt::Horizontal);
-	IWorkbenchPart* workBench = static_cast<IWorkbenchPart*>(service);
-	if (workBench){
-		workBench->createPartControl(widget);
-	}
-
-	vector<XmlViewsConfigPtr> viewConfigs = XmlConfigManager::instance().getViewsConfigs();
-	vector<XmlViewsConfigPtr>::iterator iter = find_if(viewConfigs.begin(), viewConfigs.end()
-		, bind(&XmlViewConfigFunctor::isIdMatched, _1, service->serviceId()));
-	if (iter != viewConfigs.end()){
-		widget->setVisible((*iter)->visible());
-		if ((*iter)->width()>0){
-			widget->setMinimumWidth((*iter)->width());
-		}
-	}
+	DockWidget* dockWidget (new DockWidget(service, this));
 }
 
 bool WorkBench::eventFilter(QObject *obj, QEvent *event)
@@ -142,10 +117,15 @@ bool WorkBench::eventFilter(QObject *obj, QEvent *event)
 				xmlAppConfig->setIsMax(isMax);
 				xmlAppConfig->setWidth(width);
 				xmlAppConfig->setHeight(height);
-				XmlConfigManager::instance().writeXmlAPPConfig();
 			}	
 		} 
 	}
 	
 	return QMainWindow::eventFilter(obj, event);
+}
+
+void WorkBench::closeEvent ( QCloseEvent * event )
+{
+	XmlConfigManager::instance().writeSaveableSetting();
+	event->accept();
 }

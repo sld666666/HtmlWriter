@@ -20,7 +20,7 @@ namespace utils{
 		~XmlViewsConfig(){}
 
 		virtual	string getFileName(){return "applicaiton/viewsConfig.xml";}
-		virtual string getRootElementName(){return "views";}
+		virtual string getRootElementName(){return "views.view";}
 
 	public:
 		inline QString	name() const { return name_;}

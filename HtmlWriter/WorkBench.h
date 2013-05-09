@@ -2,6 +2,7 @@
 #define WORKBENCH_H
 
 #include <QMainWindow>
+#include <QCloseEvent>
 #include "ui_WorkBench.h"
 #include "ServiceLoader.h"
 #include "interface/IBundle.h"
@@ -20,6 +21,7 @@ public:
 
 protected:
 	bool eventFilter(QObject *obj, QEvent *ev);
+	void closeEvent ( QCloseEvent * event );
 
 private:
 	void	initBundles();

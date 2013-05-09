@@ -16,8 +16,7 @@ namespace utils{
 	vector<XmlViewsConfigPtr> XmlConfigManager::getViewsConfigs()
 	{
 		if (xmlViewsConfigs_.empty()){
-			XmlViewsConfigPtr tmp (new XmlViewsConfig);
-			xmlViewsConfigs_ = tmp->readListConfig();
+			xmlViewsConfigs_ = XmlViewsConfig::readListConfig();
 		}
 		return xmlViewsConfigs_;
 	}
@@ -26,7 +25,7 @@ namespace utils{
 	{
 		if (!xmlAppConfig_.get()){
 			xmlAppConfig_ = XmlApplicationConfigPtr(new XmlApplicationConfig());
-			xmlAppConfig_->readConfig(xmlAppConfig_);
+			XmlApplicationConfig::readConfig(xmlAppConfig_);
 
 		}
 		return xmlAppConfig_;
@@ -35,8 +34,19 @@ namespace utils{
 	void XmlConfigManager::writeXmlAPPConfig()
 	{
 		if (xmlAppConfig_){
-			xmlAppConfig_->writeXmlAPPConfig(xmlAppConfig_);
+			XmlApplicationConfig::writeXmlAPPConfig(xmlAppConfig_);
 		}	
+	}
+
+	void XmlConfigManager::writeSaveableSetting()
+	{
+		writeXmlAPPConfig();
+		writeViewsConfigs();
+	}
+
+	void XmlConfigManager::writeViewsConfigs()
+	{
+		XmlViewsConfig::writeListConfig(xmlViewsConfigs_);
 	}
 
 	

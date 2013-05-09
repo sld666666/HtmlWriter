@@ -16,13 +16,14 @@ namespace utils{
 	public:
 		vector<XmlViewsConfigPtr>	getViewsConfigs();
 		XmlApplicationConfigPtr	getXmlAppConfig();
-
-		void	writeXmlAPPConfig();
-
+		
+		void	writeSaveableSetting();
 	private:
 		XmlConfigManager();
 		friend class ISingleton<XmlConfigManager>;
 
+		void	writeXmlAPPConfig();
+		void	writeViewsConfigs();
 	private:
 		vector<XmlViewsConfigPtr> xmlViewsConfigs_;
 		XmlApplicationConfigPtr	xmlAppConfig_;
