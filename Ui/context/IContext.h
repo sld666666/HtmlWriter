@@ -20,6 +20,8 @@ namespace UiUtils{
 		~IContext(){}
 	};
 
+	typedef	shared_ptr<IContext> IContextPtr;
+
 }
 
 

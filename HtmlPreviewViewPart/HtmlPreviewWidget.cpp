@@ -7,7 +7,9 @@ HtmlPreviewWidget::HtmlPreviewWidget(QWidget *parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
-	//ui.webViewHtml_->page()->mainFrame()->setScrollBarPolicy(Qt::Vertical, Qt::ScrollBarAlwaysOff);
+	ui.webViewHtml_->setStyleSheet(QString::fromUtf8("QScrollBar:vertical {\
+										  border: 2px solid grey;\
+										  width: 10px;}"));
 	//ui.webViewHtml_->page()->mainFrame()->setScrollBarPolicy(Qt::Horizontal, Qt::ScrollBarAlwaysOff);
 }
 

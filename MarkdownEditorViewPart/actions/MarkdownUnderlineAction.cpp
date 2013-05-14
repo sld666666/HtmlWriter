@@ -1,3 +1,4 @@
+#include "widget/TextEdit.h"
 #include "MarkdownUnderlineAction.h"
 #include "config/ApplicationConfig.h"
 

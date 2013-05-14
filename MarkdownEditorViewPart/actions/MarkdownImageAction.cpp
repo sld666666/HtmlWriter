@@ -1,5 +1,6 @@
 #include "MarkdownImageAction.h"
 #include "config/ApplicationConfig.h"
+#include "widget/TextEdit.h"
 
 MarkdownImageAction::MarkdownImageAction(QObject * parent)
 	: BaseMarkdownAction(parent)

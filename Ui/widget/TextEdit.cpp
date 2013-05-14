@@ -7,6 +7,9 @@ namespace UiUtils{
 		: QTextEdit(parent)
 		, path_(path)
 	{
+		this->setStyleSheet(QString::fromUtf8("QScrollBar:vertical {\
+								border: 2px solid grey;\
+								width: 10px;}"));
 	}
 
 	TextEdit::~TextEdit()

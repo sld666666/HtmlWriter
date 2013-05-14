@@ -1,5 +1,6 @@
 #include "MarkdownAlignCenterAction.h"
 #include "config/ApplicationConfig.h"
+#include "widget/TextEdit.h"
 
 MarkdownAlignCenterAction::MarkdownAlignCenterAction(QObject * parent)
 	: BaseMarkdownAction(parent)

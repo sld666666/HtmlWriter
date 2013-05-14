@@ -1,5 +1,6 @@
 #include "MarkdownAlignLeftAction.h"
 #include "config/ApplicationConfig.h"
+#include "widget/TextEdit.h"
 
 MarkdownAlignLeftAction::MarkdownAlignLeftAction(QObject * parent)
 	: BaseMarkdownAction(parent)

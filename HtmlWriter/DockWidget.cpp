@@ -25,9 +25,10 @@ void DockWidget::initDockWidget( IService* service
 	QString name = QString::fromStdString(service->getServiceConfig()->getServiceName());
 	this->setWindowTitle(name);
 	widget_ = new QWidget(this);
-	UiUtils::UiHelper::updateWidgetWithHLayout(widget_);
+	UiUtils::UiHelper::updateWidgetWithVLayout(widget_);
 	this->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
 	this->setWidget(widget_);
+	//widget_->setStyleSheet(QString::fromUtf8("background-color: rgb(170, 0, 0);"));
 	parent->setCentralWidget(this);
 	parent->addDockWidget(Qt::LeftDockWidgetArea, this, Qt::Horizontal);
 	IWorkbenchPart* workBench = static_cast<IWorkbenchPart*>(service);

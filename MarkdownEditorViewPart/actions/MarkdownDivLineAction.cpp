@@ -1,5 +1,6 @@
 #include "MarkdownDivLineAction.h"
 #include "config/ApplicationConfig.h"
+#include "widget/TextEdit.h"
 
 MarkdownDivLineAction::MarkdownDivLineAction(QObject * parent)
 	: BaseMarkdownAction(parent)

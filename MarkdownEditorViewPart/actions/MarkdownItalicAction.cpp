@@ -1,5 +1,6 @@
 #include "MarkdownItalicAction.h"
 #include "config/ApplicationConfig.h"
+#include "widget/TextEdit.h"
 
 MarkdownItalicAction::MarkdownItalicAction(QObject * parent)
 	: BaseMarkdownAction(parent)

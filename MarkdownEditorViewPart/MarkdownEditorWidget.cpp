@@ -1,12 +1,15 @@
 #include "MarkdownEditorWidget.h"
 #include "ViewServiceOperator.h"
 #include "DataManager.h"
+#include "widget/TextEdit.h"
 
 MarkdownEditorWidget::MarkdownEditorWidget(QWidget *parent)
 	: QWidget(parent)
+	, tabWidgetEditor_(new ActionTabWidget(this))
 {
 	ui.setupUi(this);
-	ui.tabWidgetEditor_->clear();
+	this->layout()->addWidget(tabWidgetEditor_);
+	tabWidgetEditor_->clear();
 }
 
 MarkdownEditorWidget::~MarkdownEditorWidget()
@@ -16,20 +19,22 @@ MarkdownEditorWidget::~MarkdownEditorWidget()
 
 void MarkdownEditorWidget::reflesh(const QString& filePath)
 {
+	vector<TextEdit*> markdownTextEdits = tabWidgetEditor_->getTextEditors();
+
 	vector<TextEdit*>::iterator iter =  std::find_if(
-		markdownTextEdits_.begin(), markdownTextEdits_.end()
+		markdownTextEdits.begin(), markdownTextEdits.end()
 		, bind(&TextEdit::isExist, _1, filePath));
 
-	if (iter != markdownTextEdits_.end()){
-		ui.tabWidgetEditor_->setCurrentWidget(*iter);
+	if (iter != markdownTextEdits.end()){
+		tabWidgetEditor_->setCurrentWidget(*iter);
 	}else{
 		TextEdit* textEdit = new TextEdit(filePath, this);
 		QString data;
 		data::DataManager::instance().getString(filePath, data);
 		textEdit->setText(data);
-		markdownTextEdits_.push_back(textEdit);
-		ui.tabWidgetEditor_->insertTab(markdownTextEdits_.size()-1, textEdit, filePath);
-		ui.tabWidgetEditor_->setCurrentWidget(textEdit);
+		tabWidgetEditor_->addTextEditor(textEdit);
+		tabWidgetEditor_->insertTab(markdownTextEdits.size()-1, textEdit, filePath);
+		tabWidgetEditor_->setCurrentWidget(textEdit);
 		connect(textEdit, SIGNAL(textChanged())
 		, this, SLOT(onEditorTextChangedSlot()));
 	}
@@ -48,14 +53,15 @@ void MarkdownEditorWidget::onEditorTextChangedSlot()
 
 void MarkdownEditorWidget::save()
 {
-	for_each(markdownTextEdits_.begin(), markdownTextEdits_.end()
+	vector<TextEdit*> markdownTextEdits = tabWidgetEditor_->getTextEditors();
+	for_each(markdownTextEdits.begin(), markdownTextEdits.end()
 		, bind(&MarkdownEditorWidget::doSave, this, _1));
 }
 
 void MarkdownEditorWidget::saveAs(const QString& targetPath)
 {
 	TextEdit* textEdit = static_cast<TextEdit*>(
-		ui.tabWidgetEditor_->currentWidget());
+		tabWidgetEditor_->currentWidget());
 	if (textEdit){
 		QString textPath = textEdit->getPath();
 		data::DataManager::instance().writeData(textPath, textEdit->toPlainText());
@@ -74,7 +80,8 @@ void MarkdownEditorWidget::doSave(TextEdit* textEdit)
 TextEdit* MarkdownEditorWidget::getCurTextEditor()
 {
 	TextEdit* textEdit = static_cast<TextEdit*>(
-		ui.tabWidgetEditor_->currentWidget());
+		tabWidgetEditor_->currentWidget());
 
 	return textEdit;
 }
+

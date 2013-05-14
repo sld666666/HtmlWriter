@@ -9,6 +9,7 @@
 #define BASERICHACTION_H
 
 #include <QObject>
+#include <QTextCharFormat>
 #include "action/IAction.h"
 #include "MarkdownEditorViewPart.h"
 

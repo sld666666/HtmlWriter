@@ -5,7 +5,8 @@
 #include "markdowneditorviewpart_global.h"
 #include "ui_MarkdownEditorWidget.h"
 #include "markdowneditorviewpart_global.h"
-#include "widget/TextEdit.h"
+#include "widget/ActionTabWidget.h"
+
 using namespace  UiUtils;
 class MarkdownEditorWidget : public QWidget
 {
@@ -27,7 +28,7 @@ private slots:
 	void onEditorTextChangedSlot();
 private:
 	Ui::MarkdownEditorWidget ui;
-	vector<TextEdit*>  markdownTextEdits_;
+	ActionTabWidget*	tabWidgetEditor_;
 };
 
 #endif // MARKDOWNEDITORWIDGET_H

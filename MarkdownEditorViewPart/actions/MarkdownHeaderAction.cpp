@@ -1,5 +1,6 @@
 #include "MarkdownHeaderAction.h"
 #include "config/ApplicationConfig.h"
+#include "widget/TextEdit.h"
 
 MarkdownHeaderAction::MarkdownHeaderAction(QObject * parent)
 	: BaseMarkdownAction(parent)

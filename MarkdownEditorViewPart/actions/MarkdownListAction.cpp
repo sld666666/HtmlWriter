@@ -1,5 +1,6 @@
 #include "MarkdownListAction.h"
 #include "config/ApplicationConfig.h"
+#include "widget/TextEdit.h"
 
 MarkdownListAction::MarkdownListAction(QObject * parent)
 	: BaseMarkdownAction(parent)
