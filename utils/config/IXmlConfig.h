@@ -22,7 +22,7 @@ namespace utils{
 		RW_ReadWrite
 	};
 
-	class  IXmlConfig : public QObject
+	class UTILS_EXPORT IXmlConfig : public QObject
 	{
 	public:
 		IXmlConfig();

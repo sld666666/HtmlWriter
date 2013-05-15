@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<views><view><name>HtmlPreviewViewPart</name><id>1001</id><visible>true</visible><width>316</width></view><view><name>DirectoryViewPart</name><id>1002</id><visible>true</visible><width>163</width></view><view><name>MarkdownEditorViewPart</name><id>2001</id><visible>true</visible><width>457</width></view></views>
+<views><view><name>HtmlPreviewViewPart</name><id>1001</id><visible>true</visible><width>666</width></view><view><name>DirectoryViewPart</name><id>1002</id><visible>true</visible><width>294</width></view><view><name>MarkdownEditorViewPart</name><id>2001</id><visible>true</visible><width>430</width></view></views>

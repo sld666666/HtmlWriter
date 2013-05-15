@@ -2,6 +2,7 @@
 #include "ViewServiceOperator.h"
 #include "DataManager.h"
 #include "widget/TextEdit.h"
+#include "config/MarkdownViewPartConfig.h"
 
 MarkdownEditorWidget::MarkdownEditorWidget(QWidget *parent)
 	: QWidget(parent)
@@ -9,12 +10,24 @@ MarkdownEditorWidget::MarkdownEditorWidget(QWidget *parent)
 {
 	ui.setupUi(this);
 	this->layout()->addWidget(tabWidgetEditor_);
+	this->installEventFilter(this);
 	tabWidgetEditor_->clear();
+	markdownViewPartConfigs_ = MarkdownViewPartConfig::readListConfig();
+	for_each(markdownViewPartConfigs_.begin(), markdownViewPartConfigs_.end()
+		, bind(&MarkdownEditorWidget::configOpen, this, _1));
 }
 
 MarkdownEditorWidget::~MarkdownEditorWidget()
 {
+	saveConfig();
+}
 
+void MarkdownEditorWidget::configOpen(const MarkdownViewPartConfigPtr config)
+{
+	if (!config)return;
+
+	QString filePath = config->opened();
+	reflesh(filePath);
 }
 
 void MarkdownEditorWidget::reflesh(const QString& filePath)
@@ -85,3 +98,15 @@ TextEdit* MarkdownEditorWidget::getCurTextEditor()
 	return textEdit;
 }
 
+
+void MarkdownEditorWidget::saveConfig()
+{
+	vector<TextEdit*> markdownTextEdits = tabWidgetEditor_->getTextEditors();
+	markdownViewPartConfigs_.clear();
+	foreach(TextEdit* textEditor, markdownTextEdits){
+		MarkdownViewPartConfigPtr config(new MarkdownViewPartConfig);
+		config->setOpened(textEditor->getPath());
+		markdownViewPartConfigs_.push_back(config);
+	}
+	MarkdownViewPartConfig::writeListConfig(markdownViewPartConfigs_);
+}

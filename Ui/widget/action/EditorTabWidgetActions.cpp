@@ -29,7 +29,7 @@ namespace UiUtils{
 	OpenFolderAction::OpenFolderAction(QObject * parent)
 		: BaseEditorTabRightAction(parent)
 	{
-
+		this->setShortcut(Qt::Key_O);
 	}
 
 	OpenFolderAction::~OpenFolderAction()
@@ -39,7 +39,7 @@ namespace UiUtils{
 
 	QString OpenFolderAction::title()
 	{
-		return tr("open folder");
+		return tr("open folder(O)");
 	}
 
 
@@ -58,17 +58,17 @@ namespace UiUtils{
 
 	CloseEditorAction::CloseEditorAction(QObject * parent)
 		: BaseEditorTabRightAction(parent)
-	{
-
+	{	
+		this->setShortcut(Qt::Key_C);
 	}
 	CloseEditorAction::~CloseEditorAction()
 	{
-
+		
 	}
 
 	QString CloseEditorAction::title()
 	{
-		return tr("close");
+		return tr("close(C)");
 	}
 
 	void CloseEditorAction::doExeute(ActionTabWidget* tablWidget)
@@ -79,7 +79,7 @@ namespace UiUtils{
 	CloseOtherEditorsAction::CloseOtherEditorsAction(QObject * parent)
 		: BaseEditorTabRightAction(parent)
 	{
-
+		this->setShortcut(Qt::Key_A);
 	}
 	CloseOtherEditorsAction::~CloseOtherEditorsAction()
 	{
@@ -88,7 +88,7 @@ namespace UiUtils{
 
 	QString CloseOtherEditorsAction::title()
 	{
-		return tr("close others");
+		return tr("close others(A)");
 	}
 
 	void CloseOtherEditorsAction::doExeute(ActionTabWidget* tablWidget)
